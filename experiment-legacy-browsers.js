@@ -118,8 +118,6 @@ async function updateInfo() {
 
 
 var WelcomeScreenClock;
-var ScreenshotResources;
-var FormResources;
 var WelcomeText;
 var WelcomeScreenKeyboard;
 var ConditionSelectionClock;
@@ -152,12 +150,6 @@ var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "WelcomeScreen"
   WelcomeScreenClock = new util.Clock();
-  ScreenshotResources = {
-    status: PsychoJS.Status.NOT_STARTED
-  };
-  FormResources = {
-    status: PsychoJS.Status.NOT_STARTED
-  };
   WelcomeText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WelcomeText',
@@ -167,7 +159,7 @@ async function experimentInit() {
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
+    depth: 0.0 
   });
   
   WelcomeScreenKeyboard = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -364,8 +356,6 @@ function WelcomeScreenRoutineBegin(snapshot) {
     WelcomeScreenMaxDuration = null
     // keep track of which components have finished
     WelcomeScreenComponents = [];
-    WelcomeScreenComponents.push(ScreenshotResources);
-    WelcomeScreenComponents.push(FormResources);
     WelcomeScreenComponents.push(WelcomeText);
     WelcomeScreenComponents.push(WelcomeScreenKeyboard);
     
@@ -385,36 +375,6 @@ function WelcomeScreenRoutineEachFrame() {
     t = WelcomeScreenClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    // start downloading resources specified by component ScreenshotResources
-    if (t >= null && ScreenshotResources.status === PsychoJS.Status.NOT_STARTED) {
-      console.log('register and start downloading resources specified by component ScreenshotResources');
-      await psychoJS.serverManager.prepareResources(['Screenshots/new1.jpg','Screenshots/new2.jpg','Screenshots/old1.jpg','Screenshots/old2.jpg']);
-      ScreenshotResources.status = PsychoJS.Status.STARTED;
-    }
-    // check on the resources specified by component ScreenshotResources
-    if (t >= null && ScreenshotResources.status === PsychoJS.Status.STARTED) {
-      if (psychoJS.serverManager.getResourceStatus(['Screenshots/new1.jpg','Screenshots/new2.jpg','Screenshots/old1.jpg','Screenshots/old2.jpg']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
-        console.log('finished downloading resources specified by component ScreenshotResources');
-        ScreenshotResources.status = PsychoJS.Status.FINISHED;
-      } else {
-        console.log('resource specified in ScreenshotResources took longer than expected to download');
-      }
-    }
-    // start downloading resources specified by component FormResources
-    if (t >= null && FormResources.status === PsychoJS.Status.NOT_STARTED) {
-      console.log('register and start downloading resources specified by component FormResources');
-      await psychoJS.serverManager.prepareResources(core.ServerManager.ALL_RESOURCES);
-      FormResources.status = PsychoJS.Status.STARTED;
-    }
-    // check on the resources specified by component FormResources
-    if (t >= null && FormResources.status === PsychoJS.Status.STARTED) {
-      if (psychoJS.serverManager.getResourceStatus(core.ServerManager.ALL_RESOURCES) === core.ServerManager.ResourceStatus.DOWNLOADED) {
-        console.log('finished downloading resources specified by component FormResources');
-        FormResources.status = PsychoJS.Status.FINISHED;
-      } else {
-        console.log('resource specified in FormResources took longer than expected to download');
-      }
-    }
     
     // *WelcomeText* updates
     if (t >= 0.0 && WelcomeText.status === PsychoJS.Status.NOT_STARTED) {
