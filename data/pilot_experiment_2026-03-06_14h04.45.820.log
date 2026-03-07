@@ -1,0 +1,121 @@
+7.8109 	DEBUG 	Fullscreen settings ignored as running in pilot mode.
+7.8117 	INFO 	Loaded monitor calibration from ['2026_03_03 13:24']
+8.1481 	INFO 	Using renderer 'Intel(R) Iris(R) Xe Graphics' for graphics
+8.1481 	INFO 	OpenGL version supported by driver is 4..
+8.2085 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001ACE51D6110>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001ACE51D60B0>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=False, gamma=None, gammaErrorPolicy='raise', infoMsg=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001ACE735F3A0>, multiSample=False, name='window1', numSamples=2, pos=[np.float64(560.0), np.float64(240.0)], screen=0, size=array([800, 600]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+8.2086 	EXP 	window1: backgroundImage = ''
+8.2086 	EXP 	window1: backgroundFit = 'none'
+8.2367 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.2533 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.2708 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.2876 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.3043 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.3203 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.3367 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.3533 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.3692 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.3853 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.4018 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.4181 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.4346 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.4511 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.4676 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.4841 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.5006 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.5172 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.5333 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.5501 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.5668 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.5674 	DEBUG 	Uploading Texture Font fontname to graphics card
+8.5875 	DEBUG 	Upload of Texture Font fontname complete
+8.6098 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.6263 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.6429 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+8.6434 	DEBUG 	Uploading Texture Font fontname to graphics card
+8.6637 	DEBUG 	Upload of Texture Font fontname complete
+8.6660 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+8.6660 	EXP 	window1: recordFrameIntervals = False
+8.7636 	EXP 	window1: recordFrameIntervals = True
+9.5839 	EXP 	window1: recordFrameIntervals = False
+9.5839 	EXP 	Screen (0) actual frame rate measured at 142.52Hz
+9.6056 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.6228 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.6398 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.6576 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.6757 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.6944 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.7127 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.7306 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.7485 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.7662 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+9.7667 	DEBUG 	Uploading Texture Font fontname to graphics card
+9.7673 	DEBUG 	Upload of Texture Font fontname complete
+10.0007 	INFO 	keyboard.Keyboard is using ptb backend.
+10.0007 	EXP 	experiment: status = STARTED
+10.1090 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+10.1162 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1172 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1181 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1191 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1204 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1209 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1214 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1224 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1234 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1244 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1254 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1263 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1266 	DEBUG 	Uploading Texture Font fontname to graphics card
+10.1289 	DEBUG 	Upload of Texture Font fontname complete
+10.1374 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1387 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1400 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1414 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1422 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1428 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1431 	DEBUG 	Uploading Texture Font fontname to graphics card
+10.1441 	DEBUG 	Upload of Texture Font fontname complete
+10.1653 	EXP 	Created ConditionSelectionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='ConditionSelectionText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+10.1710 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1713 	DEBUG 	Uploading Texture Font fontname to graphics card
+10.1722 	DEBUG 	Upload of Texture Font fontname complete
+10.1802 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1806 	DEBUG 	Uploading Texture Font fontname to graphics card
+10.1839 	DEBUG 	Upload of Texture Font fontname complete
+10.1916 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+10.1919 	DEBUG 	Uploading Texture Font fontname to graphics card
+10.2003 	DEBUG 	Upload of Texture Font fontname complete
+10.2089 	EXP 	Created InstructionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='InstructionText', opacity=1, ori=0.0, pos=array([0. , 0.2]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+0.0204 	EXP 	WelcomeText: autoDraw = True
+1.6764 	DATA 	Mouse: Left button down, pos=(399,126)
+1.6948 	EXP 	WelcomeText: autoDraw = False
+1.6948 	EXP 	ConditionSelectionText: autoDraw = True
+1.7390 	DATA 	Mouse:  Left button up, pos=(399,126)
+2.7386 	DATA 	Mouse: Left button down, pos=(250,132)
+2.7536 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+2.7635 	EXP 	InstructionText: height = np.float64(0.05)
+2.7635 	EXP 	InstructionText: height = np.float64(0.05)
+2.7635 	EXP 	InstructionText: height = np.float64(0.05)
+2.7635 	EXP 	InstructionText: text = 'Please take out your phone and go the Instagram account @[Account Name]\n Please watch every video in order from top to bottom with the volume on. You must finish each video before scrolling to the next and only watch each video once.\n Click continue when you are finished!'
+2.7635 	EXP 	ConditionSelectionText: autoDraw = False
+2.7635 	EXP 	InstructionText: autoDraw = True
+2.8107 	DATA 	Mouse:  Left button up, pos=(250,132)
+3.9338 	DATA 	Mouse: Left button down, pos=(425,129)
+3.9348 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+3.9350 	EXP 	New trial (rep=1, index=0): <Trial 1 (0 in rep 1) data={'thisN': 1, 'thisTrialN': 0, 'thisRepN': 1}>
+3.9361 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+3.9362 	EXP 	New trial (rep=1, index=0): <Trial 1 (0 in rep 1) data={'thisN': 1, 'thisTrialN': 0, 'thisRepN': 1}>
+3.9363 	EXP 	New trial (rep=2, index=0): <Trial 2 (0 in rep 2) data={'thisN': 2, 'thisTrialN': 0, 'thisRepN': 2}>
+3.9364 	EXP 	New trial (rep=3, index=0): <Trial 3 (0 in rep 3) data={'thisN': 3, 'thisTrialN': 0, 'thisRepN': 3}>
+3.9366 	EXP 	New trial (rep=4, index=0): <Trial 4 (0 in rep 4) data={'thisN': 4, 'thisTrialN': 0, 'thisRepN': 4}>
+3.9366 	EXP 	New trial (rep=5, index=0): <Trial 5 (0 in rep 5) data={'thisN': 5, 'thisTrialN': 0, 'thisRepN': 5}>
+3.9367 	EXP 	New trial (rep=6, index=0): <Trial 6 (0 in rep 6) data={'thisN': 6, 'thisTrialN': 0, 'thisRepN': 6}>
+3.9368 	EXP 	New trial (rep=7, index=0): <Trial 7 (0 in rep 7) data={'thisN': 7, 'thisTrialN': 0, 'thisRepN': 7}>
+3.9369 	EXP 	New trial (rep=8, index=0): <Trial 8 (0 in rep 8) data={'thisN': 8, 'thisTrialN': 0, 'thisRepN': 8}>
+3.9370 	EXP 	New trial (rep=9, index=0): <Trial 9 (0 in rep 9) data={'thisN': 9, 'thisTrialN': 0, 'thisRepN': 9}>
+3.9450 	EXP 	InstructionText: autoDraw = False
+3.9471 	EXP 	experiment: status = STOPPED
+3.9515 	INFO 	saved data to 'C:\\Users\\Jackson\\Desktop\\Research Project Experiment\\data\\pilot_experiment_2026-03-06_14h04.45.820.csv'
+3.9525 	INFO 	saved data to C:\Users\Jackson\Desktop\Research Project Experiment\data\pilot_experiment_2026-03-06_14h04.45.820.psydat
+4.3022 	DEBUG 	Saving data for experiment ExperimentHandler
+4.3079 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
