@@ -1,4 +1,4 @@
-/******************* 
+﻿/******************* 
  * Experiment *
  *******************/
 
@@ -73,6 +73,9 @@ flowScheduler.add(WithinSubjectsLoopEnd);
 
 
 
+flowScheduler.add(EndScreenRoutineBegin());
+flowScheduler.add(EndScreenRoutineEachFrame());
+flowScheduler.add(EndScreenRoutineEnd());
 flowScheduler.add(quitPsychoJS, 'Thank you for your patience.', true);
 
 // quit if user presses Cancel in dialog box:
@@ -148,6 +151,8 @@ var WordListDistractionClock;
 var WordListDistractionText;
 var WordListTestClock;
 var BreakOrFinishClock;
+var EndScreenClock;
+var EndScreenText;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -253,7 +258,7 @@ async function experimentInit() {
   WordListInstructionsText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WordListInstructionsText',
-    text: 'You will now be shown a number of different words.',
+    text: 'You will now be shown a number of different words.\n\nPress SPACE to continue',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -299,6 +304,20 @@ async function experimentInit() {
   WordListTestClock = new util.Clock();
   // Initialize components for Routine "BreakOrFinish"
   BreakOrFinishClock = new util.Clock();
+  // Initialize components for Routine "EndScreen"
+  EndScreenClock = new util.Clock();
+  EndScreenText = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'EndScreenText',
+    text: 'Please wait while we save your results',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: 0.0 
+  });
+  
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
   routineTimer = new util.CountdownTimer();  // to track time remaining of each (non-slip) routine
@@ -1855,6 +1874,140 @@ function BreakOrFinishRoutineEnd(snapshot) {
     }
     psychoJS.experiment.addData('BreakOrFinish.stopped', globalClock.getTime());
     // the Routine "BreakOrFinish" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var EndScreenMaxDurationReached;
+var EndScreenMaxDuration;
+var EndScreenComponents;
+function EndScreenRoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'EndScreen' ---
+    t = 0;
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // keep track of whether this Routine was forcibly ended
+    routineForceEnded = false;
+    EndScreenClock.reset();
+    routineTimer.reset();
+    EndScreenMaxDurationReached = false;
+    // update component parameters for each repeat
+    // Disable downloading results to browser
+    psychoJS._saveResults = 0; 
+    
+    // Generate filename for results
+    let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '.csv';
+    
+    // Extract data object from experiment
+    let dataObj = psychoJS._experiment._trialsData;
+    
+    // Convert data object to CSV
+    let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
+        return Object.values(it).toString()
+    }).join('\n')
+    
+    // Send data to OSF via DataPipe
+    console.log('Saving data...');
+    fetch('https://pipe.jspsych.org/api/data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: '*/*',
+        },
+        body: JSON.stringify({
+            experimentID: 'sg2ZTqdg0Xss', // ⭑ UPDATE WITH YOUR DATAPIPE EXPERIMENT ID ⭑
+            filename: filename,
+            data: data,
+        }),
+    }).then(response => response.json()).then(data => {
+        // Log response and force experiment end
+        console.log(data);
+        quitPsychoJS();
+    })
+    psychoJS.experiment.addData('EndScreen.started', globalClock.getTime());
+    EndScreenMaxDuration = null
+    // keep track of which components have finished
+    EndScreenComponents = [];
+    EndScreenComponents.push(EndScreenText);
+    
+    for (const thisComponent of EndScreenComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function EndScreenRoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'EndScreen' ---
+    // get current time
+    t = EndScreenClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *EndScreenText* updates
+    if (t >= 0.0 && EndScreenText.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      EndScreenText.tStart = t;  // (not accounting for frame time here)
+      EndScreenText.frameNStart = frameN;  // exact frame index
+      
+      EndScreenText.setAutoDraw(true);
+    }
+    
+    
+    // if EndScreenText is active this frame...
+    if (EndScreenText.status === PsychoJS.Status.STARTED) {
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      routineForceEnded = true;
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of EndScreenComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function EndScreenRoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'EndScreen' ---
+    for (const thisComponent of EndScreenComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    psychoJS.experiment.addData('EndScreen.stopped', globalClock.getTime());
+    // the Routine "EndScreen" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row

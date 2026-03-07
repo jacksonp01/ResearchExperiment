@@ -1,0 +1,68 @@
+4.5301 	DEBUG 	Fullscreen settings ignored as running in pilot mode.
+4.5306 	INFO 	Loaded monitor calibration from ['2026_03_03 13:24']
+4.7145 	INFO 	Using renderer 'Intel(R) Iris(R) Xe Graphics' for graphics
+4.7145 	INFO 	OpenGL version supported by driver is 4..
+4.7447 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000271E8044070>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000271E80446A0>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=False, gamma=None, gammaErrorPolicy='raise', infoMsg=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x00000271E64E7DF0>, multiSample=False, name='window1', numSamples=2, pos=[np.float64(560.0), np.float64(240.0)], screen=0, size=array([800, 600]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+4.7448 	EXP 	window1: backgroundImage = ''
+4.7448 	EXP 	window1: backgroundFit = 'none'
+4.7595 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7692 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7787 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7884 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7979 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8073 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8173 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8268 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8362 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8453 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8546 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8642 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8735 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8827 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8920 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9014 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9111 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9204 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9297 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9394 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9487 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9490 	DEBUG 	Uploading Texture Font fontname to graphics card
+4.9553 	DEBUG 	Upload of Texture Font fontname complete
+4.9698 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9795 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9903 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.9906 	DEBUG 	Uploading Texture Font fontname to graphics card
+4.9933 	DEBUG 	Upload of Texture Font fontname complete
+4.9950 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+4.9950 	EXP 	window1: recordFrameIntervals = False
+5.0747 	EXP 	window1: recordFrameIntervals = True
+5.7697 	EXP 	window1: recordFrameIntervals = False
+5.7697 	EXP 	Screen (0) actual frame rate measured at 143.02Hz
+5.7821 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7915 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8005 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8099 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8191 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8285 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8378 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8472 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8567 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8663 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.8666 	DEBUG 	Uploading Texture Font fontname to graphics card
+5.8670 	DEBUG 	Upload of Texture Font fontname complete
+6.0526 	INFO 	keyboard.Keyboard is using ptb backend.
+6.0526 	EXP 	experiment: status = STARTED
+6.1127 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+6.1192 	EXP 	Created ConditionSelectionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='ConditionSelectionText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+6.1199 	EXP 	Created VideoInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='VideoInstructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+6.1249 	EXP 	Created ScreenshotInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='ScreenshotInstructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+6.1377 	EXP 	Created ScreenshotLeft = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=np.False_, flipVert=np.False_, image='default.png', interpolate=True, mask=None, maskParams=None, name='ScreenshotLeft', opacity=1, ori=0.0, pos=array([-0.3,  0. ]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+6.1398 	EXP 	Created ScreenshotRight = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=np.False_, flipVert=np.False_, image='default.png', interpolate=True, mask=None, maskParams=None, name='ScreenshotRight', opacity=1, ori=0.0, pos=array([0.3, 0. ]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+6.1427 	EXP 	Created WordListInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WordListInstructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+6.1435 	EXP 	Created WordListStudyText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='WordListStudyText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+6.1443 	EXP 	Created WordListDistractionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WordListDistractionText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+6.1466 	INFO 	Importing items...
+6.1737 	DEBUG 	Saving data for experiment ExperimentHandler
+6.1742 	INFO 	saved data to C:\Users\Jackson\Documents\GitHub\ResearchExperiment\data\pilot_experiment_2026-03-07_13h56.17.796.psydat
+6.1745 	INFO 	saved data to 'C:\\Users\\Jackson\\Documents\\GitHub\\ResearchExperiment\\data\\pilot_experiment_2026-03-07_13h56.17.796.csv'
+6.1823 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.

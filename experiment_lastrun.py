@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 07, 2026, at 13:41
+    on March 07, 2026, at 14:43
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -402,7 +402,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     VideoInstructionsText = visual.TextStim(win=win, name='VideoInstructionsText',
         text=None,
         font='Arial',
-        pos=(0, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
@@ -439,7 +439,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "WordListInstructions" ---
     WordListInstructionsText = visual.TextStim(win=win, name='WordListInstructionsText',
-        text='You will now be shown a number of different words.',
+        text='You will now be shown a number of different words.\n\nPress SPACE to continue',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -470,6 +470,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "WordListTest" ---
     
     # --- Initialize components for Routine "BreakOrFinish" ---
+    
+    # --- Initialize components for Routine "EndScreen" ---
+    EndScreenText = visual.TextStim(win=win, name='EndScreenText',
+        text='Please wait while we save your results',
+        font='Arial',
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
     
     # create some handy timers
     
@@ -846,9 +855,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         _VideoInstructionsKeyboard_allKeys = []
         # Run 'Begin Routine' code from code_2
         if condition == 1:
-            VideoInstructionsText.setText("Please take out your phone and go the Instagram account @[Account Name]\n Please watch every video in order from top to bottom with the volume on.\n You must finish each video before scrolling to the next and only watch each video once.\n Press spacebar when you are finished!")
+            VideoInstructionsText.setText("Please take out your phone and go the Instagram account @[Account Name]\n Please watch every video in order from top to bottom with the volume on.\n You must finish each video before scrolling to the next and only watch each video once.\n\n Press spacebar when you are finished!")
         else:
-            VideoInstructionsText.setText("Please take out your phone and go to the YouTube channel @[Channel Name]\n You should watch the video [Video Name] in fullscreen with the volume on until it is complete.\n Press space when you are finished.")
+            VideoInstructionsText.setText("Please take out your phone and go to the YouTube channel @[Channel Name]\n You should watch the video [Video Name] in fullscreen with the volume on until it is complete.\n\n Press space when you are finished.")
         # store start times for VideoInstructions
         VideoInstructions.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         VideoInstructions.tStart = globalClock.getTime(format='float')
@@ -2009,6 +2018,112 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
         thisSession.sendExperimentData()
+    
+    # --- Prepare to start Routine "EndScreen" ---
+    # create an object to store info about Routine EndScreen
+    EndScreen = data.Routine(
+        name='EndScreen',
+        components=[EndScreenText],
+    )
+    EndScreen.status = NOT_STARTED
+    continueRoutine = True
+    # update component parameters for each repeat
+    # store start times for EndScreen
+    EndScreen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+    EndScreen.tStart = globalClock.getTime(format='float')
+    EndScreen.status = STARTED
+    thisExp.addData('EndScreen.started', EndScreen.tStart)
+    EndScreen.maxDuration = None
+    # keep track of which components have finished
+    EndScreenComponents = EndScreen.components
+    for thisComponent in EndScreen.components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "EndScreen" ---
+    thisExp.currentRoutine = EndScreen
+    EndScreen.forceEnded = routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *EndScreenText* updates
+        
+        # if EndScreenText is starting this frame...
+        if EndScreenText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            EndScreenText.frameNStart = frameN  # exact frame index
+            EndScreenText.tStart = t  # local t and not account for scr refresh
+            EndScreenText.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(EndScreenText, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'EndScreenText.started')
+            # update status
+            EndScreenText.status = STARTED
+            EndScreenText.setAutoDraw(True)
+        
+        # if EndScreenText is active this frame...
+        if EndScreenText.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, win=win)
+            return
+        # pause experiment here if requested
+        if thisExp.status == PAUSED:
+            pauseExperiment(
+                thisExp=thisExp, 
+                win=win, 
+                timers=[routineTimer, globalClock], 
+                currentRoutine=EndScreen,
+            )
+            # skip the frame we paused on
+            continue
+        
+        # has a Component requested the Routine to end?
+        if not continueRoutine:
+            EndScreen.forceEnded = routineForceEnded = True
+        # has the Routine been forcibly ended?
+        if EndScreen.forceEnded or routineForceEnded:
+            break
+        # has every Component finished?
+        continueRoutine = False
+        for thisComponent in EndScreen.components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "EndScreen" ---
+    for thisComponent in EndScreen.components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # store stop times for EndScreen
+    EndScreen.tStop = globalClock.getTime(format='float')
+    EndScreen.tStopRefresh = tThisFlipGlobal
+    thisExp.addData('EndScreen.stopped', EndScreen.tStop)
+    thisExp.nextEntry()
+    # the Routine "EndScreen" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # mark experiment as finished
     endExperiment(thisExp, win=win)
