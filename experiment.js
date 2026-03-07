@@ -1242,7 +1242,7 @@ function ScreenshotOrderTaskRoutineEachFrame() {
         if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
           // check if the mouse was inside our 'clickable' objects
           gotValidClick = false;
-          mouse.clickableObjects = eval(ScreenshotLeft)
+          mouse.clickableObjects = eval([ScreenshotLeft, ScreenshotRight])
           ;// make sure the mouse's clickable objects are an array
           if (!Array.isArray(mouse.clickableObjects)) {
               mouse.clickableObjects = [mouse.clickableObjects];
