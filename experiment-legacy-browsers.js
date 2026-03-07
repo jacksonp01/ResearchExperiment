@@ -121,6 +121,7 @@ var WelcomeScreenClock;
 var WelcomeText;
 var ScreenshotResources;
 var WelcomeScreenKeyboard;
+var FormResources;
 var ConditionSelectionClock;
 var ConditionSelectionText;
 var ConditionSelectionKeyboard;
@@ -170,6 +171,9 @@ async function experimentInit() {
   };
   WelcomeScreenKeyboard = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  FormResources = {
+    status: PsychoJS.Status.NOT_STARTED
+  };
   // Initialize components for Routine "ConditionSelection"
   ConditionSelectionClock = new util.Clock();
   ConditionSelectionText = new visual.TextStim({
@@ -379,6 +383,7 @@ function WelcomeScreenRoutineBegin(snapshot) {
     WelcomeScreenComponents.push(WelcomeText);
     WelcomeScreenComponents.push(ScreenshotResources);
     WelcomeScreenComponents.push(WelcomeScreenKeyboard);
+    WelcomeScreenComponents.push(FormResources);
     
     WelcomeScreenComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -455,6 +460,21 @@ function WelcomeScreenRoutineEachFrame() {
       }
     }
     
+    // start downloading resources specified by component FormResources
+    if (t >= null && FormResources.status === PsychoJS.Status.NOT_STARTED) {
+      console.log('register and start downloading resources specified by component FormResources');
+      await psychoJS.serverManager.prepareResources(['screenshotspreadsheet.csv','wordlistform.csv','wordlistspreadsheets.csv']);
+      FormResources.status = PsychoJS.Status.STARTED;
+    }
+    // check on the resources specified by component FormResources
+    if (t >= null && FormResources.status === PsychoJS.Status.STARTED) {
+      if (psychoJS.serverManager.getResourceStatus(['screenshotspreadsheet.csv','wordlistform.csv','wordlistspreadsheets.csv']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
+        console.log('finished downloading resources specified by component FormResources');
+        FormResources.status = PsychoJS.Status.FINISHED;
+      } else {
+        console.log('resource specified in FormResources took longer than expected to download');
+      }
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
