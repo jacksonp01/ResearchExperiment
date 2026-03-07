@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 07, 2026, at 15:34
+    on March 07, 2026, at 16:15
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -468,6 +468,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     WordListDistractionText.setText(f"Count backwards by 3 from {randint(100,1000)} out loud")
     
     # --- Initialize components for Routine "WordListTest" ---
+    win.allowStencil = True
+    WordListTestForm = visual.Form(win=win, name='WordListTestForm',
+        items='wordlistform.csv',
+        textHeight=0.03,
+        font='Noto Sans',
+        randomize=False,
+        style='dark',
+        fillColor=None, borderColor=None, itemColor='white', 
+        responseColor='white', markerColor='red', colorSpace='rgb', 
+        size=(1, 0.7),
+        pos=(0, 0),
+        itemPadding=0.05,
+        depth=0
+    )
+    WordListTestKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
     
     # --- Initialize components for Routine "BreakOrFinish" ---
     BreakText = visual.TextStim(win=win, name='BreakText',
@@ -1193,8 +1208,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             ScreenshotOrderTask.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
-            ScreenshotLeft.setImage(f"Screenshots/{Condition1New}")
-            ScreenshotRight.setImage(f"Screenshots/{Condition1Old}")
+            ScreenshotLeft.setImage(f"Screenshots/{Condition1Left}")
+            ScreenshotRight.setImage(f"Screenshots/{Condition1Right}")
             # create starting attributes for ScreenshotKeyboard
             ScreenshotKeyboard.keys = []
             ScreenshotKeyboard.rt = []
@@ -1525,7 +1540,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         WordListTrial = data.TrialHandler2(
             name='WordListTrial',
             nReps=1, 
-            method='sequential', 
+            method='random', 
             extraInfo=expInfo, 
             originPath=-1, 
             trialList=data.importConditions('wordlistspreadsheets.csv'), 
@@ -1836,11 +1851,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine WordListTest
         WordListTest = data.Routine(
             name='WordListTest',
-            components=[],
+            components=[WordListTestForm, WordListTestKeyboard],
         )
         WordListTest.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
+        # create starting attributes for WordListTestKeyboard
+        WordListTestKeyboard.keys = []
+        WordListTestKeyboard.rt = []
+        _WordListTestKeyboard_allKeys = []
         # store start times for WordListTest
         WordListTest.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         WordListTest.tStart = globalClock.getTime(format='float')
@@ -1874,6 +1893,54 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            
+            # *WordListTestForm* updates
+            
+            # if WordListTestForm is starting this frame...
+            if WordListTestForm.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                WordListTestForm.frameNStart = frameN  # exact frame index
+                WordListTestForm.tStart = t  # local t and not account for scr refresh
+                WordListTestForm.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(WordListTestForm, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'WordListTestForm.started')
+                # update status
+                WordListTestForm.status = STARTED
+                WordListTestForm.setAutoDraw(True)
+            
+            # if WordListTestForm is active this frame...
+            if WordListTestForm.status == STARTED:
+                # update params
+                pass
+            
+            # *WordListTestKeyboard* updates
+            waitOnFlip = False
+            
+            # if WordListTestKeyboard is starting this frame...
+            if WordListTestKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                WordListTestKeyboard.frameNStart = frameN  # exact frame index
+                WordListTestKeyboard.tStart = t  # local t and not account for scr refresh
+                WordListTestKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(WordListTestKeyboard, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'WordListTestKeyboard.started')
+                # update status
+                WordListTestKeyboard.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(WordListTestKeyboard.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(WordListTestKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if WordListTestKeyboard.status == STARTED and not waitOnFlip:
+                theseKeys = WordListTestKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+                _WordListTestKeyboard_allKeys.extend(theseKeys)
+                if len(_WordListTestKeyboard_allKeys):
+                    WordListTestKeyboard.keys = _WordListTestKeyboard_allKeys[-1].name  # just the last key pressed
+                    WordListTestKeyboard.rt = _WordListTestKeyboard_allKeys[-1].rt
+                    WordListTestKeyboard.duration = _WordListTestKeyboard_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1917,6 +1984,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         WordListTest.tStop = globalClock.getTime(format='float')
         WordListTest.tStopRefresh = tThisFlipGlobal
         thisExp.addData('WordListTest.stopped', WordListTest.tStop)
+        WordListTestForm.addDataToExp(thisExp, 'columns')
+        WordListTestForm.autodraw = False
+        # check responses
+        if WordListTestKeyboard.keys in ['', [], None]:  # No response was made
+            WordListTestKeyboard.keys = None
+        WithinSubjects.addData('WordListTestKeyboard.keys',WordListTestKeyboard.keys)
+        if WordListTestKeyboard.keys != None:  # we had a response
+            WithinSubjects.addData('WordListTestKeyboard.rt', WordListTestKeyboard.rt)
+            WithinSubjects.addData('WordListTestKeyboard.duration', WordListTestKeyboard.duration)
         # the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         

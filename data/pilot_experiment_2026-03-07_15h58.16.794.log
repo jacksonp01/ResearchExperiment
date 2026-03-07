@@ -1,0 +1,406 @@
+4.4330 	DEBUG 	Fullscreen settings ignored as running in pilot mode.
+4.4335 	INFO 	Loaded monitor calibration from ['2026_03_03 13:24']
+4.6124 	INFO 	Using renderer 'Intel(R) Iris(R) Xe Graphics' for graphics
+4.6124 	INFO 	OpenGL version supported by driver is 4..
+4.6401 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001BC0ED48C40>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001BC0ED49930>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=False, gamma=None, gammaErrorPolicy='raise', infoMsg=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001BC0BA06890>, multiSample=False, name='window1', numSamples=2, pos=[np.float64(560.0), np.float64(240.0)], screen=0, size=array([800, 600]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+4.6401 	EXP 	window1: backgroundImage = ''
+4.6402 	EXP 	window1: backgroundFit = 'none'
+4.6549 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.6641 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.6736 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.6832 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.6933 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7022 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7115 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7213 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7306 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7395 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7495 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7590 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7680 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7771 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7861 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.7954 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8046 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8140 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8232 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8323 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8418 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8420 	DEBUG 	Uploading Texture Font fontname to graphics card
+4.8460 	DEBUG 	Upload of Texture Font fontname complete
+4.8590 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8689 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8787 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+4.8789 	DEBUG 	Uploading Texture Font fontname to graphics card
+4.8813 	DEBUG 	Upload of Texture Font fontname complete
+4.8827 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+4.8827 	EXP 	window1: recordFrameIntervals = False
+4.9559 	EXP 	window1: recordFrameIntervals = True
+5.6510 	EXP 	window1: recordFrameIntervals = False
+5.6510 	EXP 	Screen (0) actual frame rate measured at 143.77Hz
+5.6644 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.6734 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.6825 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.6917 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7010 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7106 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7194 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7290 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7388 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7484 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.7486 	DEBUG 	Uploading Texture Font fontname to graphics card
+5.7491 	DEBUG 	Upload of Texture Font fontname complete
+5.9304 	INFO 	keyboard.Keyboard is using ptb backend.
+5.9304 	EXP 	experiment: status = STARTED
+5.9875 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+5.9936 	EXP 	Created ConditionSelectionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='ConditionSelectionText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+5.9943 	EXP 	Created VideoInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='VideoInstructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+5.9990 	EXP 	Created ScreenshotInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='ScreenshotInstructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+6.0114 	EXP 	Created ScreenshotLeft = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=np.False_, flipVert=np.False_, image='default.png', interpolate=True, mask=None, maskParams=None, name='ScreenshotLeft', opacity=1, ori=0.0, pos=array([-0.3,  0. ]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+6.0137 	EXP 	Created ScreenshotRight = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=np.False_, flipVert=np.False_, image='default.png', interpolate=True, mask=None, maskParams=None, name='ScreenshotRight', opacity=1, ori=0.0, pos=array([0.3, 0. ]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+6.0164 	EXP 	Created WordListInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WordListInstructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+6.0172 	EXP 	Created WordListStudyText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='WordListStudyText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+6.0178 	EXP 	Created WordListDistractionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WordListDistractionText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+6.0204 	INFO 	Importing items...
+6.0230 	DEBUG 	Read csv file with pandas: wordlistform.csv
+6.0237 	DEBUG 	Clearing unnamed columns from wordlistform.csv
+6.0241 	EXP 	Imported wordlistform.csv as conditions, 5 conditions, 2 params
+6.0242 	INFO 	Using default values for the following headers: ['index', 'itemColor', 'itemWidth', 'options', 'ticks', 'tickLabels', 'font', 'responseWidth', 'responseColor', 'markerColor', 'layout', 'index', 'itemColor', 'itemWidth', 'options', 'ticks', 'tickLabels', 'font', 'responseWidth', 'responseColor', 'markerColor', 'layout', 'index', 'itemColor', 'itemWidth', 'options', 'ticks', 'tickLabels', 'font', 'responseWidth', 'responseColor', 'markerColor', 'layout', 'index', 'itemColor', 'itemWidth', 'options', 'ticks', 'tickLabels', 'font', 'responseWidth', 'responseColor', 'markerColor', 'layout', 'index', 'itemColor', 'itemWidth', 'options', 'ticks', 'tickLabels', 'font', 'responseWidth', 'responseColor', 'markerColor', 'layout']
+6.0247 	INFO 	Setting layout of Form: WordListTestForm.
+6.0247 	EXP 	Question text: 1
+6.0363 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.0365 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.0373 	DEBUG 	Upload of Texture Font fontname complete
+6.0493 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.0587 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.0682 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.0772 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.0862 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.0957 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1049 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1139 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1226 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1228 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.1233 	DEBUG 	Upload of Texture Font fontname complete
+6.1242 	INFO 	Adding response to Form type: choice, layout: horiz, options: ['Yes', 'No']
+6.1489 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1577 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1579 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.1589 	DEBUG 	Upload of Texture Font fontname complete
+6.1738 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1826 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.1828 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.1836 	DEBUG 	Upload of Texture Font fontname complete
+6.2060 	EXP 	Question text: 2
+6.2173 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.2175 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.2184 	DEBUG 	Upload of Texture Font fontname complete
+6.2225 	INFO 	Adding response to Form type: choice, layout: horiz, options: ['Yes', 'No']
+6.2424 	EXP 	Question text: 3
+6.2544 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.2545 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.2554 	DEBUG 	Upload of Texture Font fontname complete
+6.2592 	INFO 	Adding response to Form type: choice, layout: horiz, options: ['Yes', 'No']
+6.2804 	EXP 	Question text: 4
+6.2923 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.2925 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.2933 	DEBUG 	Upload of Texture Font fontname complete
+6.2971 	INFO 	Adding response to Form type: choice, layout: horiz, options: ['Yes', 'No']
+6.3168 	EXP 	Question text: 5
+6.3277 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.3278 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.3286 	DEBUG 	Upload of Texture Font fontname complete
+6.3324 	INFO 	Adding response to Form type: choice, layout: horiz, options: ['Yes', 'No']
+6.3578 	INFO 	Layout set for Form: WordListTestForm.
+6.3639 	EXP 	Created WordListTestForm = <psychopy.visual.form.Form object at 0x000001BC165E7E50>
+6.3670 	EXP 	Created BreakText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='BreakText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='You will now take a 5 minute break! Yay!!!!', units='height', win=Window(...), wrapWidth=1)
+6.3691 	EXP 	Created EndScreenText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='EndScreenText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Please wait while we save your results', units='height', win=Window(...), wrapWidth=1)
+0.0152 	EXP 	WordListDistractionText: height = np.float64(0.05)
+0.0152 	EXP 	WordListDistractionText: height = np.float64(0.05)
+0.0152 	EXP 	WordListDistractionText: height = np.float64(0.05)
+0.0152 	EXP 	WordListDistractionText: text = 'Count backwards by 3 from 826 out loud'
+0.0152 	EXP 	unnamed Form: autoLog = True
+0.0152 	EXP 	WordListTestForm: name = 'WordListTestForm'
+0.0152 	EXP 	WordListTestForm: depth = 0
+0.0152 	EXP 	WordListTestForm: fillColor = <class 'numpy.ndarray'>
+0.0152 	EXP 	WordListTestForm: borderColor = <class 'numpy.ndarray'>
+0.0152 	EXP 	WordListTestForm: fillColor = [-0.19, -0.19, -0.14]
+0.0152 	EXP 	WordListTestForm: borderColor = <class 'numpy.ndarray'>
+0.0242 	INFO 	Keyboard events cleared
+0.0241 	EXP 	WelcomeText: autoDraw = True
+0.9127 	EXP 	Device response: <KeyPress from None: t=0.9037245000945404, value=space, duration=None>
+0.9140 	DATA 	Keypress: space
+0.9204 	INFO 	Keyboard events cleared
+0.9204 	EXP 	WelcomeText: autoDraw = False
+0.9204 	EXP 	ConditionSelectionText: autoDraw = True
+1.0123 	EXP 	Device response: <KeyPress from None: t=0.9037245000945404, value=space, duration=0.10530639998614788>
+2.2278 	EXP 	Device response: <KeyPress from None: t=2.2266656000865623, value=a, duration=None>
+2.2280 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+2.2371 	DATA 	Keypress: a
+2.2399 	INFO 	Keyboard events cleared
+2.2399 	EXP 	ConditionSelectionText: autoDraw = False
+2.2399 	EXP 	VideoInstructionsText: height = np.float64(0.05)
+2.2399 	EXP 	VideoInstructionsText: height = np.float64(0.05)
+2.2399 	EXP 	VideoInstructionsText: height = np.float64(0.05)
+2.2399 	EXP 	VideoInstructionsText: text = 'Please take out your phone and go the Instagram account @[Account Name]\n Please watch every video in order from top to bottom with the volume on.\n You must finish each video before scrolling to the next and only watch each video once.\n\n Press spacebar when you are finished!'
+2.2399 	EXP 	VideoInstructionsText: autoDraw = True
+2.3469 	EXP 	Device response: <KeyPress from None: t=2.2266656000865623, value=a, duration=0.11501369997859001>
+3.1446 	EXP 	Device response: <KeyPress from None: t=3.1398195000365376, value=space, duration=None>
+3.1454 	DATA 	Keypress: space
+3.1502 	INFO 	Keyboard events cleared
+3.1502 	EXP 	VideoInstructionsText: autoDraw = False
+3.1502 	EXP 	ScreenshotInstructionsText: autoDraw = True
+3.2348 	EXP 	Device response: <KeyPress from None: t=3.1398195000365376, value=space, duration=0.08976810006424785>
+3.7563 	EXP 	Device response: <KeyPress from None: t=3.7536646000808105, value=space, duration=None>
+3.7587 	DEBUG 	Read csv file with pandas: screenshotspreadsheet.csv
+3.7592 	DEBUG 	Clearing unnamed columns from screenshotspreadsheet.csv
+3.7594 	EXP 	Imported screenshotspreadsheet.csv as conditions, 2 conditions, 3 params
+3.7596 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'Condition1Left': 'new1.jpg', 'Condition1Right': 'old1.jpg', 'Correct': 'Right', 'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+3.7672 	DATA 	Keypress: space
+3.7751 	INFO 	Keyboard events cleared
+3.7751 	EXP 	ScreenshotInstructionsText: autoDraw = False
+3.7751 	EXP 	ScreenshotLeft: image = 'Screenshots/new1.jpg'
+3.7751 	EXP 	ScreenshotRight: image = 'Screenshots/old1.jpg'
+3.7751 	EXP 	ScreenshotLeft: autoDraw = True
+3.7751 	EXP 	ScreenshotRight: autoDraw = True
+3.8407 	EXP 	Device response: <KeyPress from None: t=3.7536646000808105, value=space, duration=0.08493299991823733>
+4.3323 	EXP 	Device response: <KeyPress from None: t=4.328367800102569, value=a, duration=None>
+4.3324 	EXP 	New trial (rep=0, index=1): <Trial 1 (1 in rep 0) data={'Condition1Left': 'old2.jpg', 'Condition1Right': 'new2.jpg', 'Correct': 'Left', 'thisN': 1, 'thisTrialN': 1, 'thisRepN': 0}>
+4.3355 	DATA 	Keypress: a
+4.3450 	INFO 	Keyboard events cleared
+4.3449 	EXP 	ScreenshotLeft: autoDraw = False
+4.3449 	EXP 	ScreenshotRight: autoDraw = False
+4.3449 	EXP 	ScreenshotLeft: image = 'Screenshots/old2.jpg'
+4.3449 	EXP 	ScreenshotRight: image = 'Screenshots/new2.jpg'
+4.3449 	EXP 	ScreenshotLeft: autoDraw = True
+4.3449 	EXP 	ScreenshotRight: autoDraw = True
+4.4306 	EXP 	Device response: <KeyPress from None: t=4.328367800102569, value=a, duration=0.0998539999127388>
+4.5482 	EXP 	Device response: <KeyPress from None: t=4.5473605000879616, value=a, duration=None>
+4.5499 	DATA 	Keypress: a
+4.5536 	INFO 	Keyboard events cleared
+4.5536 	EXP 	ScreenshotLeft: autoDraw = False
+4.5536 	EXP 	ScreenshotRight: autoDraw = False
+4.5536 	EXP 	WordListInstructionsText: autoDraw = True
+4.6522 	EXP 	Device response: <KeyPress from None: t=4.5473605000879616, value=a, duration=0.10035169997718185>
+5.2768 	EXP 	Device response: <KeyPress from None: t=5.276464099995792, value=space, duration=None>
+5.2786 	DEBUG 	Read csv file with pandas: wordlistspreadsheets.csv
+5.2790 	DEBUG 	Clearing unnamed columns from wordlistspreadsheets.csv
+5.2792 	EXP 	Imported wordlistspreadsheets.csv as conditions, 5 conditions, 2 params
+5.2793 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'FirstList': 'apple', 'SecondList': 'banana', 'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+5.2821 	DATA 	Keypress: space
+5.2887 	EXP 	WordListInstructionsText: autoDraw = False
+5.2887 	EXP 	WordListStudyText: height = np.float64(0.05)
+5.2887 	EXP 	WordListStudyText: height = np.float64(0.05)
+5.2887 	EXP 	WordListStudyText: height = np.float64(0.05)
+5.2887 	EXP 	WordListStudyText: text = 'apple'
+5.2887 	EXP 	WordListStudyText: autoDraw = True
+5.3882 	EXP 	Device response: <KeyPress from None: t=5.276464099995792, value=space, duration=0.11037940008100122>
+6.2774 	EXP 	New trial (rep=0, index=1): <Trial 1 (1 in rep 0) data={'FirstList': 'muffin', 'SecondList': 'cupcake', 'thisN': 1, 'thisTrialN': 1, 'thisRepN': 0}>
+6.2825 	EXP 	WordListStudyText: autoDraw = False
+6.2825 	EXP 	WordListStudyText: height = np.float64(0.05)
+6.2825 	EXP 	WordListStudyText: height = np.float64(0.05)
+6.2825 	EXP 	WordListStudyText: height = np.float64(0.05)
+6.2825 	EXP 	WordListStudyText: text = 'muffin'
+6.2825 	EXP 	WordListStudyText: autoDraw = True
+7.2700 	EXP 	New trial (rep=0, index=2): <Trial 2 (2 in rep 0) data={'FirstList': 'orange', 'SecondList': 'tangerine', 'thisN': 2, 'thisTrialN': 2, 'thisRepN': 0}>
+7.2755 	EXP 	WordListStudyText: autoDraw = False
+7.2755 	EXP 	WordListStudyText: autoDraw = False
+7.2755 	EXP 	WordListStudyText: height = np.float64(0.05)
+7.2755 	EXP 	WordListStudyText: height = np.float64(0.05)
+7.2755 	EXP 	WordListStudyText: height = np.float64(0.05)
+7.2755 	EXP 	WordListStudyText: text = 'orange'
+7.2755 	EXP 	WordListStudyText: autoDraw = True
+8.2635 	EXP 	New trial (rep=0, index=3): <Trial 3 (3 in rep 0) data={'FirstList': 'cat', 'SecondList': 'dog', 'thisN': 3, 'thisTrialN': 3, 'thisRepN': 0}>
+8.2688 	EXP 	WordListStudyText: autoDraw = False
+8.2688 	EXP 	WordListStudyText: autoDraw = False
+8.2688 	EXP 	WordListStudyText: height = np.float64(0.05)
+8.2688 	EXP 	WordListStudyText: height = np.float64(0.05)
+8.2688 	EXP 	WordListStudyText: height = np.float64(0.05)
+8.2688 	EXP 	WordListStudyText: text = 'cat'
+8.2688 	EXP 	WordListStudyText: autoDraw = True
+9.2565 	EXP 	New trial (rep=0, index=4): <Trial 4 (4 in rep 0) data={'FirstList': 'pizza', 'SecondList': 'beer', 'thisN': 4, 'thisTrialN': 4, 'thisRepN': 0}>
+9.2620 	EXP 	WordListStudyText: autoDraw = False
+9.2620 	EXP 	WordListStudyText: autoDraw = False
+9.2620 	EXP 	WordListStudyText: height = np.float64(0.05)
+9.2620 	EXP 	WordListStudyText: height = np.float64(0.05)
+9.2620 	EXP 	WordListStudyText: height = np.float64(0.05)
+9.2620 	EXP 	WordListStudyText: text = 'pizza'
+9.2691 	EXP 	WordListStudyText: autoDraw = True
+10.2624 	EXP 	WordListStudyText: autoDraw = False
+10.2624 	EXP 	WordListStudyText: autoDraw = False
+10.2691 	EXP 	WordListDistractionText: autoDraw = True
+11.2622 	EXP 	WordListDistractionText: autoDraw = False
+11.2622 	EXP 	WordListDistractionText: autoDraw = False
+11.3033 	EXP 	WordListTestForm: autoDraw = True
+12.6874 	DATA 	Mouse: Left button down, pos=(693,465)
+14.5351 	DATA 	Mouse:  Left button up, pos=(653,483)
+15.1385 	DATA 	Mouse: Left button down, pos=(189,374)
+15.2156 	DATA 	Mouse:  Left button up, pos=(188,374)
+15.8593 	DATA 	Mouse: Left button down, pos=(617,197)
+15.9305 	DATA 	Mouse:  Left button up, pos=(617,197)
+16.1098 	DATA 	Mouse: wheel shift=(0,-1), pos=(585,243)
+16.1243 	DATA 	Mouse: wheel shift=(0,-1), pos=(573,248)
+16.1538 	DATA 	Mouse: wheel shift=(0,-2), pos=(557,250)
+16.1664 	DATA 	Mouse: wheel shift=(0,-1), pos=(543,252)
+16.1830 	DATA 	Mouse: wheel shift=(0,-1), pos=(535,254)
+16.4250 	DATA 	Mouse: wheel shift=(0,-1), pos=(460,262)
+16.4405 	DATA 	Mouse: wheel shift=(0,-1), pos=(452,260)
+16.4826 	DATA 	Mouse: wheel shift=(0,-1), pos=(436,255)
+16.8682 	DATA 	Mouse: Left button down, pos=(181,261)
+16.9251 	DATA 	Mouse:  Left button up, pos=(181,261)
+17.0793 	DATA 	Mouse: wheel shift=(0,1), pos=(331,243)
+17.0966 	DATA 	Mouse: wheel shift=(0,-1), pos=(347,233)
+17.1120 	DATA 	Mouse: wheel shift=(0,-1), pos=(354,231)
+17.1285 	DATA 	Mouse: wheel shift=(0,1), pos=(363,230)
+17.1380 	DATA 	Mouse: wheel shift=(0,-1), pos=(367,230)
+17.5264 	DATA 	Mouse: wheel shift=(0,-1), pos=(300,267)
+17.5345 	DATA 	Mouse: wheel shift=(0,-1), pos=(299,264)
+17.5505 	DATA 	Mouse: wheel shift=(0,-1), pos=(298,259)
+17.5533 	DATA 	Mouse: wheel shift=(0,-1), pos=(298,258)
+17.5963 	DATA 	Mouse: wheel shift=(0,-1), pos=(305,254)
+17.8116 	DATA 	Mouse: wheel shift=(0,-1), pos=(327,250)
+17.8305 	DATA 	Mouse: wheel shift=(0,-1), pos=(327,249)
+17.8389 	DATA 	Mouse: wheel shift=(0,-1), pos=(327,248)
+17.8468 	DATA 	Mouse: wheel shift=(0,-1), pos=(328,247)
+17.8494 	DATA 	Mouse: wheel shift=(0,-1), pos=(328,246)
+17.8785 	DATA 	Mouse: wheel shift=(0,-1), pos=(331,245)
+18.1365 	DATA 	Mouse: wheel shift=(0,-1), pos=(336,243)
+18.1452 	DATA 	Mouse: wheel shift=(0,-1), pos=(336,243)
+18.1563 	DATA 	Mouse: wheel shift=(0,-1), pos=(336,242)
+18.1727 	DATA 	Mouse: wheel shift=(0,-1), pos=(336,241)
+18.1808 	DATA 	Mouse: wheel shift=(0,-1), pos=(336,240)
+18.2118 	DATA 	Mouse: wheel shift=(0,-1), pos=(336,237)
+18.5032 	DATA 	Mouse: wheel shift=(0,1), pos=(328,224)
+18.5189 	DATA 	Mouse: wheel shift=(0,1), pos=(326,224)
+18.5221 	DATA 	Mouse: wheel shift=(0,1), pos=(326,223)
+18.5362 	DATA 	Mouse: wheel shift=(0,1), pos=(326,223)
+18.5514 	DATA 	Mouse: wheel shift=(0,1), pos=(326,223)
+18.5618 	DATA 	Mouse: wheel shift=(0,1), pos=(325,222)
+18.5790 	DATA 	Mouse: wheel shift=(0,1), pos=(324,222)
+18.6391 	DATA 	Mouse: wheel shift=(0,1), pos=(322,221)
+18.8126 	DATA 	Mouse: wheel shift=(0,1), pos=(338,215)
+18.8198 	DATA 	Mouse: wheel shift=(0,1), pos=(338,215)
+18.8374 	DATA 	Mouse: wheel shift=(0,1), pos=(338,215)
+18.8452 	DATA 	Mouse: wheel shift=(0,1), pos=(338,215)
+18.8604 	DATA 	Mouse: wheel shift=(0,1), pos=(338,215)
+18.8801 	DATA 	Mouse: wheel shift=(0,1), pos=(338,215)
+19.1245 	DATA 	Mouse: wheel shift=(0,1), pos=(335,222)
+19.1318 	DATA 	Mouse: wheel shift=(0,2), pos=(335,222)
+19.1488 	DATA 	Mouse: wheel shift=(0,1), pos=(331,224)
+19.1871 	DATA 	Mouse: wheel shift=(0,1), pos=(312,232)
+19.7686 	DATA 	Mouse: wheel shift=(0,-1), pos=(207,224)
+19.7799 	DATA 	Mouse: wheel shift=(0,-1), pos=(211,223)
+19.7957 	DATA 	Mouse: wheel shift=(0,-1), pos=(214,223)
+19.8117 	DATA 	Mouse: wheel shift=(0,-1), pos=(220,223)
+19.8429 	DATA 	Mouse: wheel shift=(0,-1), pos=(226,225)
+20.3701 	DATA 	Mouse: Left button down, pos=(196,168)
+20.4327 	DATA 	Mouse:  Left button up, pos=(196,168)
+20.6267 	DATA 	Mouse: wheel shift=(0,-1), pos=(360,174)
+20.6458 	DATA 	Mouse: wheel shift=(0,-1), pos=(368,174)
+20.6605 	DATA 	Mouse: wheel shift=(0,1), pos=(373,175)
+20.6689 	DATA 	Mouse: wheel shift=(0,-1), pos=(378,176)
+20.6853 	DATA 	Mouse: wheel shift=(0,-1), pos=(385,179)
+20.9109 	DATA 	Mouse: wheel shift=(0,-1), pos=(423,193)
+20.9273 	DATA 	Mouse: wheel shift=(0,-1), pos=(426,191)
+20.9374 	DATA 	Mouse: wheel shift=(0,-1), pos=(430,186)
+20.9431 	DATA 	Mouse: wheel shift=(0,-1), pos=(434,185)
+20.9515 	DATA 	Mouse: wheel shift=(0,-1), pos=(436,184)
+20.9770 	DATA 	Mouse: wheel shift=(0,-1), pos=(448,181)
+21.5742 	DATA 	Mouse: Left button down, pos=(611,202)
+21.6353 	DATA 	Mouse:  Left button up, pos=(611,202)
+22.0233 	DATA 	Mouse: Left button down, pos=(616,211)
+22.0738 	DATA 	Mouse:  Left button up, pos=(616,211)
+22.2702 	DATA 	Mouse: wheel shift=(0,-1), pos=(537,195)
+22.3054 	DATA 	Mouse: wheel shift=(0,-1), pos=(526,194)
+22.3303 	DATA 	Mouse: wheel shift=(0,-1), pos=(517,193)
+22.3461 	DATA 	Mouse: wheel shift=(0,1), pos=(512,193)
+22.3633 	DATA 	Mouse: wheel shift=(0,-1), pos=(509,193)
+22.5873 	DATA 	Mouse: wheel shift=(0,-1), pos=(455,198)
+22.6036 	DATA 	Mouse: wheel shift=(0,-1), pos=(448,194)
+22.6212 	DATA 	Mouse: wheel shift=(0,-1), pos=(445,192)
+22.6294 	DATA 	Mouse: wheel shift=(0,-1), pos=(442,190)
+22.6468 	DATA 	Mouse: wheel shift=(0,-1), pos=(438,189)
+22.6769 	DATA 	Mouse: wheel shift=(0,-1), pos=(423,184)
+23.1935 	DATA 	Mouse: Left button down, pos=(189,157)
+23.2846 	DATA 	Mouse:  Left button up, pos=(189,157)
+23.6593 	DATA 	Mouse: wheel shift=(0,-1), pos=(354,154)
+23.6754 	DATA 	Mouse: wheel shift=(0,-1), pos=(360,152)
+23.7003 	DATA 	Mouse: wheel shift=(0,-1), pos=(368,152)
+23.7083 	DATA 	Mouse: wheel shift=(0,-1), pos=(371,152)
+23.7265 	DATA 	Mouse: wheel shift=(0,-1), pos=(373,152)
+23.8234 	DATA 	Mouse: wheel shift=(0,1), pos=(384,155)
+23.8336 	DATA 	Mouse: wheel shift=(0,1), pos=(384,155)
+23.8590 	DATA 	Mouse: wheel shift=(0,1), pos=(384,155)
+23.8746 	DATA 	Mouse: wheel shift=(0,1), pos=(384,155)
+23.8993 	DATA 	Mouse: wheel shift=(0,1), pos=(384,155)
+24.0750 	DATA 	Mouse: wheel shift=(0,1), pos=(403,154)
+24.1004 	DATA 	Mouse: wheel shift=(0,1), pos=(403,154)
+24.1087 	DATA 	Mouse: wheel shift=(0,1), pos=(403,154)
+24.1169 	DATA 	Mouse: wheel shift=(0,1), pos=(403,154)
+24.1381 	DATA 	Mouse: wheel shift=(0,1), pos=(403,154)
+24.3082 	DATA 	Mouse: wheel shift=(0,1), pos=(411,163)
+24.3262 	DATA 	Mouse: wheel shift=(0,2), pos=(411,163)
+24.3427 	DATA 	Mouse: wheel shift=(0,1), pos=(411,163)
+24.3512 	DATA 	Mouse: wheel shift=(0,1), pos=(411,163)
+24.5372 	DATA 	Mouse: wheel shift=(0,1), pos=(409,165)
+24.5487 	DATA 	Mouse: wheel shift=(0,1), pos=(409,165)
+24.5642 	DATA 	Mouse: wheel shift=(0,1), pos=(409,165)
+24.5719 	DATA 	Mouse: wheel shift=(0,1), pos=(409,165)
+24.5903 	DATA 	Mouse: wheel shift=(0,1), pos=(409,165)
+24.6177 	DATA 	Mouse: wheel shift=(0,1), pos=(409,165)
+24.6381 	DATA 	Mouse: wheel shift=(0,-1), pos=(409,165)
+24.7972 	DATA 	Mouse: wheel shift=(0,1), pos=(410,165)
+24.8047 	DATA 	Mouse: wheel shift=(0,1), pos=(410,165)
+24.8249 	DATA 	Mouse: wheel shift=(0,1), pos=(410,165)
+24.8331 	DATA 	Mouse: wheel shift=(0,1), pos=(410,165)
+24.8402 	DATA 	Mouse: wheel shift=(0,1), pos=(410,165)
+24.8687 	DATA 	Mouse: wheel shift=(0,1), pos=(410,165)
+25.3888 	DATA 	Mouse: Left button down, pos=(751,261)
+25.4680 	DATA 	Mouse:  Left button up, pos=(751,261)
+26.1662 	DATA 	Keypress: space
+26.2016 	EXP 	Device response: <KeyPress from None: t=26.16288409999106, value=space, duration=None>
+26.2427 	EXP 	Device response: <KeyPress from None: t=26.16288409999106, value=space, duration=0.06441250001080334>
+26.9313 	DATA 	Mouse: wheel shift=(0,-1), pos=(751,261)
+26.9432 	DATA 	Mouse: wheel shift=(0,-1), pos=(751,261)
+26.9519 	DATA 	Mouse: wheel shift=(0,-1), pos=(751,261)
+26.9577 	DATA 	Mouse: wheel shift=(0,-1), pos=(751,261)
+26.9656 	DATA 	Mouse: wheel shift=(0,-1), pos=(751,261)
+26.9729 	DATA 	Mouse: wheel shift=(0,-1), pos=(751,261)
+27.2434 	DATA 	Mouse: wheel shift=(0,-1), pos=(616,246)
+27.2581 	DATA 	Mouse: wheel shift=(0,-1), pos=(616,246)
+27.2639 	DATA 	Mouse: wheel shift=(0,-1), pos=(616,246)
+27.2772 	DATA 	Mouse: wheel shift=(0,1), pos=(616,246)
+27.5426 	DATA 	Mouse: wheel shift=(0,-1), pos=(577,200)
+27.5689 	DATA 	Mouse: wheel shift=(0,-1), pos=(574,195)
+27.5848 	DATA 	Mouse: wheel shift=(0,-1), pos=(573,193)
+27.6007 	DATA 	Mouse: wheel shift=(0,-1), pos=(572,191)
+27.6111 	DATA 	Mouse: wheel shift=(0,-1), pos=(572,190)
+27.8607 	DATA 	Mouse: wheel shift=(0,-1), pos=(561,193)
+27.8686 	DATA 	Mouse: wheel shift=(0,-1), pos=(561,192)
+27.8841 	DATA 	Mouse: wheel shift=(0,-1), pos=(560,191)
+27.9064 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,190)
+27.9218 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,190)
+28.1700 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+28.1969 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+28.2126 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+28.2244 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+28.4315 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+28.4470 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+28.4552 	DATA 	Mouse: wheel shift=(0,1), pos=(559,192)
+28.4637 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+28.4888 	DATA 	Mouse: wheel shift=(0,1), pos=(559,192)
+28.5045 	DATA 	Mouse: wheel shift=(0,-1), pos=(559,192)
+29.7130 	DATA 	Mouse: Left button down, pos=(557,477)
+30.0459 	DATA 	Mouse:  Left button up, pos=(534,406)
+30.2574 	DATA 	Mouse: Left button down, pos=(455,453)
+30.3419 	DATA 	Mouse:  Left button up, pos=(455,453)
+31.0404 	DATA 	Keypress: escape
+31.0493 	EXP 	Device response: <KeyPress from None: t=31.039371900027618, value=escape, duration=None>
+31.1740 	EXP 	Device response: <KeyPress from None: t=31.039371900027618, value=escape, duration=0.11996410007122904>
+31.1740 	EXP 	experiment: status = STOPPED
+31.1806 	EXP 	WordListTestForm: autoDraw = False
+31.1817 	EXP 	experiment: status = STOPPED
+31.1870 	INFO 	saved data to 'C:\\Users\\Jackson\\Documents\\GitHub\\ResearchExperiment\\data\\pilot_experiment_2026-03-07_15h58.16.794.csv'
+31.1875 	INFO 	saved data to C:\Users\Jackson\Documents\GitHub\ResearchExperiment\data\pilot_experiment_2026-03-07_15h58.16.794.psydat
+31.3829 	DEBUG 	Saving data for experiment ExperimentHandler
+31.3842 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
