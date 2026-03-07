@@ -86,8 +86,8 @@ psychoJS.start({
   expInfo: expInfo,
   resources: [
     // resources:
-    {'name': 'screenshotspreadsheet.csv', 'path': 'screenshotspreadsheet.csv'},
-    {'name': 'wordlistspreadsheets.csv', 'path': 'wordlistspreadsheets.csv'},
+    {'name': 'Spreadsheets/screenshotspreadsheet.csv', 'path': 'Spreadsheets/screenshotspreadsheet.csv'},
+    {'name': 'Spreadsheets/wordlistspreadsheets.csv', 'path': 'Spreadsheets/wordlistspreadsheets.csv'},
     {'name': 'default.png', 'path': 'https://pavlovia.org/assets/default/default.png'},
   ]
 });
@@ -126,10 +126,10 @@ async function updateInfo() {
 
 
 var WelcomeScreenClock;
-var WelcomeText;
 var ScreenshotResources;
-var WelcomeScreenKeyboard;
 var FormResources;
+var WelcomeText;
+var WelcomeScreenKeyboard;
 var ConditionSelectionClock;
 var ConditionSelectionText;
 var ConditionSelectionKeyboard;
@@ -162,6 +162,12 @@ var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "WelcomeScreen"
   WelcomeScreenClock = new util.Clock();
+  ScreenshotResources = {
+    status: PsychoJS.Status.NOT_STARTED
+  };
+  FormResources = {
+    status: PsychoJS.Status.NOT_STARTED
+  };
   WelcomeText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WelcomeText',
@@ -171,17 +177,11 @@ async function experimentInit() {
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('white'),  opacity: undefined,
-    depth: 0.0 
+    depth: -2.0 
   });
   
-  ScreenshotResources = {
-    status: PsychoJS.Status.NOT_STARTED
-  };
   WelcomeScreenKeyboard = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  FormResources = {
-    status: PsychoJS.Status.NOT_STARTED
-  };
   // Initialize components for Routine "ConditionSelection"
   ConditionSelectionClock = new util.Clock();
   ConditionSelectionText = new visual.TextStim({
@@ -311,7 +311,7 @@ async function experimentInit() {
   WordListTestClock = new util.Clock();
   WordListTestForm = new visual.Form({
     win : psychoJS.window, name:'WordListTestForm',
-    items : 'wordlistform.csv',
+    items : 'Spreadsheets/wordlistform.csv',
     textHeight : 0.03,
     font : 'Noto Sans',
     randomize : false,
@@ -388,10 +388,10 @@ function WelcomeScreenRoutineBegin(snapshot) {
     WelcomeScreenMaxDuration = null
     // keep track of which components have finished
     WelcomeScreenComponents = [];
-    WelcomeScreenComponents.push(WelcomeText);
     WelcomeScreenComponents.push(ScreenshotResources);
-    WelcomeScreenComponents.push(WelcomeScreenKeyboard);
     WelcomeScreenComponents.push(FormResources);
+    WelcomeScreenComponents.push(WelcomeText);
+    WelcomeScreenComponents.push(WelcomeScreenKeyboard);
     
     for (const thisComponent of WelcomeScreenComponents)
       if ('status' in thisComponent)
@@ -408,21 +408,6 @@ function WelcomeScreenRoutineEachFrame() {
     t = WelcomeScreenClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    
-    // *WelcomeText* updates
-    if (t >= 0.0 && WelcomeText.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      WelcomeText.tStart = t;  // (not accounting for frame time here)
-      WelcomeText.frameNStart = frameN;  // exact frame index
-      
-      WelcomeText.setAutoDraw(true);
-    }
-    
-    
-    // if WelcomeText is active this frame...
-    if (WelcomeText.status === PsychoJS.Status.STARTED) {
-    }
-    
     // start downloading resources specified by component ScreenshotResources
     if (t >= null && ScreenshotResources.status === PsychoJS.Status.NOT_STARTED) {
       console.log('register and start downloading resources specified by component ScreenshotResources');
@@ -438,6 +423,36 @@ function WelcomeScreenRoutineEachFrame() {
         console.log('resource specified in ScreenshotResources took longer than expected to download');
       }
     }
+    // start downloading resources specified by component FormResources
+    if (t >= null && FormResources.status === PsychoJS.Status.NOT_STARTED) {
+      console.log('register and start downloading resources specified by component FormResources');
+      await psychoJS.serverManager.prepareResources(core.ServerManager.ALL_RESOURCES);
+      FormResources.status = PsychoJS.Status.STARTED;
+    }
+    // check on the resources specified by component FormResources
+    if (t >= null && FormResources.status === PsychoJS.Status.STARTED) {
+      if (psychoJS.serverManager.getResourceStatus(core.ServerManager.ALL_RESOURCES) === core.ServerManager.ResourceStatus.DOWNLOADED) {
+        console.log('finished downloading resources specified by component FormResources');
+        FormResources.status = PsychoJS.Status.FINISHED;
+      } else {
+        console.log('resource specified in FormResources took longer than expected to download');
+      }
+    }
+    
+    // *WelcomeText* updates
+    if (t >= 0.0 && WelcomeText.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      WelcomeText.tStart = t;  // (not accounting for frame time here)
+      WelcomeText.frameNStart = frameN;  // exact frame index
+      
+      WelcomeText.setAutoDraw(true);
+    }
+    
+    
+    // if WelcomeText is active this frame...
+    if (WelcomeText.status === PsychoJS.Status.STARTED) {
+    }
+    
     
     // *WelcomeScreenKeyboard* updates
     if (t >= 0.0 && WelcomeScreenKeyboard.status === PsychoJS.Status.NOT_STARTED) {
@@ -467,21 +482,6 @@ function WelcomeScreenRoutineEachFrame() {
       }
     }
     
-    // start downloading resources specified by component FormResources
-    if (t >= null && FormResources.status === PsychoJS.Status.NOT_STARTED) {
-      console.log('register and start downloading resources specified by component FormResources');
-      await psychoJS.serverManager.prepareResources(['screenshotspreadsheet.csv','wordlistform.csv','wordlistspreadsheets.csv']);
-      FormResources.status = PsychoJS.Status.STARTED;
-    }
-    // check on the resources specified by component FormResources
-    if (t >= null && FormResources.status === PsychoJS.Status.STARTED) {
-      if (psychoJS.serverManager.getResourceStatus(['screenshotspreadsheet.csv','wordlistform.csv','wordlistspreadsheets.csv']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
-        console.log('finished downloading resources specified by component FormResources');
-        FormResources.status = PsychoJS.Status.FINISHED;
-      } else {
-        console.log('resource specified in FormResources took longer than expected to download');
-      }
-    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -765,7 +765,7 @@ function ScreenshotOrderTrialLoopBegin(ScreenshotOrderTrialLoopScheduler, snapsh
       psychoJS: psychoJS,
       nReps: 1, method: TrialHandler.Method.RANDOM,
       extraInfo: expInfo, originPath: undefined,
-      trialList: 'screenshotspreadsheet.csv',
+      trialList: 'Spreadsheets/screenshotspreadsheet.csv',
       seed: undefined, name: 'ScreenshotOrderTrial'
     });
     psychoJS.experiment.addLoop(ScreenshotOrderTrial); // add the loop to the experiment
@@ -828,7 +828,7 @@ function WordListTrialLoopBegin(WordListTrialLoopScheduler, snapshot) {
       psychoJS: psychoJS,
       nReps: 1, method: TrialHandler.Method.RANDOM,
       extraInfo: expInfo, originPath: undefined,
-      trialList: 'wordlistspreadsheets.csv',
+      trialList: 'Spreadsheets/wordlistspreadsheets.csv',
       seed: undefined, name: 'WordListTrial'
     });
     psychoJS.experiment.addLoop(WordListTrial); // add the loop to the experiment
