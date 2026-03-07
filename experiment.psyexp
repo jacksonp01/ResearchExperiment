@@ -695,7 +695,7 @@
     <Routine name="VideoInstructions"/>
     <LoopInitiator loopType="TrialHandler" name="ScreenshotOrderTrial">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[OrderedDict([('Condition1New', 'new1.png'), ('Condition1Old', 'old1.png')]), OrderedDict([('Condition1New', 'new2.png'), ('Condition1Old', 'old2.png')])]" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('Condition1New', 'new1.jpg'), ('Condition1Old', 'old1.jpg')]), OrderedDict([('Condition1New', 'new2.jpg'), ('Condition1Old', 'old2.jpg')])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="screenshotspreadsheet.csv" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="code"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
