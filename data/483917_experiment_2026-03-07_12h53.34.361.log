@@ -1,0 +1,110 @@
+4.4826 	INFO 	Loaded monitor calibration from ['2026_03_03 13:24']
+4.4933 	WARNING 	User requested fullscreen with size [1024  768], but screen is actually [1920, 1080]. Using actual size
+6.0110 	INFO 	Using renderer 'Intel(R) Iris(R) Xe Graphics' for graphics
+6.0110 	INFO 	OpenGL version supported by driver is 4..
+6.0608 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000024417A7E1A0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000024417A7D750>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=True, gamma=None, gammaErrorPolicy='raise', infoMsg=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000024417E86890>, multiSample=False, name='window1', numSamples=2, pos=[np.float64(0.0), np.float64(0.0)], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.0608 	EXP 	window1: backgroundImage = ''
+6.0608 	EXP 	window1: backgroundFit = 'none'
+6.3204 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+6.3204 	EXP 	window1: recordFrameIntervals = False
+6.3949 	EXP 	window1: recordFrameIntervals = True
+7.0897 	EXP 	window1: recordFrameIntervals = False
+7.0898 	EXP 	Screen (0) actual frame rate measured at 143.57Hz
+7.2768 	INFO 	keyboard.Keyboard is using ptb backend.
+7.2769 	EXP 	experiment: status = STARTED
+7.3366 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+7.3758 	EXP 	Created ConditionSelectionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='ConditionSelectionText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+7.3944 	EXP 	Created VideoInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='VideoInstructionsText', opacity=1, ori=0.0, pos=array([0. , 0.2]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+7.4126 	EXP 	Created ScreenshotLeft = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=np.False_, flipVert=np.False_, image='default.png', interpolate=True, mask=None, maskParams=None, name='ScreenshotLeft', opacity=1, ori=0.0, pos=array([-0.3,  0. ]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+7.4147 	EXP 	Created ScreenshotRight = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=np.False_, flipVert=np.False_, image='default.png', interpolate=True, mask=None, maskParams=None, name='ScreenshotRight', opacity=1, ori=0.0, pos=array([0.3, 0. ]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+7.4189 	EXP 	Created WordListInstructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WordListInstructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+7.4257 	EXP 	Created WordListStudyText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='WordListStudyText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+7.4263 	EXP 	Created WordListDistractionText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='WordListDistractionText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+0.0016 	EXP 	WordListDistractionText: height = np.float64(0.05)
+0.0016 	EXP 	WordListDistractionText: height = np.float64(0.05)
+0.0016 	EXP 	WordListDistractionText: height = np.float64(0.05)
+0.0016 	EXP 	WordListDistractionText: text = 'Count backwards by 3 from 176 out loud'
+0.0046 	EXP 	WelcomeText: autoDraw = True
+0.7771 	DATA 	Mouse: Left button down, pos=(986,241)
+0.7843 	EXP 	WelcomeText: autoDraw = False
+0.7843 	EXP 	ConditionSelectionText: autoDraw = True
+0.8644 	DATA 	Mouse:  Left button up, pos=(986,241)
+1.8807 	DATA 	Mouse: Left button down, pos=(671,239)
+1.8936 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+1.8977 	EXP 	VideoInstructionsText: height = np.float64(0.05)
+1.8977 	EXP 	VideoInstructionsText: height = np.float64(0.05)
+1.8977 	EXP 	VideoInstructionsText: height = np.float64(0.05)
+1.8977 	EXP 	VideoInstructionsText: text = 'Please take out your phone and go the Instagram account @[Account Name]\n Please watch every video in order from top to bottom with the volume on. You must finish each video before scrolling to the next and only watch each video once.\n Click continue when you are finished!'
+1.8977 	EXP 	ConditionSelectionText: autoDraw = False
+1.8977 	EXP 	VideoInstructionsText: autoDraw = True
+1.9393 	DATA 	Mouse:  Left button up, pos=(671,239)
+2.4576 	DATA 	Mouse: Left button down, pos=(905,225)
+2.4636 	EXP 	Imported screenshotspreadsheet.csv as conditions, 2 conditions, 2 params
+2.4638 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'Condition1New': 'new1.png', 'Condition1Old': 'old1.png', 'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+2.4639 	WARNING 	Requested image 'Screenshots/new1.png' not found but similar filename 'Screenshots/new1.jpg' exists. This will be used instead but changing the filename is advised.
+2.4673 	WARNING 	Requested image 'Screenshots/old1.png' not found but similar filename 'Screenshots/old1.jpg' exists. This will be used instead but changing the filename is advised.
+2.4736 	EXP 	VideoInstructionsText: autoDraw = False
+2.4736 	EXP 	ScreenshotLeft: image = 'Screenshots/new1.png'
+2.4736 	EXP 	ScreenshotRight: image = 'Screenshots/old1.png'
+2.4736 	EXP 	ScreenshotLeft: autoDraw = True
+2.4736 	EXP 	ScreenshotRight: autoDraw = True
+2.5300 	DATA 	Mouse:  Left button up, pos=(905,225)
+4.5497 	DATA 	Mouse: Left button down, pos=(1207,501)
+4.5508 	EXP 	New trial (rep=0, index=1): <Trial 1 (1 in rep 0) data={'Condition1New': 'new2.png', 'Condition1Old': 'old2.png', 'thisN': 1, 'thisTrialN': 1, 'thisRepN': 0}>
+4.5514 	WARNING 	Requested image 'Screenshots/new2.png' not found but similar filename 'Screenshots/new2.jpg' exists. This will be used instead but changing the filename is advised.
+4.5536 	WARNING 	Requested image 'Screenshots/old2.png' not found but similar filename 'Screenshots/old2.jpg' exists. This will be used instead but changing the filename is advised.
+4.5573 	EXP 	ScreenshotLeft: autoDraw = False
+4.5573 	EXP 	ScreenshotRight: autoDraw = False
+4.5573 	EXP 	ScreenshotLeft: image = 'Screenshots/new2.png'
+4.5573 	EXP 	ScreenshotRight: image = 'Screenshots/old2.png'
+4.5573 	EXP 	ScreenshotLeft: autoDraw = True
+4.5573 	EXP 	ScreenshotRight: autoDraw = True
+4.6329 	DATA 	Mouse:  Left button up, pos=(1207,501)
+5.4041 	DATA 	Mouse: Left button down, pos=(760,499)
+5.4138 	EXP 	ScreenshotLeft: autoDraw = False
+5.4138 	EXP 	ScreenshotRight: autoDraw = False
+5.4138 	EXP 	WordListInstructionsText: autoDraw = True
+5.4797 	DATA 	Mouse:  Left button up, pos=(760,499)
+6.2565 	DATA 	Mouse: Left button down, pos=(950,277)
+6.2600 	EXP 	Imported wordlistspreadsheets.csv as conditions, 5 conditions, 2 params
+6.2601 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'FirstList': 'apple', 'SecondList': 'banana', 'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+6.2632 	EXP 	WordListInstructionsText: autoDraw = False
+6.2632 	EXP 	WordListStudyText: height = np.float64(0.05)
+6.2632 	EXP 	WordListStudyText: height = np.float64(0.05)
+6.2632 	EXP 	WordListStudyText: height = np.float64(0.05)
+6.2632 	EXP 	WordListStudyText: text = 'apple'
+6.2632 	EXP 	WordListStudyText: autoDraw = True
+6.3348 	DATA 	Mouse:  Left button up, pos=(950,277)
+7.2496 	EXP 	New trial (rep=0, index=1): <Trial 1 (1 in rep 0) data={'FirstList': 'muffin', 'SecondList': 'cupcake', 'thisN': 1, 'thisTrialN': 1, 'thisRepN': 0}>
+7.2559 	EXP 	WordListStudyText: autoDraw = False
+7.2559 	EXP 	WordListStudyText: autoDraw = False
+7.2559 	EXP 	WordListStudyText: height = np.float64(0.05)
+7.2559 	EXP 	WordListStudyText: height = np.float64(0.05)
+7.2559 	EXP 	WordListStudyText: height = np.float64(0.05)
+7.2559 	EXP 	WordListStudyText: text = 'muffin'
+7.2559 	EXP 	WordListStudyText: autoDraw = True
+8.2428 	EXP 	New trial (rep=0, index=2): <Trial 2 (2 in rep 0) data={'FirstList': 'orange', 'SecondList': 'tangerine', 'thisN': 2, 'thisTrialN': 2, 'thisRepN': 0}>
+8.2495 	EXP 	WordListStudyText: autoDraw = False
+8.2495 	EXP 	WordListStudyText: autoDraw = False
+8.2495 	EXP 	WordListStudyText: height = np.float64(0.05)
+8.2495 	EXP 	WordListStudyText: height = np.float64(0.05)
+8.2495 	EXP 	WordListStudyText: height = np.float64(0.05)
+8.2495 	EXP 	WordListStudyText: text = 'orange'
+8.2495 	EXP 	WordListStudyText: autoDraw = True
+9.2072 	EXP 	Device response: <KeyPress from None: t=9.198185499990359, value=escape, duration=None>
+9.2085 	DATA 	Keypress: escape
+9.2362 	EXP 	New trial (rep=0, index=3): <Trial 3 (3 in rep 0) data={'FirstList': 'cat', 'SecondList': 'dog', 'thisN': 3, 'thisTrialN': 3, 'thisRepN': 0}>
+9.2426 	EXP 	WordListStudyText: autoDraw = False
+9.2426 	EXP 	WordListStudyText: autoDraw = False
+9.2426 	EXP 	WordListStudyText: height = np.float64(0.05)
+9.2426 	EXP 	WordListStudyText: height = np.float64(0.05)
+9.2426 	EXP 	WordListStudyText: height = np.float64(0.05)
+9.2426 	EXP 	WordListStudyText: text = 'cat'
+9.2492 	EXP 	WordListStudyText: autoDraw = True
+9.3470 	EXP 	Device response: <KeyPress from None: t=9.198185499990359, value=escape, duration=0.14528109994716942>
+9.3471 	EXP 	experiment: status = STOPPED
+9.3536 	EXP 	WordListStudyText: autoDraw = False
+9.3537 	EXP 	experiment: status = STOPPED
+9.3582 	INFO 	saved data to 'C:\\Users\\Jackson\\Desktop\\Research Project Experiment\\data\\483917_experiment_2026-03-07_12h53.34.361.csv'
+9.3589 	INFO 	saved data to C:\Users\Jackson\Desktop\Research Project Experiment\data\483917_experiment_2026-03-07_12h53.34.361.psydat
+11.0288 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
