@@ -100,7 +100,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="FormResources" valType="code" updates="None" name="name"/>
-        <Param val="['Spreadsheets/screenshotspreadsheet.csv', 'Spreadsheets/wordlistform.csv', 'Spreadsheets/wordlistspreadsheets.csv']" valType="list" updates="constant" name="resources"/>
+        <Param val="['Spreadsheets/wordlistform.csv', 'Spreadsheets/screenshotspreadsheet.csv', 'Spreadsheets/wordlistform.csv', 'Spreadsheets/wordlistspreadsheets.csv']" valType="list" updates="constant" name="resources"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="" valType="code" updates="None" name="startVal"/>
