@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 07, 2026, at 16:31
+    on March 07, 2026, at 16:39
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1847,210 +1847,154 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         else:
             routineTimer.addTime(-1.000000)
         
-        # set up handler to look after randomisation of conditions etc
-        trials = data.TrialHandler2(
-            name='trials',
-            nReps=0, 
-            method='random', 
-            extraInfo=expInfo, 
-            originPath=-1, 
-            trialList=data.importConditions('Spreadsheets/wordlistform.csv'), 
-            seed=None, 
-            isTrials=True, 
+        # --- Prepare to start Routine "WordListTest" ---
+        # create an object to store info about Routine WordListTest
+        WordListTest = data.Routine(
+            name='WordListTest',
+            components=[WordListTestForm, WordListTestKeyboard],
         )
-        thisExp.addLoop(trials)  # add the loop to the experiment
-        thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
-        # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
-        if thisTrial != None:
-            for paramName in thisTrial:
-                globals()[paramName] = thisTrial[paramName]
-        if thisSession is not None:
-            # if running in a Session with a Liaison client, send data up to now
-            thisSession.sendExperimentData()
+        WordListTest.status = NOT_STARTED
+        continueRoutine = True
+        # update component parameters for each repeat
+        # create starting attributes for WordListTestKeyboard
+        WordListTestKeyboard.keys = []
+        WordListTestKeyboard.rt = []
+        _WordListTestKeyboard_allKeys = []
+        # store start times for WordListTest
+        WordListTest.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+        WordListTest.tStart = globalClock.getTime(format='float')
+        WordListTest.status = STARTED
+        thisExp.addData('WordListTest.started', WordListTest.tStart)
+        WordListTest.maxDuration = None
+        # keep track of which components have finished
+        WordListTestComponents = WordListTest.components
+        for thisComponent in WordListTest.components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
         
-        for thisTrial in trials:
-            trials.status = STARTED
-            if hasattr(thisTrial, 'status'):
-                thisTrial.status = STARTED
-            currentLoop = trials
-            thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
-            if thisSession is not None:
-                # if running in a Session with a Liaison client, send data up to now
-                thisSession.sendExperimentData()
-            # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
-            if thisTrial != None:
-                for paramName in thisTrial:
-                    globals()[paramName] = thisTrial[paramName]
-            
-            # --- Prepare to start Routine "WordListTest" ---
-            # create an object to store info about Routine WordListTest
-            WordListTest = data.Routine(
-                name='WordListTest',
-                components=[WordListTestForm, WordListTestKeyboard],
-            )
-            WordListTest.status = NOT_STARTED
-            continueRoutine = True
-            # update component parameters for each repeat
-            # create starting attributes for WordListTestKeyboard
-            WordListTestKeyboard.keys = []
-            WordListTestKeyboard.rt = []
-            _WordListTestKeyboard_allKeys = []
-            # store start times for WordListTest
-            WordListTest.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-            WordListTest.tStart = globalClock.getTime(format='float')
-            WordListTest.status = STARTED
-            thisExp.addData('WordListTest.started', WordListTest.tStart)
-            WordListTest.maxDuration = None
-            # keep track of which components have finished
-            WordListTestComponents = WordListTest.components
-            for thisComponent in WordListTest.components:
-                thisComponent.tStart = None
-                thisComponent.tStop = None
-                thisComponent.tStartRefresh = None
-                thisComponent.tStopRefresh = None
-                if hasattr(thisComponent, 'status'):
-                    thisComponent.status = NOT_STARTED
-            # reset timers
-            t = 0
-            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-            frameN = -1
-            
-            # --- Run Routine "WordListTest" ---
-            thisExp.currentRoutine = WordListTest
-            WordListTest.forceEnded = routineForceEnded = not continueRoutine
-            while continueRoutine:
-                # if trial has changed, end Routine now
-                if hasattr(thisTrial, 'status') and thisTrial.status == STOPPING:
-                    continueRoutine = False
-                # get current time
-                t = routineTimer.getTime()
-                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-                # update/draw components on each frame
-                
-                # *WordListTestForm* updates
-                
-                # if WordListTestForm is starting this frame...
-                if WordListTestForm.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    WordListTestForm.frameNStart = frameN  # exact frame index
-                    WordListTestForm.tStart = t  # local t and not account for scr refresh
-                    WordListTestForm.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(WordListTestForm, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'WordListTestForm.started')
-                    # update status
-                    WordListTestForm.status = STARTED
-                    WordListTestForm.setAutoDraw(True)
-                
-                # if WordListTestForm is active this frame...
-                if WordListTestForm.status == STARTED:
-                    # update params
-                    pass
-                
-                # *WordListTestKeyboard* updates
-                waitOnFlip = False
-                
-                # if WordListTestKeyboard is starting this frame...
-                if WordListTestKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    WordListTestKeyboard.frameNStart = frameN  # exact frame index
-                    WordListTestKeyboard.tStart = t  # local t and not account for scr refresh
-                    WordListTestKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(WordListTestKeyboard, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'WordListTestKeyboard.started')
-                    # update status
-                    WordListTestKeyboard.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(WordListTestKeyboard.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(WordListTestKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                if WordListTestKeyboard.status == STARTED and not waitOnFlip:
-                    theseKeys = WordListTestKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
-                    _WordListTestKeyboard_allKeys.extend(theseKeys)
-                    if len(_WordListTestKeyboard_allKeys):
-                        WordListTestKeyboard.keys = _WordListTestKeyboard_allKeys[-1].name  # just the last key pressed
-                        WordListTestKeyboard.rt = _WordListTestKeyboard_allKeys[-1].rt
-                        WordListTestKeyboard.duration = _WordListTestKeyboard_allKeys[-1].duration
-                        # a response ends the routine
-                        continueRoutine = False
-                
-                # check for quit (typically the Esc key)
-                if defaultKeyboard.getKeys(keyList=["escape"]):
-                    thisExp.status = FINISHED
-                if thisExp.status == FINISHED or endExpNow:
-                    endExperiment(thisExp, win=win)
-                    return
-                # pause experiment here if requested
-                if thisExp.status == PAUSED:
-                    pauseExperiment(
-                        thisExp=thisExp, 
-                        win=win, 
-                        timers=[routineTimer, globalClock], 
-                        currentRoutine=WordListTest,
-                    )
-                    # skip the frame we paused on
-                    continue
-                
-                # has a Component requested the Routine to end?
-                if not continueRoutine:
-                    WordListTest.forceEnded = routineForceEnded = True
-                # has the Routine been forcibly ended?
-                if WordListTest.forceEnded or routineForceEnded:
-                    break
-                # has every Component finished?
+        # --- Run Routine "WordListTest" ---
+        thisExp.currentRoutine = WordListTest
+        WordListTest.forceEnded = routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # if trial has changed, end Routine now
+            if hasattr(thisWithinSubject, 'status') and thisWithinSubject.status == STOPPING:
                 continueRoutine = False
-                for thisComponent in WordListTest.components:
-                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                        continueRoutine = True
-                        break  # at least one component has not yet finished
-                
-                # refresh the screen
-                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                    win.flip()
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
             
-            # --- Ending Routine "WordListTest" ---
-            for thisComponent in WordListTest.components:
-                if hasattr(thisComponent, "setAutoDraw"):
-                    thisComponent.setAutoDraw(False)
-            # store stop times for WordListTest
-            WordListTest.tStop = globalClock.getTime(format='float')
-            WordListTest.tStopRefresh = tThisFlipGlobal
-            thisExp.addData('WordListTest.stopped', WordListTest.tStop)
-            WordListTestForm.addDataToExp(thisExp, 'columns')
-            WordListTestForm.autodraw = False
-            # check responses
-            if WordListTestKeyboard.keys in ['', [], None]:  # No response was made
-                WordListTestKeyboard.keys = None
-            trials.addData('WordListTestKeyboard.keys',WordListTestKeyboard.keys)
-            if WordListTestKeyboard.keys != None:  # we had a response
-                trials.addData('WordListTestKeyboard.rt', WordListTestKeyboard.rt)
-                trials.addData('WordListTestKeyboard.duration', WordListTestKeyboard.duration)
-            # the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
-            routineTimer.reset()
-            # mark thisTrial as finished
-            if hasattr(thisTrial, 'status'):
-                thisTrial.status = FINISHED
-            # if awaiting a pause, pause now
-            if trials.status == PAUSED:
-                thisExp.status = PAUSED
+            # *WordListTestForm* updates
+            
+            # if WordListTestForm is starting this frame...
+            if WordListTestForm.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                WordListTestForm.frameNStart = frameN  # exact frame index
+                WordListTestForm.tStart = t  # local t and not account for scr refresh
+                WordListTestForm.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(WordListTestForm, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'WordListTestForm.started')
+                # update status
+                WordListTestForm.status = STARTED
+                WordListTestForm.setAutoDraw(True)
+            
+            # if WordListTestForm is active this frame...
+            if WordListTestForm.status == STARTED:
+                # update params
+                pass
+            
+            # *WordListTestKeyboard* updates
+            waitOnFlip = False
+            
+            # if WordListTestKeyboard is starting this frame...
+            if WordListTestKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                WordListTestKeyboard.frameNStart = frameN  # exact frame index
+                WordListTestKeyboard.tStart = t  # local t and not account for scr refresh
+                WordListTestKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(WordListTestKeyboard, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'WordListTestKeyboard.started')
+                # update status
+                WordListTestKeyboard.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(WordListTestKeyboard.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(WordListTestKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if WordListTestKeyboard.status == STARTED and not waitOnFlip:
+                theseKeys = WordListTestKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+                _WordListTestKeyboard_allKeys.extend(theseKeys)
+                if len(_WordListTestKeyboard_allKeys):
+                    WordListTestKeyboard.keys = _WordListTestKeyboard_allKeys[-1].name  # just the last key pressed
+                    WordListTestKeyboard.rt = _WordListTestKeyboard_allKeys[-1].rt
+                    WordListTestKeyboard.duration = _WordListTestKeyboard_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
+            
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            # pause experiment here if requested
+            if thisExp.status == PAUSED:
                 pauseExperiment(
                     thisExp=thisExp, 
                     win=win, 
-                    timers=[globalClock], 
+                    timers=[routineTimer, globalClock], 
+                    currentRoutine=WordListTest,
                 )
-                # once done pausing, restore running status
-                trials.status = STARTED
-            thisExp.nextEntry()
+                # skip the frame we paused on
+                continue
             
-        # completed 0 repeats of 'trials'
-        trials.status = FINISHED
+            # has a Component requested the Routine to end?
+            if not continueRoutine:
+                WordListTest.forceEnded = routineForceEnded = True
+            # has the Routine been forcibly ended?
+            if WordListTest.forceEnded or routineForceEnded:
+                break
+            # has every Component finished?
+            continueRoutine = False
+            for thisComponent in WordListTest.components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
         
-        if thisSession is not None:
-            # if running in a Session with a Liaison client, send data up to now
-            thisSession.sendExperimentData()
+        # --- Ending Routine "WordListTest" ---
+        for thisComponent in WordListTest.components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # store stop times for WordListTest
+        WordListTest.tStop = globalClock.getTime(format='float')
+        WordListTest.tStopRefresh = tThisFlipGlobal
+        thisExp.addData('WordListTest.stopped', WordListTest.tStop)
+        WordListTestForm.addDataToExp(thisExp, 'columns')
+        WordListTestForm.autodraw = False
+        # check responses
+        if WordListTestKeyboard.keys in ['', [], None]:  # No response was made
+            WordListTestKeyboard.keys = None
+        WithinSubjects.addData('WordListTestKeyboard.keys',WordListTestKeyboard.keys)
+        if WordListTestKeyboard.keys != None:  # we had a response
+            WithinSubjects.addData('WordListTestKeyboard.rt', WordListTestKeyboard.rt)
+            WithinSubjects.addData('WordListTestKeyboard.duration', WordListTestKeyboard.duration)
+        # the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
         
         # --- Prepare to start Routine "BreakOrFinish" ---
         # create an object to store info about Routine BreakOrFinish

@@ -143,8 +143,6 @@ var WordListStudyText;
 var WordListDistractionClock;
 var WordListDistractionText;
 var WordListTestClock;
-var WordListTestForm;
-var WordListTestKeyboard;
 var BreakOrFinishClock;
 var BreakText;
 var EndScreenClock;
@@ -301,20 +299,6 @@ async function experimentInit() {
   
   // Initialize components for Routine "WordListTest"
   WordListTestClock = new util.Clock();
-  WordListTestForm = new visual.Form({
-    win : psychoJS.window, name:'WordListTestForm',
-    items : 'Spreadsheets/wordlistform.csv',
-    textHeight : 0.03,
-    font : 'Noto Sans',
-    randomize : false,
-    size : [1, 0.7],
-    pos : [0, 0],
-    style : 'dark',
-    itemPadding : 0.05,
-    depth : 0
-  });
-  WordListTestKeyboard = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
   // Initialize components for Routine "BreakOrFinish"
   BreakOrFinishClock = new util.Clock();
   BreakText = new visual.TextStim({
@@ -1766,7 +1750,6 @@ function WordListDistractionRoutineEnd(snapshot) {
 
 
 var WordListTestMaxDurationReached;
-var _WordListTestKeyboard_allKeys;
 var WordListTestMaxDuration;
 var WordListTestComponents;
 function WordListTestRoutineBegin(snapshot) {
@@ -1783,15 +1766,10 @@ function WordListTestRoutineBegin(snapshot) {
     routineTimer.reset();
     WordListTestMaxDurationReached = false;
     // update component parameters for each repeat
-    WordListTestKeyboard.keys = undefined;
-    WordListTestKeyboard.rt = undefined;
-    _WordListTestKeyboard_allKeys = [];
     psychoJS.experiment.addData('WordListTest.started', globalClock.getTime());
     WordListTestMaxDuration = null
     // keep track of which components have finished
     WordListTestComponents = [];
-    WordListTestComponents.push(WordListTestForm);
-    WordListTestComponents.push(WordListTestKeyboard);
     
     WordListTestComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1809,50 +1787,6 @@ function WordListTestRoutineEachFrame() {
     t = WordListTestClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    
-    // *WordListTestForm* updates
-    if (t >= 0.0 && WordListTestForm.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      WordListTestForm.tStart = t;  // (not accounting for frame time here)
-      WordListTestForm.frameNStart = frameN;  // exact frame index
-      
-      WordListTestForm.setAutoDraw(true);
-    }
-    
-    
-    // if WordListTestForm is active this frame...
-    if (WordListTestForm.status === PsychoJS.Status.STARTED) {
-    }
-    
-    
-    // *WordListTestKeyboard* updates
-    if (t >= 0.0 && WordListTestKeyboard.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      WordListTestKeyboard.tStart = t;  // (not accounting for frame time here)
-      WordListTestKeyboard.frameNStart = frameN;  // exact frame index
-      
-      // keyboard checking is just starting
-      psychoJS.window.callOnFlip(function() { WordListTestKeyboard.clock.reset(); });  // t=0 on next screen flip
-      psychoJS.window.callOnFlip(function() { WordListTestKeyboard.start(); }); // start on screen flip
-      psychoJS.window.callOnFlip(function() { WordListTestKeyboard.clearEvents(); });
-    }
-    
-    // if WordListTestKeyboard is active this frame...
-    if (WordListTestKeyboard.status === PsychoJS.Status.STARTED) {
-      let theseKeys = WordListTestKeyboard.getKeys({
-        keyList: typeof 'space' === 'string' ? ['space'] : 'space', 
-        waitRelease: false
-      });
-      _WordListTestKeyboard_allKeys = _WordListTestKeyboard_allKeys.concat(theseKeys);
-      if (_WordListTestKeyboard_allKeys.length > 0) {
-        WordListTestKeyboard.keys = _WordListTestKeyboard_allKeys[_WordListTestKeyboard_allKeys.length - 1].name;  // just the last key pressed
-        WordListTestKeyboard.rt = _WordListTestKeyboard_allKeys[_WordListTestKeyboard_allKeys.length - 1].rt;
-        WordListTestKeyboard.duration = _WordListTestKeyboard_allKeys[_WordListTestKeyboard_allKeys.length - 1].duration;
-        // a response ends the routine
-        continueRoutine = false;
-      }
-    }
-    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1890,19 +1824,6 @@ function WordListTestRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('WordListTest.stopped', globalClock.getTime());
-    WordListTestForm.addDataToExp(psychoJS.experiment, 'columns');
-    // update the trial handler
-    if (currentLoop instanceof MultiStairHandler) {
-      currentLoop.addResponse(WordListTestKeyboard.corr, level);
-    }
-    psychoJS.experiment.addData('WordListTestKeyboard.keys', WordListTestKeyboard.keys);
-    if (typeof WordListTestKeyboard.keys !== 'undefined') {  // we had a response
-        psychoJS.experiment.addData('WordListTestKeyboard.rt', WordListTestKeyboard.rt);
-        psychoJS.experiment.addData('WordListTestKeyboard.duration', WordListTestKeyboard.duration);
-        routineTimer.reset();
-        }
-    
-    WordListTestKeyboard.stop();
     // the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
