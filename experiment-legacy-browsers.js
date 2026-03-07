@@ -1917,9 +1917,7 @@ function EndScreenRoutineBegin(snapshot) {
     let dataObj = psychoJS._experiment._trialsData;
     
     // Convert data object to CSV
-    let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
-        return Object.values(it).toString()
-    }).join('\n')
+    let data = psychoJS.experiment.getResultAsCsv();
     
     // Send data to OSF via DataPipe
     console.log('Saving data...');
@@ -1932,7 +1930,7 @@ function EndScreenRoutineBegin(snapshot) {
         body: JSON.stringify({
             experimentID: 'sg2ZTqdg0Xss', // ⭑ UPDATE WITH YOUR DATAPIPE EXPERIMENT ID ⭑
             filename: filename,
-            data: dataObj,
+            data: data,
         }),
     }).then(response => response.json()).then(data => {
         // Log response and force experiment end
