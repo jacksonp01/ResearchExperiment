@@ -1927,7 +1927,7 @@ function EndScreenRoutineBegin(snapshot) {
         body: JSON.stringify({
             experimentID: 'sg2ZTqdg0Xss', // ⭑ UPDATE WITH YOUR DATAPIPE EXPERIMENT ID ⭑
             filename: filename,
-            data: data,
+            data: dataObj,
         }),
     }).then(response => response.json()).then(data => {
         // Log response and force experiment end
