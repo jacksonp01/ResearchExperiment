@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 07, 2026, at 14:43
+    on March 07, 2026, at 15:34
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -470,6 +470,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "WordListTest" ---
     
     # --- Initialize components for Routine "BreakOrFinish" ---
+    BreakText = visual.TextStim(win=win, name='BreakText',
+        text='You will now take a 5 minute break! Yay!!!!',
+        font='Arial',
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    # Set experiment start values for variable component LoopVariable
+    LoopVariable = 0
+    LoopVariableContainer = []
     
     # --- Initialize components for Routine "EndScreen" ---
     EndScreenText = visual.TextStim(win=win, name='EndScreenText',
@@ -808,7 +818,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # set up handler to look after randomisation of conditions etc
     WithinSubjects = data.TrialHandler2(
         name='WithinSubjects',
-        nReps=1, 
+        nReps=2, 
         method='sequential', 
         extraInfo=expInfo, 
         originPath=-1, 
@@ -1914,7 +1924,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine BreakOrFinish
         BreakOrFinish = data.Routine(
             name='BreakOrFinish',
-            components=[],
+            components=[BreakText],
         )
         BreakOrFinish.status = NOT_STARTED
         continueRoutine = True
@@ -1925,6 +1935,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         BreakOrFinish.status = STARTED
         thisExp.addData('BreakOrFinish.started', BreakOrFinish.tStart)
         BreakOrFinish.maxDuration = None
+        # skip Routine BreakOrFinish if its 'Skip if' condition is True
+        BreakOrFinish.skipped = continueRoutine and not (LoopVariable == 1)
+        continueRoutine = BreakOrFinish.skipped
         # keep track of which components have finished
         BreakOrFinishComponents = BreakOrFinish.components
         for thisComponent in BreakOrFinish.components:
@@ -1952,6 +1965,40 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            
+            # *BreakText* updates
+            
+            # if BreakText is starting this frame...
+            if BreakText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                BreakText.frameNStart = frameN  # exact frame index
+                BreakText.tStart = t  # local t and not account for scr refresh
+                BreakText.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(BreakText, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'BreakText.started')
+                # update status
+                BreakText.status = STARTED
+                BreakText.setAutoDraw(True)
+            
+            # if BreakText is active this frame...
+            if BreakText.status == STARTED:
+                # update params
+                pass
+            
+            # if BreakText is stopping this frame...
+            if BreakText.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > BreakText.tStartRefresh + 1-frameTolerance:
+                    # keep track of stop time/frame for later
+                    BreakText.tStop = t  # not accounting for scr refresh
+                    BreakText.tStopRefresh = tThisFlipGlobal  # on global time
+                    BreakText.frameNStop = frameN  # exact frame index
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'BreakText.stopped')
+                    # update status
+                    BreakText.status = FINISHED
+                    BreakText.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1995,6 +2042,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         BreakOrFinish.tStop = globalClock.getTime(format='float')
         BreakOrFinish.tStopRefresh = tThisFlipGlobal
         thisExp.addData('BreakOrFinish.stopped', BreakOrFinish.tStop)
+        # Run 'End Routine' code from BreakCode
+        if condition == 1:
+            condition = 2
+        else: 
+            condition = 1
+        
+        LoopVariable = 1
+        
         # the Routine "BreakOrFinish" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         # mark thisWithinSubject as finished
@@ -2012,7 +2067,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             WithinSubjects.status = STARTED
         thisExp.nextEntry()
         
-    # completed 1 repeats of 'WithinSubjects'
+    # completed 2 repeats of 'WithinSubjects'
     WithinSubjects.status = FINISHED
     
     if thisSession is not None:
@@ -2124,6 +2179,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.nextEntry()
     # the Routine "EndScreen" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
+    
     
     # mark experiment as finished
     endExperiment(thisExp, win=win)

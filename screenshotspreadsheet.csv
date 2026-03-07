@@ -1,3 +1,3 @@
-Condition1New,Condition1Old
-new1.jpg,old1.jpg
-new2.jpg,old2.jpg
+Condition1Left,Condition1Right,Correct
+new1.jpg,old1.jpg,Right
+old2.jpg,new2.jpg,Left

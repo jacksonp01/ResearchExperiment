@@ -151,6 +151,7 @@ var WordListDistractionClock;
 var WordListDistractionText;
 var WordListTestClock;
 var BreakOrFinishClock;
+var BreakText;
 var EndScreenClock;
 var EndScreenText;
 var globalClock;
@@ -304,6 +305,18 @@ async function experimentInit() {
   WordListTestClock = new util.Clock();
   // Initialize components for Routine "BreakOrFinish"
   BreakOrFinishClock = new util.Clock();
+  BreakText = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'BreakText',
+    text: 'You will now take a 5 minute break! Yay!!!!',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: 0.0 
+  });
+  
   // Initialize components for Routine "EndScreen"
   EndScreenClock = new util.Clock();
   EndScreenText = new visual.TextStim({
@@ -660,7 +673,7 @@ function WithinSubjectsLoopBegin(WithinSubjectsLoopScheduler, snapshot) {
     // set up handler to look after randomisation of conditions etc
     WithinSubjects = new TrialHandler({
       psychoJS: psychoJS,
-      nReps: 1, method: TrialHandler.Method.SEQUENTIAL,
+      nReps: 2, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
       trialList: undefined,
       seed: undefined, name: 'WithinSubjects'
@@ -1800,6 +1813,7 @@ function WordListTestRoutineEnd(snapshot) {
 
 
 var BreakOrFinishMaxDurationReached;
+var maxDurationReached;
 var BreakOrFinishMaxDuration;
 var BreakOrFinishComponents;
 function BreakOrFinishRoutineBegin(snapshot) {
@@ -1812,14 +1826,18 @@ function BreakOrFinishRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // keep track of whether this Routine was forcibly ended
     routineForceEnded = false;
-    BreakOrFinishClock.reset();
-    routineTimer.reset();
+    BreakOrFinishClock.reset(routineTimer.getTime());
+    routineTimer.add(1.000000);
     BreakOrFinishMaxDurationReached = false;
     // update component parameters for each repeat
     psychoJS.experiment.addData('BreakOrFinish.started', globalClock.getTime());
+    // skip this Routine if its 'Skip if' condition is True
+    continueRoutine = continueRoutine && !((LoopVariable == 1));
+    maxDurationReached = false
     BreakOrFinishMaxDuration = null
     // keep track of which components have finished
     BreakOrFinishComponents = [];
+    BreakOrFinishComponents.push(BreakText);
     
     for (const thisComponent of BreakOrFinishComponents)
       if ('status' in thisComponent)
@@ -1836,6 +1854,31 @@ function BreakOrFinishRoutineEachFrame() {
     t = BreakOrFinishClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    
+    // *BreakText* updates
+    if (t >= 0.0 && BreakText.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      BreakText.tStart = t;  // (not accounting for frame time here)
+      BreakText.frameNStart = frameN;  // exact frame index
+      
+      BreakText.setAutoDraw(true);
+    }
+    
+    
+    // if BreakText is active this frame...
+    if (BreakText.status === PsychoJS.Status.STARTED) {
+    }
+    
+    frameRemains = 0.0 + 1 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    if (BreakText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
+      // keep track of stop time/frame for later
+      BreakText.tStop = t;  // not accounting for scr refresh
+      BreakText.frameNStop = frameN;  // exact frame index
+      // update status
+      BreakText.status = PsychoJS.Status.FINISHED;
+      BreakText.setAutoDraw(false);
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1855,7 +1898,7 @@ function BreakOrFinishRoutineEachFrame() {
       }
     
     // refresh the screen if continuing
-    if (continueRoutine) {
+    if (continueRoutine && routineTimer.getTime() > 0) {
       return Scheduler.Event.FLIP_REPEAT;
     } else {
       return Scheduler.Event.NEXT;
@@ -1864,6 +1907,7 @@ function BreakOrFinishRoutineEachFrame() {
 }
 
 
+var LoopVariable;
 function BreakOrFinishRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'BreakOrFinish' ---
@@ -1873,9 +1917,20 @@ function BreakOrFinishRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('BreakOrFinish.stopped', globalClock.getTime());
-    // the Routine "BreakOrFinish" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset();
+    // Run 'End Routine' code from BreakCode
+    if ((condition === 1)) {
+        condition = 2;
+    } else {
+        condition = 1;
+    }
+    LoopVariable = 1;
     
+    if (routineForceEnded) {
+        routineTimer.reset();} else if (BreakOrFinishMaxDurationReached) {
+        BreakOrFinishClock.add(BreakOrFinishMaxDuration);
+    } else {
+        BreakOrFinishClock.add(1.000000);
+    }
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
