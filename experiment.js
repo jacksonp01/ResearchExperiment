@@ -121,6 +121,7 @@ async function updateInfo() {
 var WelcomeScreenClock;
 var WelcomeText;
 var WelcomeContinueButton;
+var ScreenshotResources;
 var ConditionSelectionClock;
 var ConditionSelectionText;
 var Condition1Button;
@@ -182,6 +183,9 @@ async function experimentInit() {
   });
   WelcomeContinueButton.clock = new util.Clock();
   
+  ScreenshotResources = {
+    status: PsychoJS.Status.NOT_STARTED
+  };
   // Initialize components for Routine "ConditionSelection"
   ConditionSelectionClock = new util.Clock();
   ConditionSelectionText = new visual.TextStim({
@@ -424,6 +428,7 @@ function WelcomeScreenRoutineBegin(snapshot) {
     WelcomeScreenComponents = [];
     WelcomeScreenComponents.push(WelcomeText);
     WelcomeScreenComponents.push(WelcomeContinueButton);
+    WelcomeScreenComponents.push(ScreenshotResources);
     
     for (const thisComponent of WelcomeScreenComponents)
       if ('status' in thisComponent)
@@ -498,6 +503,21 @@ function WelcomeScreenRoutineEachFrame() {
       WelcomeContinueButton.clock.reset();
       // if WelcomeContinueButton is clicked next frame, it is a new click
       WelcomeContinueButton.wasClicked = false;
+    }
+    // start downloading resources specified by component ScreenshotResources
+    if (t >= null && ScreenshotResources.status === PsychoJS.Status.NOT_STARTED) {
+      console.log('register and start downloading resources specified by component ScreenshotResources');
+      await psychoJS.serverManager.prepareResources(['Screenshots/new1.jpg','Screenshots/new2.jpg','Screenshots/old1.jpg','Screenshots/old2.jpg']);
+      ScreenshotResources.status = PsychoJS.Status.STARTED;
+    }
+    // check on the resources specified by component ScreenshotResources
+    if (t >= null && ScreenshotResources.status === PsychoJS.Status.STARTED) {
+      if (psychoJS.serverManager.getResourceStatus(['Screenshots/new1.jpg','Screenshots/new2.jpg','Screenshots/old1.jpg','Screenshots/old2.jpg']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
+        console.log('finished downloading resources specified by component ScreenshotResources');
+        ScreenshotResources.status = PsychoJS.Status.FINISHED;
+      } else {
+        console.log('resource specified in ScreenshotResources took longer than expected to download');
+      }
     }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {

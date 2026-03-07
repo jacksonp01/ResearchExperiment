@@ -158,6 +158,20 @@
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
       </ButtonComponent>
+      <ResourceManagerComponent name="ScreenshotResources" plugin="None">
+        <Param val="Start and Check" valType="str" updates="None" name="actionType"/>
+        <Param val="False" valType="bool" updates="None" name="checkAll"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="ScreenshotResources" valType="code" updates="None" name="name"/>
+        <Param val="['Screenshots/new1.jpg', 'Screenshots/new2.jpg', 'Screenshots/old1.jpg', 'Screenshots/old2.jpg']" valType="list" updates="constant" name="resources"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+      </ResourceManagerComponent>
     </Routine>
     <Routine name="ConditionSelection">
       <RoutineSettingsComponent name="ConditionSelection" plugin="None">
