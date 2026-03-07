@@ -1197,8 +1197,8 @@ function ScreenshotOrderTaskRoutineBegin(snapshot) {
     routineTimer.reset();
     ScreenshotOrderTaskMaxDurationReached = false;
     // update component parameters for each repeat
-    ScreenshotLeft.setImage(`Screenshots/${Condition1New}`);
-    ScreenshotRight.setImage(`Screenshots/${Condition1Old}`);
+    ScreenshotLeft.setImage(`Screenshots/${Condition1Left}`);
+    ScreenshotRight.setImage(`Screenshots/${Condition1Right}`);
     ScreenshotKeyboard.keys = undefined;
     ScreenshotKeyboard.rt = undefined;
     _ScreenshotKeyboard_allKeys = [];
