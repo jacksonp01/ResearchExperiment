@@ -315,7 +315,7 @@ async function experimentInit() {
   VideoClock = new util.Clock();
   Video = new visual.MovieStim({
     win: psychoJS.window,
-    movie: 'video.mp3',
+    movie: 'video.mp4',
     name: 'Video',
     units: psychoJS.window.units,
     pos: [0, 0],
@@ -576,12 +576,12 @@ function WelcomeScreenRoutineEachFrame() {
     // start downloading resources specified by component ResourceManager
     if (t >= null && ResourceManager.status === PsychoJS.Status.NOT_STARTED) {
       console.log('register and start downloading resources specified by component ResourceManager');
-      await psychoJS.serverManager.prepareResources(['video.mp3','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv','Screenshots/new1.jpg','Screenshots/new2.jpg','Screenshots/old1.jpg','Screenshots/old2.jpg']);
+      await psychoJS.serverManager.prepareResources(['video.mp4','Screenshots/4.png','Screenshots/7.png','Screenshots/9.png','Screenshots/17.png','Screenshots/19.png','Screenshots/22.png','Screenshots/37.png','Screenshots/42.png','Screenshots/47.png','Screenshots/52.png','Screenshots/67.png','Screenshots/82.png','Screenshots/97.png','Screenshots/107.png','Screenshots/112.png','Screenshots/127.png','Screenshots/132.png','Screenshots/142.png','Screenshots/152.png','Screenshots/157.png','Screenshots/172.png','Screenshots/187.png','Screenshots/192.png','Screenshots/197.png','Screenshots/202.png','Screenshots/217.png','Screenshots/232.png','Screenshots/237.png','Screenshots/247.png','Screenshots/257.png','Screenshots/262.png','Screenshots/272.png','Screenshots/277.png','Screenshots/289.png','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv']);
       ResourceManager.status = PsychoJS.Status.STARTED;
     }
     // check on the resources specified by component ResourceManager
     if (t >= null && ResourceManager.status === PsychoJS.Status.STARTED) {
-      if (psychoJS.serverManager.getResourceStatus(['video.mp3','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv','Screenshots/new1.jpg','Screenshots/new2.jpg','Screenshots/old1.jpg','Screenshots/old2.jpg']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
+      if (psychoJS.serverManager.getResourceStatus(['video.mp4','Screenshots/4.png','Screenshots/7.png','Screenshots/9.png','Screenshots/17.png','Screenshots/19.png','Screenshots/22.png','Screenshots/37.png','Screenshots/42.png','Screenshots/47.png','Screenshots/52.png','Screenshots/67.png','Screenshots/82.png','Screenshots/97.png','Screenshots/107.png','Screenshots/112.png','Screenshots/127.png','Screenshots/132.png','Screenshots/142.png','Screenshots/152.png','Screenshots/157.png','Screenshots/172.png','Screenshots/187.png','Screenshots/192.png','Screenshots/197.png','Screenshots/202.png','Screenshots/217.png','Screenshots/232.png','Screenshots/237.png','Screenshots/247.png','Screenshots/257.png','Screenshots/262.png','Screenshots/272.png','Screenshots/277.png','Screenshots/289.png','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
         console.log('finished downloading resources specified by component ResourceManager');
         ResourceManager.status = PsychoJS.Status.FINISHED;
       } else {
