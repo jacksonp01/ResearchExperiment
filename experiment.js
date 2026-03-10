@@ -1632,9 +1632,11 @@ function ScreenshotOrderTaskRoutineBegin(snapshot) {
     if (((ConditionVariable === 1) || (ConditionVariable === 2))) {
         ScreenshotLeft.image = `Screenshots/${Condition1Left}`;
         ScreenshotRight.image = `Screenshots/${Condition1Right}`;
+        ScreenshotKeyboard.CorrectAnswer = Condition1Correct;
     } else {
         ScreenshotLeft.image = `Screenshots/${Condition2Left}`;
         ScreenshotRight.image = `Screenshots/${Condition2Right}`;
+        ScreenshotKeyboard.CorrectAnswer = Condition2Correct;
     }
     
     psychoJS.experiment.addData('ScreenshotOrderTask.started', globalClock.getTime());
@@ -1714,6 +1716,12 @@ function ScreenshotOrderTaskRoutineEachFrame() {
         ScreenshotKeyboard.keys = _ScreenshotKeyboard_allKeys[_ScreenshotKeyboard_allKeys.length - 1].name;  // just the last key pressed
         ScreenshotKeyboard.rt = _ScreenshotKeyboard_allKeys[_ScreenshotKeyboard_allKeys.length - 1].rt;
         ScreenshotKeyboard.duration = _ScreenshotKeyboard_allKeys[_ScreenshotKeyboard_allKeys.length - 1].duration;
+        // was this correct?
+        if (ScreenshotKeyboard.keys == '') {
+            ScreenshotKeyboard.corr = 1;
+        } else {
+            ScreenshotKeyboard.corr = 0;
+        }
         // a response ends the routine
         continueRoutine = false;
       }
@@ -1756,11 +1764,21 @@ function ScreenshotOrderTaskRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('ScreenshotOrderTask.stopped', globalClock.getTime());
+    // was no response the correct answer?!
+    if (ScreenshotKeyboard.keys === undefined) {
+      if (['None','none',undefined].includes('')) {
+         ScreenshotKeyboard.corr = 1;  // correct non-response
+      } else {
+         ScreenshotKeyboard.corr = 0;  // failed to respond (incorrectly)
+      }
+    }
+    // store data for current loop
     // update the trial handler
     if (currentLoop instanceof MultiStairHandler) {
       currentLoop.addResponse(ScreenshotKeyboard.corr, level);
     }
     psychoJS.experiment.addData('ScreenshotKeyboard.keys', ScreenshotKeyboard.keys);
+    psychoJS.experiment.addData('ScreenshotKeyboard.corr', ScreenshotKeyboard.corr);
     if (typeof ScreenshotKeyboard.keys !== 'undefined') {  // we had a response
         psychoJS.experiment.addData('ScreenshotKeyboard.rt', ScreenshotKeyboard.rt);
         psychoJS.experiment.addData('ScreenshotKeyboard.duration', ScreenshotKeyboard.duration);
