@@ -131,8 +131,6 @@ var VideoInstructionsClock;
 var VideoInstructionsText;
 var VideoInstructionsKeyboard;
 var VideoScreenClock;
-var VideoClock;
-var Video;
 var ScreenshotInstructionsClock;
 var ScreenshotInstructionsText;
 var ScreenshotInstructionsKeyboard;
@@ -304,21 +302,6 @@ async function experimentInit() {
   
   // Initialize components for Routine "VideoScreen"
   VideoScreenClock = new util.Clock();
-  VideoClock = new util.Clock();
-  Video = new visual.MovieStim({
-    win: psychoJS.window,
-    movie: 'video.mp4',
-    name: 'Video',
-    units: psychoJS.window.units,
-    pos: [0, 0],
-    anchor: 'center',
-    size: [0.5, 0.5],
-    ori: 0.0,
-    opacity: null,
-    loop: false,
-    noAudio: false,
-    depth: 0
-  })
   // Initialize components for Routine "ScreenshotInstructions"
   ScreenshotInstructionsClock = new util.Clock();
   ScreenshotInstructionsText = new visual.TextStim({
@@ -569,12 +552,12 @@ function WelcomeScreenRoutineEachFrame() {
     // start downloading resources specified by component ResourceManager
     if (t >= null && ResourceManager.status === PsychoJS.Status.NOT_STARTED) {
       console.log('register and start downloading resources specified by component ResourceManager');
-      await psychoJS.serverManager.prepareResources(['video.mp4','Screenshots/4.png','Screenshots/7.png','Screenshots/9.png','Screenshots/17.png','Screenshots/19.png','Screenshots/22.png','Screenshots/37.png','Screenshots/42.png','Screenshots/47.png','Screenshots/52.png','Screenshots/67.png','Screenshots/82.png','Screenshots/97.png','Screenshots/107.png','Screenshots/112.png','Screenshots/127.png','Screenshots/132.png','Screenshots/142.png','Screenshots/152.png','Screenshots/157.png','Screenshots/172.png','Screenshots/187.png','Screenshots/192.png','Screenshots/197.png','Screenshots/202.png','Screenshots/217.png','Screenshots/232.png','Screenshots/237.png','Screenshots/247.png','Screenshots/257.png','Screenshots/262.png','Screenshots/272.png','Screenshots/277.png','Screenshots/289.png','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv']);
+      await psychoJS.serverManager.prepareResources(core.ServerManager.ALL_RESOURCES);
       ResourceManager.status = PsychoJS.Status.STARTED;
     }
     // check on the resources specified by component ResourceManager
     if (t >= null && ResourceManager.status === PsychoJS.Status.STARTED) {
-      if (psychoJS.serverManager.getResourceStatus(['video.mp4','Screenshots/4.png','Screenshots/7.png','Screenshots/9.png','Screenshots/17.png','Screenshots/19.png','Screenshots/22.png','Screenshots/37.png','Screenshots/42.png','Screenshots/47.png','Screenshots/52.png','Screenshots/67.png','Screenshots/82.png','Screenshots/97.png','Screenshots/107.png','Screenshots/112.png','Screenshots/127.png','Screenshots/132.png','Screenshots/142.png','Screenshots/152.png','Screenshots/157.png','Screenshots/172.png','Screenshots/187.png','Screenshots/192.png','Screenshots/197.png','Screenshots/202.png','Screenshots/217.png','Screenshots/232.png','Screenshots/237.png','Screenshots/247.png','Screenshots/257.png','Screenshots/262.png','Screenshots/272.png','Screenshots/277.png','Screenshots/289.png','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
+      if (psychoJS.serverManager.getResourceStatus(core.ServerManager.ALL_RESOURCES) === core.ServerManager.ResourceStatus.DOWNLOADED) {
         console.log('finished downloading resources specified by component ResourceManager');
         ResourceManager.status = PsychoJS.Status.FINISHED;
       } else {
@@ -1410,7 +1393,6 @@ function VideoScreenRoutineBegin(snapshot) {
     VideoScreenMaxDuration = null
     // keep track of which components have finished
     VideoScreenComponents = [];
-    VideoScreenComponents.push(Video);
     
     VideoScreenComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1428,20 +1410,6 @@ function VideoScreenRoutineEachFrame() {
     t = VideoScreenClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    
-    // *Video* updates
-    if (t >= 0.0 && Video.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      Video.tStart = t;  // (not accounting for frame time here)
-      Video.frameNStart = frameN;  // exact frame index
-      
-      Video.setAutoDraw(true);
-      Video.play();
-    }
-    
-    if (Video.status === PsychoJS.Status.FINISHED) {  // force-end the Routine
-        continueRoutine = false;
-    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1479,7 +1447,6 @@ function VideoScreenRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('VideoScreen.stopped', globalClock.getTime());
-    Video.stop();  // ensure movie has stopped at end of Routine
     // the Routine "VideoScreen" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
