@@ -131,6 +131,8 @@ var VideoInstructionsClock;
 var VideoInstructionsText;
 var VideoInstructionsKeyboard;
 var VideoScreenClock;
+var VideoClock;
+var Video;
 var ScreenshotInstructionsClock;
 var ScreenshotInstructionsText;
 var ScreenshotInstructionsKeyboard;
@@ -302,6 +304,21 @@ async function experimentInit() {
   
   // Initialize components for Routine "VideoScreen"
   VideoScreenClock = new util.Clock();
+  VideoClock = new util.Clock();
+  Video = new visual.MovieStim({
+    win: psychoJS.window,
+    movie: 'video.mp3',
+    name: 'Video',
+    units: psychoJS.window.units,
+    pos: [0, 0],
+    anchor: 'center',
+    size: [0.5, 0.5],
+    ori: 0.0,
+    opacity: null,
+    loop: false,
+    noAudio: false,
+    depth: 0
+  })
   // Initialize components for Routine "ScreenshotInstructions"
   ScreenshotInstructionsClock = new util.Clock();
   ScreenshotInstructionsText = new visual.TextStim({
@@ -1393,6 +1410,7 @@ function VideoScreenRoutineBegin(snapshot) {
     VideoScreenMaxDuration = null
     // keep track of which components have finished
     VideoScreenComponents = [];
+    VideoScreenComponents.push(Video);
     
     VideoScreenComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1410,6 +1428,20 @@ function VideoScreenRoutineEachFrame() {
     t = VideoScreenClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    
+    // *Video* updates
+    if (t >= 0.0 && Video.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      Video.tStart = t;  // (not accounting for frame time here)
+      Video.frameNStart = frameN;  // exact frame index
+      
+      Video.setAutoDraw(true);
+      Video.play();
+    }
+    
+    if (Video.status === PsychoJS.Status.FINISHED) {  // force-end the Routine
+        continueRoutine = false;
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1447,6 +1479,7 @@ function VideoScreenRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('VideoScreen.stopped', globalClock.getTime());
+    Video.stop();  // ensure movie has stopped at end of Routine
     // the Routine "VideoScreen" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
