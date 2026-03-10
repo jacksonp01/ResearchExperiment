@@ -86,6 +86,9 @@ psychoJS.start({
 
 psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
 
+
+var currentLoop;
+var frameDur;
 async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
@@ -113,6 +116,44 @@ async function updateInfo() {
   return Scheduler.Event.NEXT;
 }
 
+
+var WelcomeScreenClock;
+var WelcomeText;
+var WelcomeScreenKeyboard;
+var ResourceManager;
+var ConditionSelectionClock;
+var ConditionSelectionText;
+var JacksonButton;
+var MeganButton;
+var JessicaButton;
+var JawwadButton;
+var VideoInstructionsClock;
+var VideoInstructionsText;
+var VideoInstructionsKeyboard;
+var VideoScreenClock;
+var ScreenshotInstructionsClock;
+var ScreenshotInstructionsText;
+var ScreenshotInstructionsKeyboard;
+var ScreenshotOrderTaskClock;
+var ScreenshotLeft;
+var ScreenshotRight;
+var ScreenshotKeyboard;
+var WordListInstructionsClock;
+var WordListInstructionsText;
+var WordListInstructionsKeyboard;
+var WordListStudyClock;
+var WordListStudyText;
+var WordListDistractionClock;
+var WordListDistractionText;
+var WordListTestClock;
+var WordListSlider;
+var WordListTestText;
+var BreakOrFinishClock;
+var BreakText;
+var EndScreenClock;
+var EndScreenText;
+var globalClock;
+var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "WelcomeScreen"
   WelcomeScreenClock = new util.Clock();
@@ -414,6 +455,15 @@ async function experimentInit() {
   return Scheduler.Event.NEXT;
 }
 
+
+var t;
+var frameN;
+var continueRoutine;
+var routineForceEnded;
+var WelcomeScreenMaxDurationReached;
+var _WelcomeScreenKeyboard_allKeys;
+var WelcomeScreenMaxDuration;
+var WelcomeScreenComponents;
 function WelcomeScreenRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -446,6 +496,7 @@ function WelcomeScreenRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function WelcomeScreenRoutineEachFrame() {
   return async function () {
@@ -540,6 +591,7 @@ function WelcomeScreenRoutineEachFrame() {
   };
 }
 
+
 function WelcomeScreenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WelcomeScreen' ---
@@ -572,6 +624,10 @@ function WelcomeScreenRoutineEnd(snapshot) {
   }
 }
 
+
+var ConditionSelectionMaxDurationReached;
+var ConditionSelectionMaxDuration;
+var ConditionSelectionComponents;
 function ConditionSelectionRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -612,6 +668,8 @@ function ConditionSelectionRoutineBegin(snapshot) {
   }
 }
 
+
+var ConditionVariable;
 function ConditionSelectionRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'ConditionSelection' ---
@@ -837,6 +895,7 @@ function ConditionSelectionRoutineEachFrame() {
   };
 }
 
+
 function ConditionSelectionRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'ConditionSelection' ---
@@ -869,6 +928,8 @@ function ConditionSelectionRoutineEnd(snapshot) {
   }
 }
 
+
+var WithinSubjects;
 function WithinSubjectsLoopBegin(WithinSubjectsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -926,6 +987,8 @@ function WithinSubjectsLoopBegin(WithinSubjectsLoopScheduler, snapshot) {
   }
 }
 
+
+var ScreenshotOrderTrials;
 function ScreenshotOrderTrialsLoopBegin(ScreenshotOrderTrialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -956,6 +1019,7 @@ function ScreenshotOrderTrialsLoopBegin(ScreenshotOrderTrialsLoopScheduler, snap
   }
 }
 
+
 async function ScreenshotOrderTrialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(ScreenshotOrderTrials);
@@ -966,6 +1030,7 @@ async function ScreenshotOrderTrialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
+
 
 function ScreenshotOrderTrialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -986,6 +1051,8 @@ function ScreenshotOrderTrialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
+
+var WordListStudyTrials;
 function WordListStudyTrialsLoopBegin(WordListStudyTrialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -1016,6 +1083,7 @@ function WordListStudyTrialsLoopBegin(WordListStudyTrialsLoopScheduler, snapshot
   }
 }
 
+
 async function WordListStudyTrialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(WordListStudyTrials);
@@ -1026,6 +1094,7 @@ async function WordListStudyTrialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
+
 
 function WordListStudyTrialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -1046,6 +1115,8 @@ function WordListStudyTrialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
+
+var WordListTestTrials;
 function WordListTestTrialsLoopBegin(WordListTestTrialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -1076,6 +1147,7 @@ function WordListTestTrialsLoopBegin(WordListTestTrialsLoopScheduler, snapshot) 
   }
 }
 
+
 async function WordListTestTrialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(WordListTestTrials);
@@ -1086,6 +1158,7 @@ async function WordListTestTrialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
+
 
 function WordListTestTrialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -1106,6 +1179,7 @@ function WordListTestTrialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
+
 async function WithinSubjectsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(WithinSubjects);
@@ -1116,6 +1190,7 @@ async function WithinSubjectsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
+
 
 function WithinSubjectsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -1136,6 +1211,11 @@ function WithinSubjectsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
+
+var VideoInstructionsMaxDurationReached;
+var _VideoInstructionsKeyboard_allKeys;
+var VideoInstructionsMaxDuration;
+var VideoInstructionsComponents;
 function VideoInstructionsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1174,6 +1254,7 @@ function VideoInstructionsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function VideoInstructionsRoutineEachFrame() {
   return async function () {
@@ -1253,6 +1334,7 @@ function VideoInstructionsRoutineEachFrame() {
   };
 }
 
+
 function VideoInstructionsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'VideoInstructions' ---
@@ -1285,6 +1367,11 @@ function VideoInstructionsRoutineEnd(snapshot) {
   }
 }
 
+
+var VideoScreenMaxDurationReached;
+var maxDurationReached;
+var VideoScreenMaxDuration;
+var VideoScreenComponents;
 function VideoScreenRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1301,7 +1388,7 @@ function VideoScreenRoutineBegin(snapshot) {
     // update component parameters for each repeat
     psychoJS.experiment.addData('VideoScreen.started', globalClock.getTime());
     // skip this Routine if its 'Skip if' condition is True
-    continueRoutine = continueRoutine && !(((ConditionVariable == 1) or (ConditionVariable == 2)));
+    continueRoutine = continueRoutine && !((ConditionVariable <= 2));
     maxDurationReached = false
     VideoScreenMaxDuration = null
     // keep track of which components have finished
@@ -1314,6 +1401,7 @@ function VideoScreenRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function VideoScreenRoutineEachFrame() {
   return async function () {
@@ -1349,6 +1437,7 @@ function VideoScreenRoutineEachFrame() {
   };
 }
 
+
 function VideoScreenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'VideoScreen' ---
@@ -1369,6 +1458,11 @@ function VideoScreenRoutineEnd(snapshot) {
   }
 }
 
+
+var ScreenshotInstructionsMaxDurationReached;
+var _ScreenshotInstructionsKeyboard_allKeys;
+var ScreenshotInstructionsMaxDuration;
+var ScreenshotInstructionsComponents;
 function ScreenshotInstructionsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1400,6 +1494,7 @@ function ScreenshotInstructionsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function ScreenshotInstructionsRoutineEachFrame() {
   return async function () {
@@ -1479,6 +1574,7 @@ function ScreenshotInstructionsRoutineEachFrame() {
   };
 }
 
+
 function ScreenshotInstructionsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'ScreenshotInstructions' ---
@@ -1511,6 +1607,11 @@ function ScreenshotInstructionsRoutineEnd(snapshot) {
   }
 }
 
+
+var ScreenshotOrderTaskMaxDurationReached;
+var _ScreenshotKeyboard_allKeys;
+var ScreenshotOrderTaskMaxDuration;
+var ScreenshotOrderTaskComponents;
 function ScreenshotOrderTaskRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1552,6 +1653,7 @@ function ScreenshotOrderTaskRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function ScreenshotOrderTaskRoutineEachFrame() {
   return async function () {
@@ -1646,6 +1748,7 @@ function ScreenshotOrderTaskRoutineEachFrame() {
   };
 }
 
+
 function ScreenshotOrderTaskRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'ScreenshotOrderTask' ---
@@ -1678,6 +1781,11 @@ function ScreenshotOrderTaskRoutineEnd(snapshot) {
   }
 }
 
+
+var WordListInstructionsMaxDurationReached;
+var _WordListInstructionsKeyboard_allKeys;
+var WordListInstructionsMaxDuration;
+var WordListInstructionsComponents;
 function WordListInstructionsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1709,6 +1817,7 @@ function WordListInstructionsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function WordListInstructionsRoutineEachFrame() {
   return async function () {
@@ -1788,6 +1897,7 @@ function WordListInstructionsRoutineEachFrame() {
   };
 }
 
+
 function WordListInstructionsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListInstructions' ---
@@ -1820,6 +1930,10 @@ function WordListInstructionsRoutineEnd(snapshot) {
   }
 }
 
+
+var WordListStudyMaxDurationReached;
+var WordListStudyMaxDuration;
+var WordListStudyComponents;
 function WordListStudyRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1857,6 +1971,8 @@ function WordListStudyRoutineBegin(snapshot) {
   }
 }
 
+
+var frameRemains;
 function WordListStudyRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'WordListStudy' ---
@@ -1916,6 +2032,7 @@ function WordListStudyRoutineEachFrame() {
   };
 }
 
+
 function WordListStudyRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListStudy' ---
@@ -1939,6 +2056,10 @@ function WordListStudyRoutineEnd(snapshot) {
   }
 }
 
+
+var WordListDistractionMaxDurationReached;
+var WordListDistractionMaxDuration;
+var WordListDistractionComponents;
 function WordListDistractionRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1966,6 +2087,7 @@ function WordListDistractionRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function WordListDistractionRoutineEachFrame() {
   return async function () {
@@ -2026,6 +2148,7 @@ function WordListDistractionRoutineEachFrame() {
   };
 }
 
+
 function WordListDistractionRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListDistraction' ---
@@ -2049,6 +2172,10 @@ function WordListDistractionRoutineEnd(snapshot) {
   }
 }
 
+
+var WordListTestMaxDurationReached;
+var WordListTestMaxDuration;
+var WordListTestComponents;
 function WordListTestRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2088,6 +2215,7 @@ function WordListTestRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function WordListTestRoutineEachFrame() {
   return async function () {
@@ -2157,6 +2285,7 @@ function WordListTestRoutineEachFrame() {
   };
 }
 
+
 function WordListTestRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListTest' ---
@@ -2179,6 +2308,10 @@ function WordListTestRoutineEnd(snapshot) {
   }
 }
 
+
+var BreakOrFinishMaxDurationReached;
+var BreakOrFinishMaxDuration;
+var BreakOrFinishComponents;
 function BreakOrFinishRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2209,6 +2342,7 @@ function BreakOrFinishRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
+
 
 function BreakOrFinishRoutineEachFrame() {
   return async function () {
@@ -2269,6 +2403,8 @@ function BreakOrFinishRoutineEachFrame() {
   };
 }
 
+
+var LoopVariable;
 function BreakOrFinishRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'BreakOrFinish' ---
@@ -2310,6 +2446,10 @@ function BreakOrFinishRoutineEnd(snapshot) {
   }
 }
 
+
+var EndScreenMaxDurationReached;
+var EndScreenMaxDuration;
+var EndScreenComponents;
 function EndScreenRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2368,6 +2508,7 @@ function EndScreenRoutineBegin(snapshot) {
   }
 }
 
+
 function EndScreenRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'EndScreen' ---
@@ -2417,6 +2558,7 @@ function EndScreenRoutineEachFrame() {
   };
 }
 
+
 function EndScreenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'EndScreen' ---
@@ -2437,12 +2579,14 @@ function EndScreenRoutineEnd(snapshot) {
   }
 }
 
+
 function importConditions(currentLoop) {
   return async function () {
     psychoJS.importAttributes(currentLoop.getCurrentTrial());
     return Scheduler.Event.NEXT;
     };
 }
+
 
 async function quitPsychoJS(message, isCompleted) {
   // Check for and save orphaned data
