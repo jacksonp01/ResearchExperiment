@@ -314,7 +314,7 @@ async function experimentInit() {
     items : 'Spreadsheets/wordlistform.csv',
     textHeight : 0.03,
     font : 'Noto Sans',
-    randomize : true,
+    randomize : false,
     size : [1, 0.7],
     pos : [0, 0],
     style : 'dark',
@@ -1966,7 +1966,7 @@ function WordListTestRoutineEachFrame() {
     // if WordListTestKeyboard is active this frame...
     if (WordListTestKeyboard.status === PsychoJS.Status.STARTED) {
       let theseKeys = WordListTestKeyboard.getKeys({
-        keyList: typeof 'space' === 'string' ? ['space'] : 'space', 
+        keyList: typeof [] === 'string' ? [[]] : [], 
         waitRelease: false
       });
       _WordListTestKeyboard_allKeys = _WordListTestKeyboard_allKeys.concat(theseKeys);
@@ -1992,6 +1992,13 @@ function WordListTestRoutineEachFrame() {
     
     // if WordListTestForm is active this frame...
     if (WordListTestForm.status === PsychoJS.Status.STARTED) {
+    }
+    
+    // Run 'Each Frame' code from WordListTestCode
+    if (WordListTestForm.complete) {
+        WordListTestKeyboard.allowed_keys = ["spacebar"];
+    } else {
+        WordListTestKeyboard.allowed_keys = [];
     }
     
     // check for quit (typically the Esc key)
@@ -2043,7 +2050,7 @@ function WordListTestRoutineEnd(snapshot) {
         }
     
     WordListTestKeyboard.stop();
-    WordListTestForm.addDataToExp(psychoJS.experiment, 'rows');
+    WordListTestForm.addDataToExp(psychoJS.experiment, 'columns');
     // the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
