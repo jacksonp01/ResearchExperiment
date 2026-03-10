@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 07, 2026, at 12:53
+    on March 09, 2026, at 21:53
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -32,6 +32,8 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
+# Run 'Before Experiment' code from code
+condition = 0
 # --- Setup global variables (available in all functions) ---
 # create a device manager to handle hardware (keyboards, mice, mirophones, speakers, etc.)
 deviceManager = hardware.DeviceManager()
@@ -132,7 +134,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\Jackson\\Desktop\\Research Project Experiment\\experiment.py',
+        originPath='C:\\Users\\Jackson\\Documents\\GitHub\\ResearchExperiment\\experiment.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -378,98 +380,43 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "WelcomeScreen" ---
     WelcomeText = visual.TextStim(win=win, name='WelcomeText',
-        text='Welcome to the experiment!\n\n(Ethics)\n(Important Information)',
+        text='Welcome to the experiment!\n\n(Ethics)\n(Important Information)\n\nPress SPACE to continue',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
-    WelcomeContinueButton = visual.ButtonStim(win, 
-        text='Click to continue', font='Arvo',
-        pos=(0, -0.3),
-        letterHeight=0.05,
-        size=(0.5, 0.2), 
-        ori=0.0
-        ,borderWidth=0.0,
-        fillColor='darkgrey', borderColor=None,
-        color='white', colorSpace='rgb',
-        opacity=None,
-        bold=True, italic=False,
-        padding=None,
-        anchor='center',
-        name='WelcomeContinueButton',
-        depth=-1
-    )
-    WelcomeContinueButton.buttonClock = core.Clock()
+    WelcomeScreenKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
     
     # --- Initialize components for Routine "ConditionSelection" ---
     ConditionSelectionText = visual.TextStim(win=win, name='ConditionSelectionText',
-        text='Click the button below that corresponds to the condition you were assigned. If you are not sure, please ask the experimenter.',
+        text='If you were assigned to condition 1 press a.\nIf you were assigned to condition 2 press d.\n\nIf you are not sure which condition you were assigned to, please ask the experimenter.',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
-    Condition1Button = visual.ButtonStim(win, 
-        text='1', font='Arvo',
-        pos=(-0.3, -0.3),
-        letterHeight=0.05,
-        size=(0.2, 0.2), 
-        ori=0.0
-        ,borderWidth=0.0,
-        fillColor='darkgrey', borderColor=None,
-        color='white', colorSpace='rgb',
-        opacity=None,
-        bold=True, italic=False,
-        padding=None,
-        anchor='center',
-        name='Condition1Button',
-        depth=-1
-    )
-    Condition1Button.buttonClock = core.Clock()
-    Condition2Button = visual.ButtonStim(win, 
-        text='2', font='Arvo',
-        pos=(0.3, -0.3),
-        letterHeight=0.05,
-        size=(0.2, 0.2), 
-        ori=0.0
-        ,borderWidth=0.0,
-        fillColor='darkgrey', borderColor=None,
-        color='white', colorSpace='rgb',
-        opacity=None,
-        bold=True, italic=False,
-        padding=None,
-        anchor='center',
-        name='Condition2Button',
-        depth=-2
-    )
-    Condition2Button.buttonClock = core.Clock()
+    ConditionSelectionKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
     
     # --- Initialize components for Routine "VideoInstructions" ---
     VideoInstructionsText = visual.TextStim(win=win, name='VideoInstructionsText',
         text=None,
         font='Arial',
-        pos=(0, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
-    VideoInstructionsContinueButton = visual.ButtonStim(win, 
-        text='Click to continue', font='Arvo',
-        pos=(0, -0.3),
-        letterHeight=0.05,
-        size=(0.5, 0.2), 
-        ori=0.0
-        ,borderWidth=0.0,
-        fillColor='darkgrey', borderColor=None,
-        color='white', colorSpace='rgb',
-        opacity=None,
-        bold=True, italic=False,
-        padding=None,
-        anchor='center',
-        name='VideoInstructionsContinueButton',
-        depth=-1
-    )
-    VideoInstructionsContinueButton.buttonClock = core.Clock()
+    VideoInstructionsKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
+    
+    # --- Initialize components for Routine "ScreenshotInstructions" ---
+    ScreenshotInstructionsText = visual.TextStim(win=win, name='ScreenshotInstructionsText',
+        text='You will be shown two images. \nPlease indicate which one came first in the video.\nPress a for the left image and d for the right image.\nPress SPACE to continue',
+        font='Arial',
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    ScreenshotInstructionsKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
     
     # --- Initialize components for Routine "ScreenshotOrderTask" ---
     ScreenshotLeft = visual.ImageStim(
@@ -488,35 +435,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
-    mouse = event.Mouse(win=win)
-    x, y = [None, None]
-    mouse.mouseClock = core.Clock()
+    ScreenshotKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
     
     # --- Initialize components for Routine "WordListInstructions" ---
     WordListInstructionsText = visual.TextStim(win=win, name='WordListInstructionsText',
-        text='You will now be shown a number of different words.',
+        text='You will now be shown a number of different words.\n\nPress SPACE to continue',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
-    WordListInstructionsContinueButton = visual.ButtonStim(win, 
-        text='Click to continue', font='Arvo',
-        pos=(0, -0.3),
-        letterHeight=0.05,
-        size=(0.5, 0.2), 
-        ori=0.0
-        ,borderWidth=0.0,
-        fillColor='darkgrey', borderColor=None,
-        color='white', colorSpace='rgb',
-        opacity=None,
-        bold=True, italic=False,
-        padding=None,
-        anchor='center',
-        name='WordListInstructionsContinueButton',
-        depth=-1
-    )
-    WordListInstructionsContinueButton.buttonClock = core.Clock()
+    WordListInstructionsKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
     
     # --- Initialize components for Routine "WordListStudy" ---
     WordListStudyText = visual.TextStim(win=win, name='WordListStudyText',
@@ -539,8 +468,42 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     WordListDistractionText.setText(f"Count backwards by 3 from {randint(100,1000)} out loud")
     
     # --- Initialize components for Routine "WordListTest" ---
+    WordListTestKeyboard = keyboard.Keyboard(deviceName='defaultKeyboard')
+    win.allowStencil = True
+    WordListTestForm = visual.Form(win=win, name='WordListTestForm',
+        items='Spreadsheets/wordlistform.csv',
+        textHeight=0.03,
+        font='Noto Sans',
+        randomize=True,
+        style='dark',
+        fillColor=None, borderColor=None, itemColor='white', 
+        responseColor='white', markerColor='red', colorSpace='rgb', 
+        size=(1, 0.7),
+        pos=(0, 0),
+        itemPadding=0.05,
+        depth=-1
+    )
     
     # --- Initialize components for Routine "BreakOrFinish" ---
+    BreakText = visual.TextStim(win=win, name='BreakText',
+        text='You will now take a 5 minute break! Yay!!!!',
+        font='Arial',
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    # Set experiment start values for variable component LoopVariable
+    LoopVariable = 0
+    LoopVariableContainer = []
+    
+    # --- Initialize components for Routine "EndScreen" ---
+    EndScreenText = visual.TextStim(win=win, name='EndScreenText',
+        text='Please wait while we save your results',
+        font='Arial',
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
     
     # create some handy timers
     
@@ -576,13 +539,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine WelcomeScreen
     WelcomeScreen = data.Routine(
         name='WelcomeScreen',
-        components=[WelcomeText, WelcomeContinueButton],
+        components=[WelcomeText, WelcomeScreenKeyboard],
     )
     WelcomeScreen.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
-    # reset WelcomeContinueButton to account for continued clicks & clear times on/off
-    WelcomeContinueButton.reset()
+    # create starting attributes for WelcomeScreenKeyboard
+    WelcomeScreenKeyboard.keys = []
+    WelcomeScreenKeyboard.rt = []
+    _WelcomeScreenKeyboard_allKeys = []
     # store start times for WelcomeScreen
     WelcomeScreen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     WelcomeScreen.tStart = globalClock.getTime(format='float')
@@ -633,43 +598,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if WelcomeText.status == STARTED:
             # update params
             pass
-        # *WelcomeContinueButton* updates
         
-        # if WelcomeContinueButton is starting this frame...
-        if WelcomeContinueButton.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+        # *WelcomeScreenKeyboard* updates
+        waitOnFlip = False
+        
+        # if WelcomeScreenKeyboard is starting this frame...
+        if WelcomeScreenKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            WelcomeContinueButton.frameNStart = frameN  # exact frame index
-            WelcomeContinueButton.tStart = t  # local t and not account for scr refresh
-            WelcomeContinueButton.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(WelcomeContinueButton, 'tStartRefresh')  # time at next scr refresh
+            WelcomeScreenKeyboard.frameNStart = frameN  # exact frame index
+            WelcomeScreenKeyboard.tStart = t  # local t and not account for scr refresh
+            WelcomeScreenKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(WelcomeScreenKeyboard, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'WelcomeContinueButton.started')
+            thisExp.timestampOnFlip(win, 'WelcomeScreenKeyboard.started')
             # update status
-            WelcomeContinueButton.status = STARTED
-            win.callOnFlip(WelcomeContinueButton.buttonClock.reset)
-            WelcomeContinueButton.setAutoDraw(True)
-        
-        # if WelcomeContinueButton is active this frame...
-        if WelcomeContinueButton.status == STARTED:
-            # update params
-            pass
-            # check whether WelcomeContinueButton has been pressed
-            if WelcomeContinueButton.isClicked:
-                if not WelcomeContinueButton.wasClicked:
-                    # if this is a new click, store time of first click and clicked until
-                    WelcomeContinueButton.timesOn.append(WelcomeContinueButton.buttonClock.getTime())
-                    WelcomeContinueButton.timesOff.append(WelcomeContinueButton.buttonClock.getTime())
-                elif len(WelcomeContinueButton.timesOff):
-                    # if click is continuing from last frame, update time of clicked until
-                    WelcomeContinueButton.timesOff[-1] = WelcomeContinueButton.buttonClock.getTime()
-                if not WelcomeContinueButton.wasClicked:
-                    # end routine when WelcomeContinueButton is clicked
-                    continueRoutine = False
-                if not WelcomeContinueButton.wasClicked:
-                    # run callback code when WelcomeContinueButton is clicked
-                    pass
-        # take note of whether WelcomeContinueButton was clicked, so that next frame we know if clicks are new
-        WelcomeContinueButton.wasClicked = WelcomeContinueButton.isClicked and WelcomeContinueButton.status == STARTED
+            WelcomeScreenKeyboard.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(WelcomeScreenKeyboard.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(WelcomeScreenKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if WelcomeScreenKeyboard.status == STARTED and not waitOnFlip:
+            theseKeys = WelcomeScreenKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+            _WelcomeScreenKeyboard_allKeys.extend(theseKeys)
+            if len(_WelcomeScreenKeyboard_allKeys):
+                WelcomeScreenKeyboard.keys = _WelcomeScreenKeyboard_allKeys[-1].name  # just the last key pressed
+                WelcomeScreenKeyboard.rt = _WelcomeScreenKeyboard_allKeys[-1].rt
+                WelcomeScreenKeyboard.duration = _WelcomeScreenKeyboard_allKeys[-1].duration
+                # a response ends the routine
+                continueRoutine = False
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -713,13 +669,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     WelcomeScreen.tStop = globalClock.getTime(format='float')
     WelcomeScreen.tStopRefresh = tThisFlipGlobal
     thisExp.addData('WelcomeScreen.stopped', WelcomeScreen.tStop)
-    thisExp.addData('WelcomeContinueButton.numClicks', WelcomeContinueButton.numClicks)
-    if WelcomeContinueButton.numClicks:
-       thisExp.addData('WelcomeContinueButton.timesOn', WelcomeContinueButton.timesOn)
-       thisExp.addData('WelcomeContinueButton.timesOff', WelcomeContinueButton.timesOff)
-    else:
-       thisExp.addData('WelcomeContinueButton.timesOn', "")
-       thisExp.addData('WelcomeContinueButton.timesOff', "")
+    # check responses
+    if WelcomeScreenKeyboard.keys in ['', [], None]:  # No response was made
+        WelcomeScreenKeyboard.keys = None
+    thisExp.addData('WelcomeScreenKeyboard.keys',WelcomeScreenKeyboard.keys)
+    if WelcomeScreenKeyboard.keys != None:  # we had a response
+        thisExp.addData('WelcomeScreenKeyboard.rt', WelcomeScreenKeyboard.rt)
+        thisExp.addData('WelcomeScreenKeyboard.duration', WelcomeScreenKeyboard.duration)
     thisExp.nextEntry()
     # the Routine "WelcomeScreen" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -728,15 +684,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine ConditionSelection
     ConditionSelection = data.Routine(
         name='ConditionSelection',
-        components=[ConditionSelectionText, Condition1Button, Condition2Button],
+        components=[ConditionSelectionText, ConditionSelectionKeyboard],
     )
     ConditionSelection.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
-    # reset Condition1Button to account for continued clicks & clear times on/off
-    Condition1Button.reset()
-    # reset Condition2Button to account for continued clicks & clear times on/off
-    Condition2Button.reset()
+    # create starting attributes for ConditionSelectionKeyboard
+    ConditionSelectionKeyboard.keys = []
+    ConditionSelectionKeyboard.rt = []
+    _ConditionSelectionKeyboard_allKeys = []
     # store start times for ConditionSelection
     ConditionSelection.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     ConditionSelection.tStart = globalClock.getTime(format='float')
@@ -787,80 +743,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if ConditionSelectionText.status == STARTED:
             # update params
             pass
-        # *Condition1Button* updates
         
-        # if Condition1Button is starting this frame...
-        if Condition1Button.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+        # *ConditionSelectionKeyboard* updates
+        waitOnFlip = False
+        
+        # if ConditionSelectionKeyboard is starting this frame...
+        if ConditionSelectionKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            Condition1Button.frameNStart = frameN  # exact frame index
-            Condition1Button.tStart = t  # local t and not account for scr refresh
-            Condition1Button.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(Condition1Button, 'tStartRefresh')  # time at next scr refresh
+            ConditionSelectionKeyboard.frameNStart = frameN  # exact frame index
+            ConditionSelectionKeyboard.tStart = t  # local t and not account for scr refresh
+            ConditionSelectionKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(ConditionSelectionKeyboard, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'Condition1Button.started')
+            thisExp.timestampOnFlip(win, 'ConditionSelectionKeyboard.started')
             # update status
-            Condition1Button.status = STARTED
-            win.callOnFlip(Condition1Button.buttonClock.reset)
-            Condition1Button.setAutoDraw(True)
-        
-        # if Condition1Button is active this frame...
-        if Condition1Button.status == STARTED:
-            # update params
-            pass
-            # check whether Condition1Button has been pressed
-            if Condition1Button.isClicked:
-                if not Condition1Button.wasClicked:
-                    # if this is a new click, store time of first click and clicked until
-                    Condition1Button.timesOn.append(Condition1Button.buttonClock.getTime())
-                    Condition1Button.timesOff.append(Condition1Button.buttonClock.getTime())
-                elif len(Condition1Button.timesOff):
-                    # if click is continuing from last frame, update time of clicked until
-                    Condition1Button.timesOff[-1] = Condition1Button.buttonClock.getTime()
-                if not Condition1Button.wasClicked:
-                    # end routine when Condition1Button is clicked
-                    continueRoutine = False
-                if not Condition1Button.wasClicked:
-                    # run callback code when Condition1Button is clicked
-                    VideoInstructionsText.setText("Please take out your phone and go the Instagram account @[Account Name]\n Please watch every video in order from top to bottom with the volume on. You must finish each video before scrolling to the next and only watch each video once.\n Click continue when you are finished!")
-        # take note of whether Condition1Button was clicked, so that next frame we know if clicks are new
-        Condition1Button.wasClicked = Condition1Button.isClicked and Condition1Button.status == STARTED
-        # *Condition2Button* updates
-        
-        # if Condition2Button is starting this frame...
-        if Condition2Button.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
-            # keep track of start time/frame for later
-            Condition2Button.frameNStart = frameN  # exact frame index
-            Condition2Button.tStart = t  # local t and not account for scr refresh
-            Condition2Button.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(Condition2Button, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'Condition2Button.started')
-            # update status
-            Condition2Button.status = STARTED
-            win.callOnFlip(Condition2Button.buttonClock.reset)
-            Condition2Button.setAutoDraw(True)
-        
-        # if Condition2Button is active this frame...
-        if Condition2Button.status == STARTED:
-            # update params
-            pass
-            # check whether Condition2Button has been pressed
-            if Condition2Button.isClicked:
-                if not Condition2Button.wasClicked:
-                    # if this is a new click, store time of first click and clicked until
-                    Condition2Button.timesOn.append(Condition2Button.buttonClock.getTime())
-                    Condition2Button.timesOff.append(Condition2Button.buttonClock.getTime())
-                elif len(Condition2Button.timesOff):
-                    # if click is continuing from last frame, update time of clicked until
-                    Condition2Button.timesOff[-1] = Condition2Button.buttonClock.getTime()
-                if not Condition2Button.wasClicked:
-                    # end routine when Condition2Button is clicked
-                    continueRoutine = False
-                if not Condition2Button.wasClicked:
-                    # run callback code when Condition2Button is clicked
-                    VideoInstructionsText.setText("Please take out your phone and go to the YouTube channel @[Channel Name]\n You should watch the video [Video Name] in fullscreen with the volume on until it is complete.\n Click continue when you are finished.")
-        # take note of whether Condition2Button was clicked, so that next frame we know if clicks are new
-        Condition2Button.wasClicked = Condition2Button.isClicked and Condition2Button.status == STARTED
+            ConditionSelectionKeyboard.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(ConditionSelectionKeyboard.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(ConditionSelectionKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if ConditionSelectionKeyboard.status == STARTED and not waitOnFlip:
+            theseKeys = ConditionSelectionKeyboard.getKeys(keyList=['a','d'], ignoreKeys=["escape"], waitRelease=False)
+            _ConditionSelectionKeyboard_allKeys.extend(theseKeys)
+            if len(_ConditionSelectionKeyboard_allKeys):
+                ConditionSelectionKeyboard.keys = _ConditionSelectionKeyboard_allKeys[-1].name  # just the last key pressed
+                ConditionSelectionKeyboard.rt = _ConditionSelectionKeyboard_allKeys[-1].rt
+                ConditionSelectionKeyboard.duration = _ConditionSelectionKeyboard_allKeys[-1].duration
+                # a response ends the routine
+                continueRoutine = False
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -904,20 +814,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     ConditionSelection.tStop = globalClock.getTime(format='float')
     ConditionSelection.tStopRefresh = tThisFlipGlobal
     thisExp.addData('ConditionSelection.stopped', ConditionSelection.tStop)
-    thisExp.addData('Condition1Button.numClicks', Condition1Button.numClicks)
-    if Condition1Button.numClicks:
-       thisExp.addData('Condition1Button.timesOn', Condition1Button.timesOn)
-       thisExp.addData('Condition1Button.timesOff', Condition1Button.timesOff)
-    else:
-       thisExp.addData('Condition1Button.timesOn', "")
-       thisExp.addData('Condition1Button.timesOff', "")
-    thisExp.addData('Condition2Button.numClicks', Condition2Button.numClicks)
-    if Condition2Button.numClicks:
-       thisExp.addData('Condition2Button.timesOn', Condition2Button.timesOn)
-       thisExp.addData('Condition2Button.timesOff', Condition2Button.timesOff)
-    else:
-       thisExp.addData('Condition2Button.timesOn', "")
-       thisExp.addData('Condition2Button.timesOff', "")
+    # check responses
+    if ConditionSelectionKeyboard.keys in ['', [], None]:  # No response was made
+        ConditionSelectionKeyboard.keys = None
+    thisExp.addData('ConditionSelectionKeyboard.keys',ConditionSelectionKeyboard.keys)
+    if ConditionSelectionKeyboard.keys != None:  # we had a response
+        thisExp.addData('ConditionSelectionKeyboard.rt', ConditionSelectionKeyboard.rt)
+        thisExp.addData('ConditionSelectionKeyboard.duration', ConditionSelectionKeyboard.duration)
+    # Run 'End Routine' code from code
+    if ConditionSelectionKeyboard.keys == 'a':
+        condition = 1
+    elif ConditionSelectionKeyboard.keys == 'd':
+        condition = 2
     thisExp.nextEntry()
     # the Routine "ConditionSelection" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -925,7 +833,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # set up handler to look after randomisation of conditions etc
     WithinSubjects = data.TrialHandler2(
         name='WithinSubjects',
-        nReps=1, 
+        nReps=2, 
         method='sequential', 
         extraInfo=expInfo, 
         originPath=-1, 
@@ -961,13 +869,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine VideoInstructions
         VideoInstructions = data.Routine(
             name='VideoInstructions',
-            components=[VideoInstructionsText, VideoInstructionsContinueButton],
+            components=[VideoInstructionsText, VideoInstructionsKeyboard],
         )
         VideoInstructions.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
-        # reset VideoInstructionsContinueButton to account for continued clicks & clear times on/off
-        VideoInstructionsContinueButton.reset()
+        # create starting attributes for VideoInstructionsKeyboard
+        VideoInstructionsKeyboard.keys = []
+        VideoInstructionsKeyboard.rt = []
+        _VideoInstructionsKeyboard_allKeys = []
+        # Run 'Begin Routine' code from code_2
+        if condition == 1:
+            VideoInstructionsText.setText("Please take out your phone and go the Instagram account @[Account Name]\n Please watch every video in order from top to bottom with the volume on.\n You must finish each video before scrolling to the next and only watch each video once.\n\n Press spacebar when you are finished!")
+        else:
+            VideoInstructionsText.setText("Please take out your phone and go to the YouTube channel @[Channel Name]\n You should watch the video [Video Name] in fullscreen with the volume on until it is complete.\n\n Press space when you are finished.")
         # store start times for VideoInstructions
         VideoInstructions.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         VideoInstructions.tStart = globalClock.getTime(format='float')
@@ -1021,43 +936,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if VideoInstructionsText.status == STARTED:
                 # update params
                 pass
-            # *VideoInstructionsContinueButton* updates
             
-            # if VideoInstructionsContinueButton is starting this frame...
-            if VideoInstructionsContinueButton.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+            # *VideoInstructionsKeyboard* updates
+            waitOnFlip = False
+            
+            # if VideoInstructionsKeyboard is starting this frame...
+            if VideoInstructionsKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                VideoInstructionsContinueButton.frameNStart = frameN  # exact frame index
-                VideoInstructionsContinueButton.tStart = t  # local t and not account for scr refresh
-                VideoInstructionsContinueButton.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(VideoInstructionsContinueButton, 'tStartRefresh')  # time at next scr refresh
+                VideoInstructionsKeyboard.frameNStart = frameN  # exact frame index
+                VideoInstructionsKeyboard.tStart = t  # local t and not account for scr refresh
+                VideoInstructionsKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(VideoInstructionsKeyboard, 'tStartRefresh')  # time at next scr refresh
                 # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'VideoInstructionsContinueButton.started')
+                thisExp.timestampOnFlip(win, 'VideoInstructionsKeyboard.started')
                 # update status
-                VideoInstructionsContinueButton.status = STARTED
-                win.callOnFlip(VideoInstructionsContinueButton.buttonClock.reset)
-                VideoInstructionsContinueButton.setAutoDraw(True)
-            
-            # if VideoInstructionsContinueButton is active this frame...
-            if VideoInstructionsContinueButton.status == STARTED:
-                # update params
-                pass
-                # check whether VideoInstructionsContinueButton has been pressed
-                if VideoInstructionsContinueButton.isClicked:
-                    if not VideoInstructionsContinueButton.wasClicked:
-                        # if this is a new click, store time of first click and clicked until
-                        VideoInstructionsContinueButton.timesOn.append(VideoInstructionsContinueButton.buttonClock.getTime())
-                        VideoInstructionsContinueButton.timesOff.append(VideoInstructionsContinueButton.buttonClock.getTime())
-                    elif len(VideoInstructionsContinueButton.timesOff):
-                        # if click is continuing from last frame, update time of clicked until
-                        VideoInstructionsContinueButton.timesOff[-1] = VideoInstructionsContinueButton.buttonClock.getTime()
-                    if not VideoInstructionsContinueButton.wasClicked:
-                        # end routine when VideoInstructionsContinueButton is clicked
-                        continueRoutine = False
-                    if not VideoInstructionsContinueButton.wasClicked:
-                        # run callback code when VideoInstructionsContinueButton is clicked
-                        pass
-            # take note of whether VideoInstructionsContinueButton was clicked, so that next frame we know if clicks are new
-            VideoInstructionsContinueButton.wasClicked = VideoInstructionsContinueButton.isClicked and VideoInstructionsContinueButton.status == STARTED
+                VideoInstructionsKeyboard.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(VideoInstructionsKeyboard.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(VideoInstructionsKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if VideoInstructionsKeyboard.status == STARTED and not waitOnFlip:
+                theseKeys = VideoInstructionsKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+                _VideoInstructionsKeyboard_allKeys.extend(theseKeys)
+                if len(_VideoInstructionsKeyboard_allKeys):
+                    VideoInstructionsKeyboard.keys = _VideoInstructionsKeyboard_allKeys[-1].name  # just the last key pressed
+                    VideoInstructionsKeyboard.rt = _VideoInstructionsKeyboard_allKeys[-1].rt
+                    VideoInstructionsKeyboard.duration = _VideoInstructionsKeyboard_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1101,14 +1007,161 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         VideoInstructions.tStop = globalClock.getTime(format='float')
         VideoInstructions.tStopRefresh = tThisFlipGlobal
         thisExp.addData('VideoInstructions.stopped', VideoInstructions.tStop)
-        WithinSubjects.addData('VideoInstructionsContinueButton.numClicks', VideoInstructionsContinueButton.numClicks)
-        if VideoInstructionsContinueButton.numClicks:
-           WithinSubjects.addData('VideoInstructionsContinueButton.timesOn', VideoInstructionsContinueButton.timesOn)
-           WithinSubjects.addData('VideoInstructionsContinueButton.timesOff', VideoInstructionsContinueButton.timesOff)
-        else:
-           WithinSubjects.addData('VideoInstructionsContinueButton.timesOn', "")
-           WithinSubjects.addData('VideoInstructionsContinueButton.timesOff', "")
+        # check responses
+        if VideoInstructionsKeyboard.keys in ['', [], None]:  # No response was made
+            VideoInstructionsKeyboard.keys = None
+        WithinSubjects.addData('VideoInstructionsKeyboard.keys',VideoInstructionsKeyboard.keys)
+        if VideoInstructionsKeyboard.keys != None:  # we had a response
+            WithinSubjects.addData('VideoInstructionsKeyboard.rt', VideoInstructionsKeyboard.rt)
+            WithinSubjects.addData('VideoInstructionsKeyboard.duration', VideoInstructionsKeyboard.duration)
         # the Routine "VideoInstructions" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
+        # --- Prepare to start Routine "ScreenshotInstructions" ---
+        # create an object to store info about Routine ScreenshotInstructions
+        ScreenshotInstructions = data.Routine(
+            name='ScreenshotInstructions',
+            components=[ScreenshotInstructionsText, ScreenshotInstructionsKeyboard],
+        )
+        ScreenshotInstructions.status = NOT_STARTED
+        continueRoutine = True
+        # update component parameters for each repeat
+        # create starting attributes for ScreenshotInstructionsKeyboard
+        ScreenshotInstructionsKeyboard.keys = []
+        ScreenshotInstructionsKeyboard.rt = []
+        _ScreenshotInstructionsKeyboard_allKeys = []
+        # store start times for ScreenshotInstructions
+        ScreenshotInstructions.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+        ScreenshotInstructions.tStart = globalClock.getTime(format='float')
+        ScreenshotInstructions.status = STARTED
+        thisExp.addData('ScreenshotInstructions.started', ScreenshotInstructions.tStart)
+        ScreenshotInstructions.maxDuration = None
+        # keep track of which components have finished
+        ScreenshotInstructionsComponents = ScreenshotInstructions.components
+        for thisComponent in ScreenshotInstructions.components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "ScreenshotInstructions" ---
+        thisExp.currentRoutine = ScreenshotInstructions
+        ScreenshotInstructions.forceEnded = routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # if trial has changed, end Routine now
+            if hasattr(thisWithinSubject, 'status') and thisWithinSubject.status == STOPPING:
+                continueRoutine = False
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *ScreenshotInstructionsText* updates
+            
+            # if ScreenshotInstructionsText is starting this frame...
+            if ScreenshotInstructionsText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                ScreenshotInstructionsText.frameNStart = frameN  # exact frame index
+                ScreenshotInstructionsText.tStart = t  # local t and not account for scr refresh
+                ScreenshotInstructionsText.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(ScreenshotInstructionsText, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'ScreenshotInstructionsText.started')
+                # update status
+                ScreenshotInstructionsText.status = STARTED
+                ScreenshotInstructionsText.setAutoDraw(True)
+            
+            # if ScreenshotInstructionsText is active this frame...
+            if ScreenshotInstructionsText.status == STARTED:
+                # update params
+                pass
+            
+            # *ScreenshotInstructionsKeyboard* updates
+            waitOnFlip = False
+            
+            # if ScreenshotInstructionsKeyboard is starting this frame...
+            if ScreenshotInstructionsKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                ScreenshotInstructionsKeyboard.frameNStart = frameN  # exact frame index
+                ScreenshotInstructionsKeyboard.tStart = t  # local t and not account for scr refresh
+                ScreenshotInstructionsKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(ScreenshotInstructionsKeyboard, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'ScreenshotInstructionsKeyboard.started')
+                # update status
+                ScreenshotInstructionsKeyboard.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(ScreenshotInstructionsKeyboard.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(ScreenshotInstructionsKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if ScreenshotInstructionsKeyboard.status == STARTED and not waitOnFlip:
+                theseKeys = ScreenshotInstructionsKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+                _ScreenshotInstructionsKeyboard_allKeys.extend(theseKeys)
+                if len(_ScreenshotInstructionsKeyboard_allKeys):
+                    ScreenshotInstructionsKeyboard.keys = _ScreenshotInstructionsKeyboard_allKeys[-1].name  # just the last key pressed
+                    ScreenshotInstructionsKeyboard.rt = _ScreenshotInstructionsKeyboard_allKeys[-1].rt
+                    ScreenshotInstructionsKeyboard.duration = _ScreenshotInstructionsKeyboard_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
+            
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            # pause experiment here if requested
+            if thisExp.status == PAUSED:
+                pauseExperiment(
+                    thisExp=thisExp, 
+                    win=win, 
+                    timers=[routineTimer, globalClock], 
+                    currentRoutine=ScreenshotInstructions,
+                )
+                # skip the frame we paused on
+                continue
+            
+            # has a Component requested the Routine to end?
+            if not continueRoutine:
+                ScreenshotInstructions.forceEnded = routineForceEnded = True
+            # has the Routine been forcibly ended?
+            if ScreenshotInstructions.forceEnded or routineForceEnded:
+                break
+            # has every Component finished?
+            continueRoutine = False
+            for thisComponent in ScreenshotInstructions.components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "ScreenshotInstructions" ---
+        for thisComponent in ScreenshotInstructions.components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # store stop times for ScreenshotInstructions
+        ScreenshotInstructions.tStop = globalClock.getTime(format='float')
+        ScreenshotInstructions.tStopRefresh = tThisFlipGlobal
+        thisExp.addData('ScreenshotInstructions.stopped', ScreenshotInstructions.tStop)
+        # check responses
+        if ScreenshotInstructionsKeyboard.keys in ['', [], None]:  # No response was made
+            ScreenshotInstructionsKeyboard.keys = None
+        WithinSubjects.addData('ScreenshotInstructionsKeyboard.keys',ScreenshotInstructionsKeyboard.keys)
+        if ScreenshotInstructionsKeyboard.keys != None:  # we had a response
+            WithinSubjects.addData('ScreenshotInstructionsKeyboard.rt', ScreenshotInstructionsKeyboard.rt)
+            WithinSubjects.addData('ScreenshotInstructionsKeyboard.duration', ScreenshotInstructionsKeyboard.duration)
+        # the Routine "ScreenshotInstructions" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
         # set up handler to look after randomisation of conditions etc
@@ -1118,7 +1171,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             method='random', 
             extraInfo=expInfo, 
             originPath=-1, 
-            trialList=data.importConditions('screenshotspreadsheet.csv'), 
+            trialList=data.importConditions('Spreadsheets/screenshotspreadsheet.csv'), 
             seed=None, 
             isTrials=True, 
         )
@@ -1150,23 +1203,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine ScreenshotOrderTask
             ScreenshotOrderTask = data.Routine(
                 name='ScreenshotOrderTask',
-                components=[ScreenshotLeft, ScreenshotRight, mouse],
+                components=[ScreenshotLeft, ScreenshotRight, ScreenshotKeyboard],
             )
             ScreenshotOrderTask.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
-            ScreenshotLeft.setImage(f"Screenshots/{Condition1New}")
-            ScreenshotRight.setImage(f"Screenshots/{Condition1Old}")
-            # setup some python lists for storing info about the mouse
-            mouse.x = []
-            mouse.y = []
-            mouse.leftButton = []
-            mouse.midButton = []
-            mouse.rightButton = []
-            mouse.time = []
-            mouse.corr = []
-            mouse.clicked_name = []
-            gotValidClick = False  # until a click is received
+            ScreenshotLeft.setImage(f"Screenshots/{Condition1Left}")
+            ScreenshotRight.setImage(f"Screenshots/{Condition1Right}")
+            # create starting attributes for ScreenshotKeyboard
+            ScreenshotKeyboard.keys = []
+            ScreenshotKeyboard.rt = []
+            _ScreenshotKeyboard_allKeys = []
             # store start times for ScreenshotOrderTask
             ScreenshotOrderTask.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             ScreenshotOrderTask.tStart = globalClock.getTime(format='float')
@@ -1240,55 +1287,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if ScreenshotRight.status == STARTED:
                     # update params
                     pass
-                # *mouse* updates
                 
-                # if mouse is starting this frame...
-                if mouse.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # *ScreenshotKeyboard* updates
+                waitOnFlip = False
+                
+                # if ScreenshotKeyboard is starting this frame...
+                if ScreenshotKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    mouse.frameNStart = frameN  # exact frame index
-                    mouse.tStart = t  # local t and not account for scr refresh
-                    mouse.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
+                    ScreenshotKeyboard.frameNStart = frameN  # exact frame index
+                    ScreenshotKeyboard.tStart = t  # local t and not account for scr refresh
+                    ScreenshotKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(ScreenshotKeyboard, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
-                    thisExp.addData('mouse.started', t)
+                    thisExp.timestampOnFlip(win, 'ScreenshotKeyboard.started')
                     # update status
-                    mouse.status = STARTED
-                    mouse.mouseClock.reset()
-                    prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
-                if mouse.status == STARTED:  # only update if started and not finished!
-                    buttons = mouse.getPressed()
-                    if buttons != prevButtonState:  # button state changed?
-                        prevButtonState = buttons
-                        if sum(buttons) > 0:  # state changed to a new click
-                            # check if the mouse was inside our 'clickable' objects
-                            gotValidClick = False
-                            clickableList = environmenttools.getFromNames(ScreenshotLeft, namespace=locals())
-                            for obj in clickableList:
-                                # is this object clicked on?
-                                if obj.contains(mouse):
-                                    gotValidClick = True
-                                    mouse.clicked_name.append(obj.name)
-                            if not gotValidClick:
-                                mouse.clicked_name.append(None)
-                            # check whether click was in correct object
-                            if gotValidClick:
-                                _corr = 0
-                                _corrAns = environmenttools.getFromNames([], namespace=locals())
-                                for obj in _corrAns:
-                                    # is this object clicked on?
-                                    if obj.contains(mouse):
-                                        _corr = 1
-                                mouse.corr.append(_corr)
-                            x, y = mouse.getPos()
-                            mouse.x.append(float(x))
-                            mouse.y.append(float(y))
-                            buttons = mouse.getPressed()
-                            mouse.leftButton.append(buttons[0])
-                            mouse.midButton.append(buttons[1])
-                            mouse.rightButton.append(buttons[2])
-                            mouse.time.append(mouse.mouseClock.getTime())
-                            
-                            continueRoutine = False  # end routine on response
+                    ScreenshotKeyboard.status = STARTED
+                    # keyboard checking is just starting
+                    waitOnFlip = True
+                    win.callOnFlip(ScreenshotKeyboard.clock.reset)  # t=0 on next screen flip
+                    win.callOnFlip(ScreenshotKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                if ScreenshotKeyboard.status == STARTED and not waitOnFlip:
+                    theseKeys = ScreenshotKeyboard.getKeys(keyList=['a','d'], ignoreKeys=["escape"], waitRelease=False)
+                    _ScreenshotKeyboard_allKeys.extend(theseKeys)
+                    if len(_ScreenshotKeyboard_allKeys):
+                        ScreenshotKeyboard.keys = _ScreenshotKeyboard_allKeys[-1].name  # just the last key pressed
+                        ScreenshotKeyboard.rt = _ScreenshotKeyboard_allKeys[-1].rt
+                        ScreenshotKeyboard.duration = _ScreenshotKeyboard_allKeys[-1].duration
+                        # a response ends the routine
+                        continueRoutine = False
                 
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1332,15 +1358,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             ScreenshotOrderTask.tStop = globalClock.getTime(format='float')
             ScreenshotOrderTask.tStopRefresh = tThisFlipGlobal
             thisExp.addData('ScreenshotOrderTask.stopped', ScreenshotOrderTask.tStop)
-            # store data for ScreenshotOrderTrial (TrialHandler)
-            ScreenshotOrderTrial.addData('mouse.x', mouse.x)
-            ScreenshotOrderTrial.addData('mouse.y', mouse.y)
-            ScreenshotOrderTrial.addData('mouse.leftButton', mouse.leftButton)
-            ScreenshotOrderTrial.addData('mouse.midButton', mouse.midButton)
-            ScreenshotOrderTrial.addData('mouse.rightButton', mouse.rightButton)
-            ScreenshotOrderTrial.addData('mouse.time', mouse.time)
-            ScreenshotOrderTrial.addData('mouse.corr', mouse.corr)
-            ScreenshotOrderTrial.addData('mouse.clicked_name', mouse.clicked_name)
+            # check responses
+            if ScreenshotKeyboard.keys in ['', [], None]:  # No response was made
+                ScreenshotKeyboard.keys = None
+            ScreenshotOrderTrial.addData('ScreenshotKeyboard.keys',ScreenshotKeyboard.keys)
+            if ScreenshotKeyboard.keys != None:  # we had a response
+                ScreenshotOrderTrial.addData('ScreenshotKeyboard.rt', ScreenshotKeyboard.rt)
+                ScreenshotOrderTrial.addData('ScreenshotKeyboard.duration', ScreenshotKeyboard.duration)
             # the Routine "ScreenshotOrderTask" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             # mark thisScreenshotOrderTrial as finished
@@ -1369,13 +1393,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine WordListInstructions
         WordListInstructions = data.Routine(
             name='WordListInstructions',
-            components=[WordListInstructionsText, WordListInstructionsContinueButton],
+            components=[WordListInstructionsText, WordListInstructionsKeyboard],
         )
         WordListInstructions.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
-        # reset WordListInstructionsContinueButton to account for continued clicks & clear times on/off
-        WordListInstructionsContinueButton.reset()
+        # create starting attributes for WordListInstructionsKeyboard
+        WordListInstructionsKeyboard.keys = []
+        WordListInstructionsKeyboard.rt = []
+        _WordListInstructionsKeyboard_allKeys = []
         # store start times for WordListInstructions
         WordListInstructions.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         WordListInstructions.tStart = globalClock.getTime(format='float')
@@ -1429,43 +1455,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if WordListInstructionsText.status == STARTED:
                 # update params
                 pass
-            # *WordListInstructionsContinueButton* updates
             
-            # if WordListInstructionsContinueButton is starting this frame...
-            if WordListInstructionsContinueButton.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+            # *WordListInstructionsKeyboard* updates
+            waitOnFlip = False
+            
+            # if WordListInstructionsKeyboard is starting this frame...
+            if WordListInstructionsKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                WordListInstructionsContinueButton.frameNStart = frameN  # exact frame index
-                WordListInstructionsContinueButton.tStart = t  # local t and not account for scr refresh
-                WordListInstructionsContinueButton.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(WordListInstructionsContinueButton, 'tStartRefresh')  # time at next scr refresh
+                WordListInstructionsKeyboard.frameNStart = frameN  # exact frame index
+                WordListInstructionsKeyboard.tStart = t  # local t and not account for scr refresh
+                WordListInstructionsKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(WordListInstructionsKeyboard, 'tStartRefresh')  # time at next scr refresh
                 # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'WordListInstructionsContinueButton.started')
+                thisExp.timestampOnFlip(win, 'WordListInstructionsKeyboard.started')
                 # update status
-                WordListInstructionsContinueButton.status = STARTED
-                win.callOnFlip(WordListInstructionsContinueButton.buttonClock.reset)
-                WordListInstructionsContinueButton.setAutoDraw(True)
-            
-            # if WordListInstructionsContinueButton is active this frame...
-            if WordListInstructionsContinueButton.status == STARTED:
-                # update params
-                pass
-                # check whether WordListInstructionsContinueButton has been pressed
-                if WordListInstructionsContinueButton.isClicked:
-                    if not WordListInstructionsContinueButton.wasClicked:
-                        # if this is a new click, store time of first click and clicked until
-                        WordListInstructionsContinueButton.timesOn.append(WordListInstructionsContinueButton.buttonClock.getTime())
-                        WordListInstructionsContinueButton.timesOff.append(WordListInstructionsContinueButton.buttonClock.getTime())
-                    elif len(WordListInstructionsContinueButton.timesOff):
-                        # if click is continuing from last frame, update time of clicked until
-                        WordListInstructionsContinueButton.timesOff[-1] = WordListInstructionsContinueButton.buttonClock.getTime()
-                    if not WordListInstructionsContinueButton.wasClicked:
-                        # end routine when WordListInstructionsContinueButton is clicked
-                        continueRoutine = False
-                    if not WordListInstructionsContinueButton.wasClicked:
-                        # run callback code when WordListInstructionsContinueButton is clicked
-                        pass
-            # take note of whether WordListInstructionsContinueButton was clicked, so that next frame we know if clicks are new
-            WordListInstructionsContinueButton.wasClicked = WordListInstructionsContinueButton.isClicked and WordListInstructionsContinueButton.status == STARTED
+                WordListInstructionsKeyboard.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(WordListInstructionsKeyboard.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(WordListInstructionsKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if WordListInstructionsKeyboard.status == STARTED and not waitOnFlip:
+                theseKeys = WordListInstructionsKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+                _WordListInstructionsKeyboard_allKeys.extend(theseKeys)
+                if len(_WordListInstructionsKeyboard_allKeys):
+                    WordListInstructionsKeyboard.keys = _WordListInstructionsKeyboard_allKeys[-1].name  # just the last key pressed
+                    WordListInstructionsKeyboard.rt = _WordListInstructionsKeyboard_allKeys[-1].rt
+                    WordListInstructionsKeyboard.duration = _WordListInstructionsKeyboard_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1509,13 +1526,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         WordListInstructions.tStop = globalClock.getTime(format='float')
         WordListInstructions.tStopRefresh = tThisFlipGlobal
         thisExp.addData('WordListInstructions.stopped', WordListInstructions.tStop)
-        WithinSubjects.addData('WordListInstructionsContinueButton.numClicks', WordListInstructionsContinueButton.numClicks)
-        if WordListInstructionsContinueButton.numClicks:
-           WithinSubjects.addData('WordListInstructionsContinueButton.timesOn', WordListInstructionsContinueButton.timesOn)
-           WithinSubjects.addData('WordListInstructionsContinueButton.timesOff', WordListInstructionsContinueButton.timesOff)
-        else:
-           WithinSubjects.addData('WordListInstructionsContinueButton.timesOn', "")
-           WithinSubjects.addData('WordListInstructionsContinueButton.timesOff', "")
+        # check responses
+        if WordListInstructionsKeyboard.keys in ['', [], None]:  # No response was made
+            WordListInstructionsKeyboard.keys = None
+        WithinSubjects.addData('WordListInstructionsKeyboard.keys',WordListInstructionsKeyboard.keys)
+        if WordListInstructionsKeyboard.keys != None:  # we had a response
+            WithinSubjects.addData('WordListInstructionsKeyboard.rt', WordListInstructionsKeyboard.rt)
+            WithinSubjects.addData('WordListInstructionsKeyboard.duration', WordListInstructionsKeyboard.duration)
         # the Routine "WordListInstructions" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -1523,10 +1540,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         WordListTrial = data.TrialHandler2(
             name='WordListTrial',
             nReps=1, 
-            method='sequential', 
+            method='random', 
             extraInfo=expInfo, 
             originPath=-1, 
-            trialList=data.importConditions('wordlistspreadsheets.csv'), 
+            trialList=data.importConditions('Spreadsheets/wordlistspreadsheets.csv'), 
             seed=None, 
             isTrials=True, 
         )
@@ -1830,99 +1847,216 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         else:
             routineTimer.addTime(-1.000000)
         
-        # --- Prepare to start Routine "WordListTest" ---
-        # create an object to store info about Routine WordListTest
-        WordListTest = data.Routine(
+        # set up handler to look after randomisation of conditions etc
+        WordListTest = data.TrialHandler2(
             name='WordListTest',
-            components=[],
+            nReps=0, 
+            method='random', 
+            extraInfo=expInfo, 
+            originPath=-1, 
+            trialList=data.importConditions('Spreadsheets/wordlistform.csv'), 
+            seed=None, 
+            isTrials=True, 
         )
-        WordListTest.status = NOT_STARTED
-        continueRoutine = True
-        # update component parameters for each repeat
-        # store start times for WordListTest
-        WordListTest.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-        WordListTest.tStart = globalClock.getTime(format='float')
-        WordListTest.status = STARTED
-        thisExp.addData('WordListTest.started', WordListTest.tStart)
-        WordListTest.maxDuration = None
-        # keep track of which components have finished
-        WordListTestComponents = WordListTest.components
-        for thisComponent in WordListTest.components:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        # reset timers
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        frameN = -1
+        thisExp.addLoop(WordListTest)  # add the loop to the experiment
+        thisWordListTest = WordListTest.trialList[0]  # so we can initialise stimuli with some values
+        # abbreviate parameter names if possible (e.g. rgb = thisWordListTest.rgb)
+        if thisWordListTest != None:
+            for paramName in thisWordListTest:
+                globals()[paramName] = thisWordListTest[paramName]
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
-        # --- Run Routine "WordListTest" ---
-        thisExp.currentRoutine = WordListTest
-        WordListTest.forceEnded = routineForceEnded = not continueRoutine
-        while continueRoutine:
-            # if trial has changed, end Routine now
-            if hasattr(thisWithinSubject, 'status') and thisWithinSubject.status == STOPPING:
-                continueRoutine = False
-            # get current time
-            t = routineTimer.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-            # update/draw components on each frame
+        for thisWordListTest in WordListTest:
+            WordListTest.status = STARTED
+            if hasattr(thisWordListTest, 'status'):
+                thisWordListTest.status = STARTED
+            currentLoop = WordListTest
+            thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
+            # abbreviate parameter names if possible (e.g. rgb = thisWordListTest.rgb)
+            if thisWordListTest != None:
+                for paramName in thisWordListTest:
+                    globals()[paramName] = thisWordListTest[paramName]
             
-            # check for quit (typically the Esc key)
-            if defaultKeyboard.getKeys(keyList=["escape"]):
-                thisExp.status = FINISHED
-            if thisExp.status == FINISHED or endExpNow:
-                endExperiment(thisExp, win=win)
-                return
-            # pause experiment here if requested
-            if thisExp.status == PAUSED:
+            # --- Prepare to start Routine "WordListTest" ---
+            # create an object to store info about Routine WordListTest
+            WordListTest = data.Routine(
+                name='WordListTest',
+                components=[WordListTestKeyboard, WordListTestForm],
+            )
+            WordListTest.status = NOT_STARTED
+            continueRoutine = True
+            # update component parameters for each repeat
+            # create starting attributes for WordListTestKeyboard
+            WordListTestKeyboard.keys = []
+            WordListTestKeyboard.rt = []
+            _WordListTestKeyboard_allKeys = []
+            # store start times for WordListTest
+            WordListTest.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+            WordListTest.tStart = globalClock.getTime(format='float')
+            WordListTest.status = STARTED
+            thisExp.addData('WordListTest.started', WordListTest.tStart)
+            WordListTest.maxDuration = None
+            # keep track of which components have finished
+            WordListTestComponents = WordListTest.components
+            for thisComponent in WordListTest.components:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+            
+            # --- Run Routine "WordListTest" ---
+            thisExp.currentRoutine = WordListTest
+            WordListTest.forceEnded = routineForceEnded = not continueRoutine
+            while continueRoutine:
+                # if trial has changed, end Routine now
+                if hasattr(thisWordListTest, 'status') and thisWordListTest.status == STOPPING:
+                    continueRoutine = False
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                
+                # *WordListTestKeyboard* updates
+                waitOnFlip = False
+                
+                # if WordListTestKeyboard is starting this frame...
+                if WordListTestKeyboard.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    WordListTestKeyboard.frameNStart = frameN  # exact frame index
+                    WordListTestKeyboard.tStart = t  # local t and not account for scr refresh
+                    WordListTestKeyboard.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(WordListTestKeyboard, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'WordListTestKeyboard.started')
+                    # update status
+                    WordListTestKeyboard.status = STARTED
+                    # keyboard checking is just starting
+                    waitOnFlip = True
+                    win.callOnFlip(WordListTestKeyboard.clock.reset)  # t=0 on next screen flip
+                    win.callOnFlip(WordListTestKeyboard.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                if WordListTestKeyboard.status == STARTED and not waitOnFlip:
+                    theseKeys = WordListTestKeyboard.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+                    _WordListTestKeyboard_allKeys.extend(theseKeys)
+                    if len(_WordListTestKeyboard_allKeys):
+                        WordListTestKeyboard.keys = _WordListTestKeyboard_allKeys[-1].name  # just the last key pressed
+                        WordListTestKeyboard.rt = _WordListTestKeyboard_allKeys[-1].rt
+                        WordListTestKeyboard.duration = _WordListTestKeyboard_allKeys[-1].duration
+                        # a response ends the routine
+                        continueRoutine = False
+                
+                # *WordListTestForm* updates
+                
+                # if WordListTestForm is starting this frame...
+                if WordListTestForm.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    WordListTestForm.frameNStart = frameN  # exact frame index
+                    WordListTestForm.tStart = t  # local t and not account for scr refresh
+                    WordListTestForm.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(WordListTestForm, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'WordListTestForm.started')
+                    # update status
+                    WordListTestForm.status = STARTED
+                    WordListTestForm.setAutoDraw(True)
+                
+                # if WordListTestForm is active this frame...
+                if WordListTestForm.status == STARTED:
+                    # update params
+                    pass
+                
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, win=win)
+                    return
+                # pause experiment here if requested
+                if thisExp.status == PAUSED:
+                    pauseExperiment(
+                        thisExp=thisExp, 
+                        win=win, 
+                        timers=[routineTimer, globalClock], 
+                        currentRoutine=WordListTest,
+                    )
+                    # skip the frame we paused on
+                    continue
+                
+                # has a Component requested the Routine to end?
+                if not continueRoutine:
+                    WordListTest.forceEnded = routineForceEnded = True
+                # has the Routine been forcibly ended?
+                if WordListTest.forceEnded or routineForceEnded:
+                    break
+                # has every Component finished?
+                continueRoutine = False
+                for thisComponent in WordListTest.components:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # --- Ending Routine "WordListTest" ---
+            for thisComponent in WordListTest.components:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            # store stop times for WordListTest
+            WordListTest.tStop = globalClock.getTime(format='float')
+            WordListTest.tStopRefresh = tThisFlipGlobal
+            thisExp.addData('WordListTest.stopped', WordListTest.tStop)
+            # check responses
+            if WordListTestKeyboard.keys in ['', [], None]:  # No response was made
+                WordListTestKeyboard.keys = None
+            WordListTest.addData('WordListTestKeyboard.keys',WordListTestKeyboard.keys)
+            if WordListTestKeyboard.keys != None:  # we had a response
+                WordListTest.addData('WordListTestKeyboard.rt', WordListTestKeyboard.rt)
+                WordListTest.addData('WordListTestKeyboard.duration', WordListTestKeyboard.duration)
+            WordListTestForm.addDataToExp(thisExp, 'rows')
+            WordListTestForm.autodraw = False
+            # the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
+            # mark thisWordListTest as finished
+            if hasattr(thisWordListTest, 'status'):
+                thisWordListTest.status = FINISHED
+            # if awaiting a pause, pause now
+            if WordListTest.status == PAUSED:
+                thisExp.status = PAUSED
                 pauseExperiment(
                     thisExp=thisExp, 
                     win=win, 
-                    timers=[routineTimer, globalClock], 
-                    currentRoutine=WordListTest,
+                    timers=[globalClock], 
                 )
-                # skip the frame we paused on
-                continue
+                # once done pausing, restore running status
+                WordListTest.status = STARTED
+            thisExp.nextEntry()
             
-            # has a Component requested the Routine to end?
-            if not continueRoutine:
-                WordListTest.forceEnded = routineForceEnded = True
-            # has the Routine been forcibly ended?
-            if WordListTest.forceEnded or routineForceEnded:
-                break
-            # has every Component finished?
-            continueRoutine = False
-            for thisComponent in WordListTest.components:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-            
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
+        # completed 0 repeats of 'WordListTest'
+        WordListTest.status = FINISHED
         
-        # --- Ending Routine "WordListTest" ---
-        for thisComponent in WordListTest.components:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        # store stop times for WordListTest
-        WordListTest.tStop = globalClock.getTime(format='float')
-        WordListTest.tStopRefresh = tThisFlipGlobal
-        thisExp.addData('WordListTest.stopped', WordListTest.tStop)
-        # the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
-        routineTimer.reset()
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         # --- Prepare to start Routine "BreakOrFinish" ---
         # create an object to store info about Routine BreakOrFinish
         BreakOrFinish = data.Routine(
             name='BreakOrFinish',
-            components=[],
+            components=[BreakText],
         )
         BreakOrFinish.status = NOT_STARTED
         continueRoutine = True
@@ -1933,6 +2067,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         BreakOrFinish.status = STARTED
         thisExp.addData('BreakOrFinish.started', BreakOrFinish.tStart)
         BreakOrFinish.maxDuration = None
+        # skip Routine BreakOrFinish if its 'Skip if' condition is True
+        BreakOrFinish.skipped = continueRoutine and not (LoopVariable == 1)
+        continueRoutine = BreakOrFinish.skipped
         # keep track of which components have finished
         BreakOrFinishComponents = BreakOrFinish.components
         for thisComponent in BreakOrFinish.components:
@@ -1960,6 +2097,40 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            
+            # *BreakText* updates
+            
+            # if BreakText is starting this frame...
+            if BreakText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                BreakText.frameNStart = frameN  # exact frame index
+                BreakText.tStart = t  # local t and not account for scr refresh
+                BreakText.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(BreakText, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'BreakText.started')
+                # update status
+                BreakText.status = STARTED
+                BreakText.setAutoDraw(True)
+            
+            # if BreakText is active this frame...
+            if BreakText.status == STARTED:
+                # update params
+                pass
+            
+            # if BreakText is stopping this frame...
+            if BreakText.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > BreakText.tStartRefresh + 1-frameTolerance:
+                    # keep track of stop time/frame for later
+                    BreakText.tStop = t  # not accounting for scr refresh
+                    BreakText.tStopRefresh = tThisFlipGlobal  # on global time
+                    BreakText.frameNStop = frameN  # exact frame index
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'BreakText.stopped')
+                    # update status
+                    BreakText.status = FINISHED
+                    BreakText.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2003,6 +2174,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         BreakOrFinish.tStop = globalClock.getTime(format='float')
         BreakOrFinish.tStopRefresh = tThisFlipGlobal
         thisExp.addData('BreakOrFinish.stopped', BreakOrFinish.tStop)
+        # Run 'End Routine' code from BreakCode
+        if condition == 1:
+            condition = 2
+        else: 
+            condition = 1
+        
+        LoopVariable = 1
+        
         # the Routine "BreakOrFinish" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         # mark thisWithinSubject as finished
@@ -2020,12 +2199,119 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             WithinSubjects.status = STARTED
         thisExp.nextEntry()
         
-    # completed 1 repeats of 'WithinSubjects'
+    # completed 2 repeats of 'WithinSubjects'
     WithinSubjects.status = FINISHED
     
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
         thisSession.sendExperimentData()
+    
+    # --- Prepare to start Routine "EndScreen" ---
+    # create an object to store info about Routine EndScreen
+    EndScreen = data.Routine(
+        name='EndScreen',
+        components=[EndScreenText],
+    )
+    EndScreen.status = NOT_STARTED
+    continueRoutine = True
+    # update component parameters for each repeat
+    # store start times for EndScreen
+    EndScreen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+    EndScreen.tStart = globalClock.getTime(format='float')
+    EndScreen.status = STARTED
+    thisExp.addData('EndScreen.started', EndScreen.tStart)
+    EndScreen.maxDuration = None
+    # keep track of which components have finished
+    EndScreenComponents = EndScreen.components
+    for thisComponent in EndScreen.components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "EndScreen" ---
+    thisExp.currentRoutine = EndScreen
+    EndScreen.forceEnded = routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *EndScreenText* updates
+        
+        # if EndScreenText is starting this frame...
+        if EndScreenText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            EndScreenText.frameNStart = frameN  # exact frame index
+            EndScreenText.tStart = t  # local t and not account for scr refresh
+            EndScreenText.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(EndScreenText, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'EndScreenText.started')
+            # update status
+            EndScreenText.status = STARTED
+            EndScreenText.setAutoDraw(True)
+        
+        # if EndScreenText is active this frame...
+        if EndScreenText.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, win=win)
+            return
+        # pause experiment here if requested
+        if thisExp.status == PAUSED:
+            pauseExperiment(
+                thisExp=thisExp, 
+                win=win, 
+                timers=[routineTimer, globalClock], 
+                currentRoutine=EndScreen,
+            )
+            # skip the frame we paused on
+            continue
+        
+        # has a Component requested the Routine to end?
+        if not continueRoutine:
+            EndScreen.forceEnded = routineForceEnded = True
+        # has the Routine been forcibly ended?
+        if EndScreen.forceEnded or routineForceEnded:
+            break
+        # has every Component finished?
+        continueRoutine = False
+        for thisComponent in EndScreen.components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "EndScreen" ---
+    for thisComponent in EndScreen.components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # store stop times for EndScreen
+    EndScreen.tStop = globalClock.getTime(format='float')
+    EndScreen.tStopRefresh = tThisFlipGlobal
+    thisExp.addData('EndScreen.stopped', EndScreen.tStop)
+    thisExp.nextEntry()
+    # the Routine "EndScreen" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
     
     # mark experiment as finished
     endExperiment(thisExp, win=win)
