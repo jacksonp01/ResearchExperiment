@@ -89,15 +89,11 @@ psychoJS.start({
     {'name': 'Spreadsheets/screenshotspreadsheet.csv', 'path': 'Spreadsheets/screenshotspreadsheet.csv'},
     {'name': 'Spreadsheets/wordlistspreadsheets.csv', 'path': 'Spreadsheets/wordlistspreadsheets.csv'},
     {'name': 'Spreadsheets/wordlistspreadsheets.csv', 'path': 'Spreadsheets/wordlistspreadsheets.csv'},
-    {'name': 'default.png', 'path': 'https://pavlovia.org/assets/default/default.png'},
   ]
 });
 
 psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
 
-
-var currentLoop;
-var frameDur;
 async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
@@ -125,42 +121,6 @@ async function updateInfo() {
   return Scheduler.Event.NEXT;
 }
 
-
-var WelcomeScreenClock;
-var WelcomeText;
-var WelcomeScreenKeyboard;
-var ScreenshotResources;
-var ConditionSelectionClock;
-var ConditionSelectionText;
-var ConditionSelectionKeyboard;
-var button;
-var VideoInstructionsClock;
-var VideoInstructionsText;
-var VideoInstructionsKeyboard;
-var VideoScreenClock;
-var ScreenshotInstructionsClock;
-var ScreenshotInstructionsText;
-var ScreenshotInstructionsKeyboard;
-var ScreenshotOrderTaskClock;
-var ScreenshotLeft;
-var ScreenshotRight;
-var ScreenshotKeyboard;
-var WordListInstructionsClock;
-var WordListInstructionsText;
-var WordListInstructionsKeyboard;
-var WordListStudyClock;
-var WordListStudyText;
-var WordListDistractionClock;
-var WordListDistractionText;
-var WordListTestClock;
-var WordListSlider;
-var WordListTestText;
-var BreakOrFinishClock;
-var BreakText;
-var EndScreenClock;
-var EndScreenText;
-var globalClock;
-var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "WelcomeScreen"
   WelcomeScreenClock = new util.Clock();
@@ -186,7 +146,7 @@ async function experimentInit() {
   ConditionSelectionText = new visual.TextStim({
     win: psychoJS.window,
     name: 'ConditionSelectionText',
-    text: 'You will be completing this experiment twice in two different conditions. The experimenter should have informed you which condition you will be completing first.\n\nIf you were assigned to condition 1, press <A>.\n\nIf you were assigned to condition 2, press <D>.\n\nIf you are not sure which condition you were assigned to, please ask the experimenter.',
+    text: 'Who invited you to take the experiment?',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -195,15 +155,61 @@ async function experimentInit() {
     depth: 0.0 
   });
   
-  ConditionSelectionKeyboard = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
-  button = new visual.ButtonStim({
+  JacksonButton = new visual.ButtonStim({
     win: psychoJS.window,
-    name: 'button',
+    name: 'JacksonButton',
     text: 'Jackson',
     font: 'Arvo',
-    pos: [(- 0.2), 0.2],
-    size: [0.2, 0.2],
+    pos: [0.1, 0.1],
+    size: [0.3, 0.3],
+    padding: null,
+    anchor: 'center',
+    ori: 0.0,
+    units: psychoJS.window.units,
+    color: 'white',
+    fillColor: 'darkgrey',
+    borderColor: null,
+    colorSpace: 'rgb',
+    borderWidth: 0.0,
+    opacity: null,
+    depth: -1,
+    letterHeight: 0.05,
+    bold: true,
+    italic: false,
+  });
+  JacksonButton.clock = new util.Clock();
+  
+  MeganButton = new visual.ButtonStim({
+    win: psychoJS.window,
+    name: 'MeganButton',
+    text: 'Megan',
+    font: 'Arvo',
+    pos: [0.1, (- 0.1)],
+    size: [0.3, 0.3],
+    padding: null,
+    anchor: 'center',
+    ori: 0.0,
+    units: psychoJS.window.units,
+    color: 'white',
+    fillColor: 'darkgrey',
+    borderColor: null,
+    colorSpace: 'rgb',
+    borderWidth: 0.0,
+    opacity: null,
+    depth: -2,
+    letterHeight: 0.05,
+    bold: true,
+    italic: false,
+  });
+  MeganButton.clock = new util.Clock();
+  
+  JessicaButton = new visual.ButtonStim({
+    win: psychoJS.window,
+    name: 'JessicaButton',
+    text: 'Jessica',
+    font: 'Arvo',
+    pos: [(- 0.1), 0.1],
+    size: [0.3, 0.3],
     padding: null,
     anchor: 'center',
     ori: 0.0,
@@ -219,7 +225,31 @@ async function experimentInit() {
     bold: true,
     italic: false,
   });
-  button.clock = new util.Clock();
+  JessicaButton.clock = new util.Clock();
+  
+  JawwadButton = new visual.ButtonStim({
+    win: psychoJS.window,
+    name: 'JawwadButton',
+    text: 'Jawwad',
+    font: 'Arvo',
+    pos: [(- 0.1), (- 0.1)],
+    size: [0.3, 0.3],
+    padding: null,
+    anchor: 'center',
+    ori: 0.0,
+    units: psychoJS.window.units,
+    color: 'white',
+    fillColor: 'darkgrey',
+    borderColor: null,
+    colorSpace: 'rgb',
+    borderWidth: 0.0,
+    opacity: null,
+    depth: -4,
+    letterHeight: 0.05,
+    bold: true,
+    italic: false,
+  });
+  JawwadButton.clock = new util.Clock();
   
   // Initialize components for Routine "VideoInstructions"
   VideoInstructionsClock = new util.Clock();
@@ -260,7 +290,7 @@ async function experimentInit() {
   ScreenshotLeft = new visual.ImageStim({
     win : psychoJS.window,
     name : 'ScreenshotLeft', units : undefined, 
-    image : 'default.png', mask : undefined,
+    image : undefined, mask : undefined,
     anchor : 'center',
     ori : 0.0, 
     pos : [(- 0.3), 0], 
@@ -273,7 +303,7 @@ async function experimentInit() {
   ScreenshotRight = new visual.ImageStim({
     win : psychoJS.window,
     name : 'ScreenshotRight', units : undefined, 
-    image : 'default.png', mask : undefined,
+    image : undefined, mask : undefined,
     anchor : 'center',
     ori : 0.0, 
     pos : [0.3, 0], 
@@ -392,15 +422,6 @@ async function experimentInit() {
   return Scheduler.Event.NEXT;
 }
 
-
-var t;
-var frameN;
-var continueRoutine;
-var routineForceEnded;
-var WelcomeScreenMaxDurationReached;
-var _WelcomeScreenKeyboard_allKeys;
-var WelcomeScreenMaxDuration;
-var WelcomeScreenComponents;
 function WelcomeScreenRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -432,7 +453,6 @@ function WelcomeScreenRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function WelcomeScreenRoutineEachFrame() {
   return async function () {
@@ -527,7 +547,6 @@ function WelcomeScreenRoutineEachFrame() {
   };
 }
 
-
 function WelcomeScreenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WelcomeScreen' ---
@@ -560,11 +579,6 @@ function WelcomeScreenRoutineEnd(snapshot) {
   }
 }
 
-
-var ConditionSelectionMaxDurationReached;
-var _ConditionSelectionKeyboard_allKeys;
-var ConditionSelectionMaxDuration;
-var ConditionSelectionComponents;
 function ConditionSelectionRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -579,18 +593,23 @@ function ConditionSelectionRoutineBegin(snapshot) {
     routineTimer.reset();
     ConditionSelectionMaxDurationReached = false;
     // update component parameters for each repeat
-    ConditionSelectionKeyboard.keys = undefined;
-    ConditionSelectionKeyboard.rt = undefined;
-    _ConditionSelectionKeyboard_allKeys = [];
-    // reset button to account for continued clicks & clear times on/off
-    button.reset()
+    // reset JacksonButton to account for continued clicks & clear times on/off
+    JacksonButton.reset()
+    // reset MeganButton to account for continued clicks & clear times on/off
+    MeganButton.reset()
+    // reset JessicaButton to account for continued clicks & clear times on/off
+    JessicaButton.reset()
+    // reset JawwadButton to account for continued clicks & clear times on/off
+    JawwadButton.reset()
     psychoJS.experiment.addData('ConditionSelection.started', globalClock.getTime());
     ConditionSelectionMaxDuration = null
     // keep track of which components have finished
     ConditionSelectionComponents = [];
     ConditionSelectionComponents.push(ConditionSelectionText);
-    ConditionSelectionComponents.push(ConditionSelectionKeyboard);
-    ConditionSelectionComponents.push(button);
+    ConditionSelectionComponents.push(JacksonButton);
+    ConditionSelectionComponents.push(MeganButton);
+    ConditionSelectionComponents.push(JessicaButton);
+    ConditionSelectionComponents.push(JawwadButton);
     
     for (const thisComponent of ConditionSelectionComponents)
       if ('status' in thisComponent)
@@ -598,7 +617,6 @@ function ConditionSelectionRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function ConditionSelectionRoutineEachFrame() {
   return async function () {
@@ -623,77 +641,180 @@ function ConditionSelectionRoutineEachFrame() {
     }
     
     
-    // *ConditionSelectionKeyboard* updates
-    if (t >= 0.0 && ConditionSelectionKeyboard.status === PsychoJS.Status.NOT_STARTED) {
+    // *JacksonButton* updates
+    if (t >= 0 && JacksonButton.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      ConditionSelectionKeyboard.tStart = t;  // (not accounting for frame time here)
-      ConditionSelectionKeyboard.frameNStart = frameN;  // exact frame index
+      JacksonButton.tStart = t;  // (not accounting for frame time here)
+      JacksonButton.frameNStart = frameN;  // exact frame index
       
-      // keyboard checking is just starting
-      psychoJS.window.callOnFlip(function() { ConditionSelectionKeyboard.clock.reset(); });  // t=0 on next screen flip
-      psychoJS.window.callOnFlip(function() { ConditionSelectionKeyboard.start(); }); // start on screen flip
-      psychoJS.window.callOnFlip(function() { ConditionSelectionKeyboard.clearEvents(); });
-    }
-    
-    // if ConditionSelectionKeyboard is active this frame...
-    if (ConditionSelectionKeyboard.status === PsychoJS.Status.STARTED) {
-      let theseKeys = ConditionSelectionKeyboard.getKeys({
-        keyList: typeof ['a','d'] === 'string' ? [['a','d']] : ['a','d'], 
-        waitRelease: false
-      });
-      _ConditionSelectionKeyboard_allKeys = _ConditionSelectionKeyboard_allKeys.concat(theseKeys);
-      if (_ConditionSelectionKeyboard_allKeys.length > 0) {
-        ConditionSelectionKeyboard.keys = _ConditionSelectionKeyboard_allKeys[_ConditionSelectionKeyboard_allKeys.length - 1].name;  // just the last key pressed
-        ConditionSelectionKeyboard.rt = _ConditionSelectionKeyboard_allKeys[_ConditionSelectionKeyboard_allKeys.length - 1].rt;
-        ConditionSelectionKeyboard.duration = _ConditionSelectionKeyboard_allKeys[_ConditionSelectionKeyboard_allKeys.length - 1].duration;
-        // a response ends the routine
-        continueRoutine = false;
-      }
+      JacksonButton.setAutoDraw(true);
     }
     
     
-    // *button* updates
-    if (t >= 0 && button.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      button.tStart = t;  // (not accounting for frame time here)
-      button.frameNStart = frameN;  // exact frame index
-      
-      button.setAutoDraw(true);
+    // if JacksonButton is active this frame...
+    if (JacksonButton.status === PsychoJS.Status.STARTED) {
     }
     
-    
-    // if button is active this frame...
-    if (button.status === PsychoJS.Status.STARTED) {
-    }
-    
-    if (button.status === PsychoJS.Status.STARTED) {
-      // check whether button has been pressed
-      if (button.isClicked) {
-        if (!button.wasClicked) {
+    if (JacksonButton.status === PsychoJS.Status.STARTED) {
+      // check whether JacksonButton has been pressed
+      if (JacksonButton.isClicked) {
+        if (!JacksonButton.wasClicked) {
           // store time of first click
-          button.timesOn.push(button.clock.getTime());
+          JacksonButton.timesOn.push(JacksonButton.clock.getTime());
           // store time clicked until
-          button.timesOff.push(button.clock.getTime());
+          JacksonButton.timesOff.push(JacksonButton.clock.getTime());
         } else {
           // update time clicked until;
-          button.timesOff[button.timesOff.length - 1] = button.clock.getTime();
+          JacksonButton.timesOff[JacksonButton.timesOff.length - 1] = JacksonButton.clock.getTime();
         }
-        if (!button.wasClicked) {
-          // end routine when button is clicked
+        if (!JacksonButton.wasClicked) {
+          // end routine when JacksonButton is clicked
           continueRoutine = false;
-          
+          ConditionVariable = 2;
         }
-        // if button is still clicked next frame, it is not a new click
-        button.wasClicked = true;
+        // if JacksonButton is still clicked next frame, it is not a new click
+        JacksonButton.wasClicked = true;
       } else {
-        // if button is clicked next frame, it is a new click
-        button.wasClicked = false;
+        // if JacksonButton is clicked next frame, it is a new click
+        JacksonButton.wasClicked = false;
       }
     } else {
-      // keep clock at 0 if button hasn't started / has finished
-      button.clock.reset();
-      // if button is clicked next frame, it is a new click
-      button.wasClicked = false;
+      // keep clock at 0 if JacksonButton hasn't started / has finished
+      JacksonButton.clock.reset();
+      // if JacksonButton is clicked next frame, it is a new click
+      JacksonButton.wasClicked = false;
+    }
+    
+    // *MeganButton* updates
+    if (t >= 0 && MeganButton.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      MeganButton.tStart = t;  // (not accounting for frame time here)
+      MeganButton.frameNStart = frameN;  // exact frame index
+      
+      MeganButton.setAutoDraw(true);
+    }
+    
+    
+    // if MeganButton is active this frame...
+    if (MeganButton.status === PsychoJS.Status.STARTED) {
+    }
+    
+    if (MeganButton.status === PsychoJS.Status.STARTED) {
+      // check whether MeganButton has been pressed
+      if (MeganButton.isClicked) {
+        if (!MeganButton.wasClicked) {
+          // store time of first click
+          MeganButton.timesOn.push(MeganButton.clock.getTime());
+          // store time clicked until
+          MeganButton.timesOff.push(MeganButton.clock.getTime());
+        } else {
+          // update time clicked until;
+          MeganButton.timesOff[MeganButton.timesOff.length - 1] = MeganButton.clock.getTime();
+        }
+        if (!MeganButton.wasClicked) {
+          // end routine when MeganButton is clicked
+          continueRoutine = false;
+          ConditionVariable = 4;
+        }
+        // if MeganButton is still clicked next frame, it is not a new click
+        MeganButton.wasClicked = true;
+      } else {
+        // if MeganButton is clicked next frame, it is a new click
+        MeganButton.wasClicked = false;
+      }
+    } else {
+      // keep clock at 0 if MeganButton hasn't started / has finished
+      MeganButton.clock.reset();
+      // if MeganButton is clicked next frame, it is a new click
+      MeganButton.wasClicked = false;
+    }
+    
+    // *JessicaButton* updates
+    if (t >= 0 && JessicaButton.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      JessicaButton.tStart = t;  // (not accounting for frame time here)
+      JessicaButton.frameNStart = frameN;  // exact frame index
+      
+      JessicaButton.setAutoDraw(true);
+    }
+    
+    
+    // if JessicaButton is active this frame...
+    if (JessicaButton.status === PsychoJS.Status.STARTED) {
+    }
+    
+    if (JessicaButton.status === PsychoJS.Status.STARTED) {
+      // check whether JessicaButton has been pressed
+      if (JessicaButton.isClicked) {
+        if (!JessicaButton.wasClicked) {
+          // store time of first click
+          JessicaButton.timesOn.push(JessicaButton.clock.getTime());
+          // store time clicked until
+          JessicaButton.timesOff.push(JessicaButton.clock.getTime());
+        } else {
+          // update time clicked until;
+          JessicaButton.timesOff[JessicaButton.timesOff.length - 1] = JessicaButton.clock.getTime();
+        }
+        if (!JessicaButton.wasClicked) {
+          // end routine when JessicaButton is clicked
+          continueRoutine = false;
+          ConditionVariable = 1;
+        }
+        // if JessicaButton is still clicked next frame, it is not a new click
+        JessicaButton.wasClicked = true;
+      } else {
+        // if JessicaButton is clicked next frame, it is a new click
+        JessicaButton.wasClicked = false;
+      }
+    } else {
+      // keep clock at 0 if JessicaButton hasn't started / has finished
+      JessicaButton.clock.reset();
+      // if JessicaButton is clicked next frame, it is a new click
+      JessicaButton.wasClicked = false;
+    }
+    
+    // *JawwadButton* updates
+    if (t >= 0 && JawwadButton.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      JawwadButton.tStart = t;  // (not accounting for frame time here)
+      JawwadButton.frameNStart = frameN;  // exact frame index
+      
+      JawwadButton.setAutoDraw(true);
+    }
+    
+    
+    // if JawwadButton is active this frame...
+    if (JawwadButton.status === PsychoJS.Status.STARTED) {
+    }
+    
+    if (JawwadButton.status === PsychoJS.Status.STARTED) {
+      // check whether JawwadButton has been pressed
+      if (JawwadButton.isClicked) {
+        if (!JawwadButton.wasClicked) {
+          // store time of first click
+          JawwadButton.timesOn.push(JawwadButton.clock.getTime());
+          // store time clicked until
+          JawwadButton.timesOff.push(JawwadButton.clock.getTime());
+        } else {
+          // update time clicked until;
+          JawwadButton.timesOff[JawwadButton.timesOff.length - 1] = JawwadButton.clock.getTime();
+        }
+        if (!JawwadButton.wasClicked) {
+          // end routine when JawwadButton is clicked
+          continueRoutine = false;
+          ConditionVariable = 3;
+        }
+        // if JawwadButton is still clicked next frame, it is not a new click
+        JawwadButton.wasClicked = true;
+      } else {
+        // if JawwadButton is clicked next frame, it is a new click
+        JawwadButton.wasClicked = false;
+      }
+    } else {
+      // keep clock at 0 if JawwadButton hasn't started / has finished
+      JawwadButton.clock.reset();
+      // if JawwadButton is clicked next frame, it is a new click
+      JawwadButton.wasClicked = false;
     }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
@@ -722,8 +843,6 @@ function ConditionSelectionRoutineEachFrame() {
   };
 }
 
-
-var condition;
 function ConditionSelectionRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'ConditionSelection' ---
@@ -733,30 +852,18 @@ function ConditionSelectionRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('ConditionSelection.stopped', globalClock.getTime());
-    // update the trial handler
-    if (currentLoop instanceof MultiStairHandler) {
-      currentLoop.addResponse(ConditionSelectionKeyboard.corr, level);
-    }
-    psychoJS.experiment.addData('ConditionSelectionKeyboard.keys', ConditionSelectionKeyboard.keys);
-    if (typeof ConditionSelectionKeyboard.keys !== 'undefined') {  // we had a response
-        psychoJS.experiment.addData('ConditionSelectionKeyboard.rt', ConditionSelectionKeyboard.rt);
-        psychoJS.experiment.addData('ConditionSelectionKeyboard.duration', ConditionSelectionKeyboard.duration);
-        routineTimer.reset();
-        }
-    
-    ConditionSelectionKeyboard.stop();
-    // Run 'End Routine' code from ConditionSelectionCode
-    if ((ConditionSelectionKeyboard.keys === "a")) {
-        condition = 1;
-    } else {
-        if ((ConditionSelectionKeyboard.keys === "d")) {
-            condition = 2;
-        }
-    }
-    
-    psychoJS.experiment.addData('button.numClicks', button.numClicks);
-    psychoJS.experiment.addData('button.timesOn', button.timesOn);
-    psychoJS.experiment.addData('button.timesOff', button.timesOff);
+    psychoJS.experiment.addData('JacksonButton.numClicks', JacksonButton.numClicks);
+    psychoJS.experiment.addData('JacksonButton.timesOn', JacksonButton.timesOn);
+    psychoJS.experiment.addData('JacksonButton.timesOff', JacksonButton.timesOff);
+    psychoJS.experiment.addData('MeganButton.numClicks', MeganButton.numClicks);
+    psychoJS.experiment.addData('MeganButton.timesOn', MeganButton.timesOn);
+    psychoJS.experiment.addData('MeganButton.timesOff', MeganButton.timesOff);
+    psychoJS.experiment.addData('JessicaButton.numClicks', JessicaButton.numClicks);
+    psychoJS.experiment.addData('JessicaButton.timesOn', JessicaButton.timesOn);
+    psychoJS.experiment.addData('JessicaButton.timesOff', JessicaButton.timesOff);
+    psychoJS.experiment.addData('JawwadButton.numClicks', JawwadButton.numClicks);
+    psychoJS.experiment.addData('JawwadButton.timesOn', JawwadButton.timesOn);
+    psychoJS.experiment.addData('JawwadButton.timesOff', JawwadButton.timesOff);
     // the Routine "ConditionSelection" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -768,8 +875,6 @@ function ConditionSelectionRoutineEnd(snapshot) {
   }
 }
 
-
-var WithinSubjects;
 function WithinSubjectsLoopBegin(WithinSubjectsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -826,8 +931,6 @@ function WithinSubjectsLoopBegin(WithinSubjectsLoopScheduler, snapshot) {
   }
 }
 
-
-var ScreenshotOrderTrials;
 function ScreenshotOrderTrialsLoopBegin(ScreenshotOrderTrialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -857,7 +960,6 @@ function ScreenshotOrderTrialsLoopBegin(ScreenshotOrderTrialsLoopScheduler, snap
   }
 }
 
-
 async function ScreenshotOrderTrialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(ScreenshotOrderTrials);
@@ -868,7 +970,6 @@ async function ScreenshotOrderTrialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
-
 
 function ScreenshotOrderTrialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -889,8 +990,6 @@ function ScreenshotOrderTrialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
-
-var WordListStudyTrials;
 function WordListStudyTrialsLoopBegin(WordListStudyTrialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -920,7 +1019,6 @@ function WordListStudyTrialsLoopBegin(WordListStudyTrialsLoopScheduler, snapshot
   }
 }
 
-
 async function WordListStudyTrialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(WordListStudyTrials);
@@ -931,7 +1029,6 @@ async function WordListStudyTrialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
-
 
 function WordListStudyTrialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -952,8 +1049,6 @@ function WordListStudyTrialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
-
-var WordListTestTrials;
 function WordListTestTrialsLoopBegin(WordListTestTrialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -983,7 +1078,6 @@ function WordListTestTrialsLoopBegin(WordListTestTrialsLoopScheduler, snapshot) 
   }
 }
 
-
 async function WordListTestTrialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(WordListTestTrials);
@@ -994,7 +1088,6 @@ async function WordListTestTrialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
-
 
 function WordListTestTrialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -1015,7 +1108,6 @@ function WordListTestTrialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
-
 async function WithinSubjectsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(WithinSubjects);
@@ -1026,7 +1118,6 @@ async function WithinSubjectsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
-
 
 function WithinSubjectsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -1047,11 +1138,6 @@ function WithinSubjectsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
-
-var VideoInstructionsMaxDurationReached;
-var _VideoInstructionsKeyboard_allKeys;
-var VideoInstructionsMaxDuration;
-var VideoInstructionsComponents;
 function VideoInstructionsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1070,7 +1156,7 @@ function VideoInstructionsRoutineBegin(snapshot) {
     VideoInstructionsKeyboard.rt = undefined;
     _VideoInstructionsKeyboard_allKeys = [];
     // Run 'Begin Routine' code from VideoInstructionsCode
-    if ((condition === 1)) {
+    if (((ConditionVariable === 1) || (ConditionVariable === 2))) {
         VideoInstructionsText.setText("Please take out your phone and go the Instagram account @psy379proj\n\n Watch every video in order from top to bottom with the volume on.\n\n You must finish each video before scrolling to the next and only watch each video once.\n\n Press <SPACE> when you are finished!");
     } else {
         VideoInstructionsText.setText("You will now watch a brief video. Please do not use your phone at any point during the video.\n\nPress <SPACE> to continue.");
@@ -1089,7 +1175,6 @@ function VideoInstructionsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function VideoInstructionsRoutineEachFrame() {
   return async function () {
@@ -1169,7 +1254,6 @@ function VideoInstructionsRoutineEachFrame() {
   };
 }
 
-
 function VideoInstructionsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'VideoInstructions' ---
@@ -1202,11 +1286,6 @@ function VideoInstructionsRoutineEnd(snapshot) {
   }
 }
 
-
-var VideoScreenMaxDurationReached;
-var maxDurationReached;
-var VideoScreenMaxDuration;
-var VideoScreenComponents;
 function VideoScreenRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1223,7 +1302,7 @@ function VideoScreenRoutineBegin(snapshot) {
     // update component parameters for each repeat
     psychoJS.experiment.addData('VideoScreen.started', globalClock.getTime());
     // skip this Routine if its 'Skip if' condition is True
-    continueRoutine = continueRoutine && !((condition == 1));
+    continueRoutine = continueRoutine && !(((ConditionVariable == 1) or (ConditionVariable == 2)));
     maxDurationReached = false
     VideoScreenMaxDuration = null
     // keep track of which components have finished
@@ -1235,7 +1314,6 @@ function VideoScreenRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function VideoScreenRoutineEachFrame() {
   return async function () {
@@ -1271,7 +1349,6 @@ function VideoScreenRoutineEachFrame() {
   };
 }
 
-
 function VideoScreenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'VideoScreen' ---
@@ -1292,11 +1369,6 @@ function VideoScreenRoutineEnd(snapshot) {
   }
 }
 
-
-var ScreenshotInstructionsMaxDurationReached;
-var _ScreenshotInstructionsKeyboard_allKeys;
-var ScreenshotInstructionsMaxDuration;
-var ScreenshotInstructionsComponents;
 function ScreenshotInstructionsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1327,7 +1399,6 @@ function ScreenshotInstructionsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function ScreenshotInstructionsRoutineEachFrame() {
   return async function () {
@@ -1407,7 +1478,6 @@ function ScreenshotInstructionsRoutineEachFrame() {
   };
 }
 
-
 function ScreenshotInstructionsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'ScreenshotInstructions' ---
@@ -1440,11 +1510,6 @@ function ScreenshotInstructionsRoutineEnd(snapshot) {
   }
 }
 
-
-var ScreenshotOrderTaskMaxDurationReached;
-var _ScreenshotKeyboard_allKeys;
-var ScreenshotOrderTaskMaxDuration;
-var ScreenshotOrderTaskComponents;
 function ScreenshotOrderTaskRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1459,11 +1524,18 @@ function ScreenshotOrderTaskRoutineBegin(snapshot) {
     routineTimer.reset();
     ScreenshotOrderTaskMaxDurationReached = false;
     // update component parameters for each repeat
-    ScreenshotLeft.setImage(`Screenshots/${Condition1Left}`);
-    ScreenshotRight.setImage(`Screenshots/${Condition1Right}`);
     ScreenshotKeyboard.keys = undefined;
     ScreenshotKeyboard.rt = undefined;
     _ScreenshotKeyboard_allKeys = [];
+    // Run 'Begin Routine' code from ScreenshotCode
+    if (((ConditionVariable === 1) || (ConditionVariable === 2))) {
+        ScreenshotLeft.image = `Screenshots/${Condition1Left}`;
+        ScreenshotRight.image = `Screenshots/${Condition1Right}`;
+    } else {
+        ScreenshotLeft.image = `Screenshots/${Condition2Left}`;
+        ScreenshotRight.image = `Screenshots/${Condition2Right}`;
+    }
+    
     psychoJS.experiment.addData('ScreenshotOrderTask.started', globalClock.getTime());
     ScreenshotOrderTaskMaxDuration = null
     // keep track of which components have finished
@@ -1478,7 +1550,6 @@ function ScreenshotOrderTaskRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function ScreenshotOrderTaskRoutineEachFrame() {
   return async function () {
@@ -1573,7 +1644,6 @@ function ScreenshotOrderTaskRoutineEachFrame() {
   };
 }
 
-
 function ScreenshotOrderTaskRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'ScreenshotOrderTask' ---
@@ -1606,11 +1676,6 @@ function ScreenshotOrderTaskRoutineEnd(snapshot) {
   }
 }
 
-
-var WordListInstructionsMaxDurationReached;
-var _WordListInstructionsKeyboard_allKeys;
-var WordListInstructionsMaxDuration;
-var WordListInstructionsComponents;
 function WordListInstructionsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1641,7 +1706,6 @@ function WordListInstructionsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function WordListInstructionsRoutineEachFrame() {
   return async function () {
@@ -1721,7 +1785,6 @@ function WordListInstructionsRoutineEachFrame() {
   };
 }
 
-
 function WordListInstructionsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListInstructions' ---
@@ -1754,10 +1817,6 @@ function WordListInstructionsRoutineEnd(snapshot) {
   }
 }
 
-
-var WordListStudyMaxDurationReached;
-var WordListStudyMaxDuration;
-var WordListStudyComponents;
 function WordListStudyRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1772,9 +1831,14 @@ function WordListStudyRoutineBegin(snapshot) {
     routineTimer.add(1.000000);
     WordListStudyMaxDurationReached = false;
     // update component parameters for each repeat
-    WordListStudyText.setText(FirstList);
     // Run 'Begin Routine' code from WordListStudyCode
-    psychoJS.experiment.addData("Study_Word", FirstList);
+    if (((ConditionVariable === 1) || (ConditionVariable === 3))) {
+        psychoJS.experiment.addData("Study_Word", Condition1List);
+        WordListStudyText.text = Condition1List;
+    } else {
+        psychoJS.experiment.addData("Study_Word", Condition2List);
+        WordListStudyText.text = Condition2List;
+    }
     
     psychoJS.experiment.addData('WordListStudy.started', globalClock.getTime());
     WordListStudyMaxDuration = null
@@ -1789,8 +1853,6 @@ function WordListStudyRoutineBegin(snapshot) {
   }
 }
 
-
-var frameRemains;
 function WordListStudyRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'WordListStudy' ---
@@ -1850,7 +1912,6 @@ function WordListStudyRoutineEachFrame() {
   };
 }
 
-
 function WordListStudyRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListStudy' ---
@@ -1874,10 +1935,6 @@ function WordListStudyRoutineEnd(snapshot) {
   }
 }
 
-
-var WordListDistractionMaxDurationReached;
-var WordListDistractionMaxDuration;
-var WordListDistractionComponents;
 function WordListDistractionRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1904,7 +1961,6 @@ function WordListDistractionRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function WordListDistractionRoutineEachFrame() {
   return async function () {
@@ -1965,7 +2021,6 @@ function WordListDistractionRoutineEachFrame() {
   };
 }
 
-
 function WordListDistractionRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListDistraction' ---
@@ -1989,10 +2044,6 @@ function WordListDistractionRoutineEnd(snapshot) {
   }
 }
 
-
-var WordListTestMaxDurationReached;
-var WordListTestMaxDuration;
-var WordListTestComponents;
 function WordListTestRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2008,7 +2059,16 @@ function WordListTestRoutineBegin(snapshot) {
     WordListTestMaxDurationReached = false;
     // update component parameters for each repeat
     WordListSlider.reset()
-    WordListTestText.setText(FirstList);
+    WordListTestText.setText('');
+    // Run 'Begin Routine' code from WordListTestCode
+    if (((ConditionVariable === 1) || (ConditionVariable === 3))) {
+        psychoJS.experiment.addData("Test_Word", Condition1List);
+        WordListTestText.text = Condition1List;
+    } else {
+        psychoJS.experiment.addData("Test_Word", Condition2List);
+        WordListTestText.text = Condition2List;
+    }
+    
     psychoJS.experiment.addData('WordListTest.started', globalClock.getTime());
     WordListTestMaxDuration = null
     // keep track of which components have finished
@@ -2022,7 +2082,6 @@ function WordListTestRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function WordListTestRoutineEachFrame() {
   return async function () {
@@ -2065,9 +2124,6 @@ function WordListTestRoutineEachFrame() {
     if (WordListTestText.status === PsychoJS.Status.STARTED) {
     }
     
-    // Run 'Each Frame' code from WordListTestCode
-    psychoJS.experiment.addData("Word_Test", FirstList);
-    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2095,7 +2151,6 @@ function WordListTestRoutineEachFrame() {
   };
 }
 
-
 function WordListTestRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListTest' ---
@@ -2118,10 +2173,6 @@ function WordListTestRoutineEnd(snapshot) {
   }
 }
 
-
-var BreakOrFinishMaxDurationReached;
-var BreakOrFinishMaxDuration;
-var BreakOrFinishComponents;
 function BreakOrFinishRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2151,7 +2202,6 @@ function BreakOrFinishRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function BreakOrFinishRoutineEachFrame() {
   return async function () {
@@ -2212,8 +2262,6 @@ function BreakOrFinishRoutineEachFrame() {
   };
 }
 
-
-var LoopVariable;
 function BreakOrFinishRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'BreakOrFinish' ---
@@ -2224,10 +2272,20 @@ function BreakOrFinishRoutineEnd(snapshot) {
     }
     psychoJS.experiment.addData('BreakOrFinish.stopped', globalClock.getTime());
     // Run 'End Routine' code from BreakCode
-    if ((condition === 1)) {
-        condition = 2;
+    if ((ConditionVariable === 1)) {
+        ConditionVariable = 4;
     } else {
-        condition = 1;
+        if ((ConditionVariable === 2)) {
+            ConditionVariable = 3;
+        } else {
+            if ((ConditionVariable === 3)) {
+                ConditionVariable = 2;
+            } else {
+                if ((ConditionVariable === 4)) {
+                    ConditionVariable = 1;
+                }
+            }
+        }
     }
     LoopVariable = 1;
     
@@ -2245,10 +2303,6 @@ function BreakOrFinishRoutineEnd(snapshot) {
   }
 }
 
-
-var EndScreenMaxDurationReached;
-var EndScreenMaxDuration;
-var EndScreenComponents;
 function EndScreenRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2267,7 +2321,7 @@ function EndScreenRoutineBegin(snapshot) {
     psychoJS._saveResults = 0; 
     
     // Generate filename for results
-    let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '.csv';
+    let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '_' + ConditionVariable + '.csv';
     
     // Extract data object from experiment
     let dataObj = psychoJS._experiment._trialsData;
@@ -2305,7 +2359,6 @@ function EndScreenRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function EndScreenRoutineEachFrame() {
   return async function () {
@@ -2356,7 +2409,6 @@ function EndScreenRoutineEachFrame() {
   };
 }
 
-
 function EndScreenRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'EndScreen' ---
@@ -2377,14 +2429,12 @@ function EndScreenRoutineEnd(snapshot) {
   }
 }
 
-
 function importConditions(currentLoop) {
   return async function () {
     psychoJS.importAttributes(currentLoop.getCurrentTrial());
     return Scheduler.Event.NEXT;
     };
 }
-
 
 async function quitPsychoJS(message, isCompleted) {
   // Check for and save orphaned data
