@@ -2398,6 +2398,7 @@ var current_button;
 var current_label_text;
 var clicked_button_flags;
 var clicked_button_labels_in_order;
+var all_clicked;
 var prevButtonState;
 var _mouseButtons;
 var _mouseXYs;
@@ -2453,7 +2454,15 @@ function WordListTestRoutineEachFrame() {
             }
         }
     }
-    if (all(clicked_button_flags)) {
+    all_clicked = true;
+    for (var clicked_flag, _pj_c = 0, _pj_a = clicked_button_flags, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+        clicked_flag = _pj_a[_pj_c];
+        if ((! clicked_flag)) {
+            all_clicked = false;
+            break;
+        }
+    }
+    if (all_clicked) {
         continueRoutine = false;
     }
     
