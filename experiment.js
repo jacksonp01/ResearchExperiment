@@ -2207,10 +2207,7 @@ var button_height;
 var row_vertical_positions;
 var dynamic_buttons;
 var dynamic_button_texts;
-var button_labels;
 var label_index;
-var clicked_button_flags;
-var clicked_button_labels_in_order;
 var gotValidClick;
 var WordListTestMaxDuration;
 var WordListTestComponents;
@@ -2238,27 +2235,20 @@ function WordListTestRoutineBegin(snapshot) {
     row_vertical_positions = [(- 0.42), (- 0.32)];
     dynamic_buttons = [];
     dynamic_button_texts = [];
-    if (((ConditionVariable === 1) || (ConditionVariable === 3))) {
-        button_labels = ["chair", "candle", "apple", "forest", "letter", "window", "island", "ladder", "mirror", "basket"];
-    } else {
-        button_labels = ["table", "pillow", "ocean", "eraser", "pocket", "dinner", "street", "laptop", "closet", "carpet"];
-    }
     label_index = 0;
-    for (var row_idx, _pj_c = 0, _pj_a = util.range(num_rows), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
-        row_idx = _pj_a[_pj_c];
-        for (var col_idx, _pj_f = 0, _pj_d = util.range(num_columns), _pj_e = _pj_d.length; (_pj_f < _pj_e); _pj_f += 1) {
-            col_idx = _pj_d[_pj_f];
-            x_pos = ((((- total_button_width) / 2) + (button_width / 2)) + (col_idx * (button_width + button_gap)));
-            y_pos = row_vertical_positions[row_idx];
-            button_rect = new visual.Rect({"win": psychoJS.window, "width": button_width, "height": button_height, "pos": [x_pos, y_pos], "fillColor": "gray", "lineColor": "white"});
-            button_label_text = new visual.TextStim({"win": psychoJS.window, "text": button_labels[label_index], "pos": [x_pos, y_pos], "height": 0.035, "color": "white"});
+    for (var row_index, _pj_c = 0, _pj_a = util.range(num_rows), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+        row_index = _pj_a[_pj_c];
+        for (var col_index, _pj_f = 0, _pj_d = util.range(num_columns), _pj_e = _pj_d.length; (_pj_f < _pj_e); _pj_f += 1) {
+            col_index = _pj_d[_pj_f];
+            x_position = ((((- total_button_width) / 2) + (button_width / 2)) + (col_index * (button_width + button_gap)));
+            y_position = row_vertical_positions[row_index];
+            button_rect = new visual.Rect({"win": psychoJS.window, "width": button_width, "height": button_height, "pos": [x_position, y_position], "fillColor": "gray", "lineColor": "white"});
+            button_label_text = new visual.TextStim({"win": psychoJS.window, "text": button_labels[label_index], "pos": [x_position, y_position], "height": 0.035, "color": "white"});
             dynamic_buttons.push(button_rect);
             dynamic_button_texts.push(button_label_text);
             label_index += 1;
         }
     }
-    clicked_button_flags = ([false] * dynamic_buttons.length);
-    clicked_button_labels_in_order = [];
     
     // setup some python lists for storing info about the mouse
     // current position of the mouse:
