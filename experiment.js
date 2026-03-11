@@ -2448,6 +2448,8 @@ function WordListTestRoutineEachFrame() {
             if (((! clicked_button_flags[button_idx]) && mouse.isPressedIn(current_button))) {
                 clicked_button_flags[button_idx] = true;
                 clicked_button_labels_in_order.push(button_labels[button_idx]);
+                psychoJS.experiment.addData("Word_List_Press_Order", button_labels[idx]);
+                psychoJS.experiment.nextEntry();
                 break;
             }
         }
@@ -2519,7 +2521,6 @@ function WordListTestRoutineEachFrame() {
 }
 
 
-var pressed_buttons_str;
 function WordListTestRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'WordListTest' ---
@@ -2538,9 +2539,6 @@ function WordListTestRoutineEnd(snapshot) {
         label_obj = _pj_a[_pj_c];
         label_obj.setAutoDraw(false);
     }
-    pressed_buttons_str = clicked_button_labels_in_order.join(",");
-    psychoJS.experiment.addData("button_press_order", pressed_buttons_str);
-    psychoJS.experiment.nextEntry();
     dynamic_buttons = [];
     dynamic_button_texts = [];
     clicked_button_flags = [];
