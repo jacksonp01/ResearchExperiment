@@ -2261,6 +2261,7 @@ var button_height;
 var row_vertical_positions;
 var dynamic_buttons;
 var dynamic_button_texts;
+var button_labels;
 var x_position;
 var y_position;
 var button_rect;
@@ -2293,6 +2294,11 @@ function WordListTestRoutineBegin(snapshot) {
     row_vertical_positions = [(- 0.42), (- 0.32)];
     dynamic_buttons = [];
     dynamic_button_texts = [];
+    if (((ConditionVariable === 1) || (ConditionVariable === 3))) {
+        button_labels = ["chair", "candle", "apple", "forest", "letter", "window", "island", "ladder", "mirror", "basket"];
+    } else {
+        button_labels = ["table", "pillow", "ocean", "eraser", "pocket", "dinner", "street", "laptop", "closet", "carpet"];
+    }
     x_position = 0;
     y_position = 0;
     button_rect = 0;
