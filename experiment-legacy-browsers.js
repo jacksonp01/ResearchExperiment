@@ -2216,6 +2216,8 @@ var button_height;
 var row_vertical_positions;
 var dynamic_buttons;
 var dynamic_button_texts;
+var x_position;
+var y_position;
 var label_index;
 var gotValidClick;
 var WordListTestMaxDuration;
@@ -2244,8 +2246,8 @@ function WordListTestRoutineBegin(snapshot) {
     row_vertical_positions = [(- 0.42), (- 0.32)];
     dynamic_buttons = [];
     dynamic_button_texts = [];
-    x_position;
-    y_position;
+    x_position = 0;
+    y_position = 0;
     label_index = 0;
     for (var row_index, _pj_c = 0, _pj_a = util.range(num_rows), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
         row_index = _pj_a[_pj_c];
