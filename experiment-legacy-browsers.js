@@ -2308,6 +2308,10 @@ function WordListDistractionRoutineEnd(snapshot) {
 
 
 var WordListTestMaxDurationReached;
+var current_button;
+var current_label_text;
+var clicked_button_flags;
+var clicked_button_labels_in_order;
 var num_columns;
 var num_rows;
 var button_gap;
@@ -2341,6 +2345,10 @@ function WordListTestRoutineBegin(snapshot) {
     WordListTestMaxDurationReached = false;
     // update component parameters for each repeat
     // Run 'Begin Routine' code from WordListTestCode
+    current_button = 0;
+    current_label_text = 0;
+    clicked_button_flags = [false, false, false, false, false, false, false, false, false, false];
+    clicked_button_labels_in_order = [];
     num_columns = 5;
     num_rows = 2;
     button_gap = 0.01;
@@ -2399,10 +2407,6 @@ function WordListTestRoutineBegin(snapshot) {
 }
 
 
-var current_button;
-var current_label_text;
-var clicked_button_flags;
-var clicked_button_labels_in_order;
 var all_clicked;
 var prevButtonState;
 var _mouseButtons;
@@ -2430,9 +2434,6 @@ function WordListTestRoutineEachFrame() {
     }
     
     // Run 'Each Frame' code from WordListTestCode
-    current_button = 0;
-    current_label_text = 0;
-    clicked_button_flags = [false, false, false, false, false, false, false, false, false, false];
     for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
         button_idx = _pj_a[_pj_c];
         current_button = dynamic_buttons[button_idx];
@@ -2445,7 +2446,6 @@ function WordListTestRoutineEachFrame() {
         current_button.draw();
         current_label_text.draw();
     }
-    clicked_button_labels_in_order = [];
     if (mouse.getPressed()[0]) {
         for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
             button_idx = _pj_a[_pj_c];
