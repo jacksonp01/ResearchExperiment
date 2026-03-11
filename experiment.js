@@ -2448,8 +2448,7 @@ function WordListTestRoutineEachFrame() {
             if (((! clicked_button_flags[button_idx]) && mouse.isPressedIn(current_button))) {
                 clicked_button_flags[button_idx] = true;
                 clicked_button_labels_in_order.push(button_labels[button_idx]);
-                psychoJS.experiment.addData(`button_press_${clicked_button_labels_in_order.length}`, button_labels[button_idx]);
-                psychoJS.experiment.nextEntry();
+                psychoJS.experiment.addData(`button_press`, button_labels[button_idx]);
                 break;
             }
         }
