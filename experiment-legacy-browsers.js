@@ -728,6 +728,7 @@ function ConditionSelectionRoutineBegin(snapshot) {
 
 
 var ConditionVariable;
+var NameVariable;
 function ConditionSelectionRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'ConditionSelection' ---
@@ -781,6 +782,7 @@ function ConditionSelectionRoutineEachFrame() {
           // end routine when JacksonButton is clicked
           continueRoutine = false;
           ConditionVariable = 2;
+          NameVariable = "Jackson";
         }
         // if JacksonButton is still clicked next frame, it is not a new click
         JacksonButton.wasClicked = true;
@@ -825,6 +827,7 @@ function ConditionSelectionRoutineEachFrame() {
           // end routine when MeganButton is clicked
           continueRoutine = false;
           ConditionVariable = 4;
+          NameVariable = "Megan";
         }
         // if MeganButton is still clicked next frame, it is not a new click
         MeganButton.wasClicked = true;
@@ -869,6 +872,7 @@ function ConditionSelectionRoutineEachFrame() {
           // end routine when JessicaButton is clicked
           continueRoutine = false;
           ConditionVariable = 1;
+          NameVariable = "Jessica";
         }
         // if JessicaButton is still clicked next frame, it is not a new click
         JessicaButton.wasClicked = true;
@@ -913,6 +917,7 @@ function ConditionSelectionRoutineEachFrame() {
           // end routine when JawwadButton is clicked
           continueRoutine = false;
           ConditionVariable = 3;
+          NameVariable = "Jawwad";
         }
         // if JawwadButton is still clicked next frame, it is not a new click
         JawwadButton.wasClicked = true;
@@ -2581,7 +2586,7 @@ function EndScreenRoutineBegin(snapshot) {
     psychoJS._saveResults = 0; 
     
     // Generate filename for results
-    let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '_' + ConditionVariable + '.csv';
+    let filename = NameVariable + '_' + psychoJS._experiment._datetime + '.csv';
     
     // Extract data object from experiment
     let dataObj = psychoJS._experiment._trialsData;
