@@ -2261,7 +2261,6 @@ var button_height;
 var row_vertical_positions;
 var dynamic_buttons;
 var dynamic_button_texts;
-var button_labels;
 var x_position;
 var y_position;
 var button_rect;
@@ -2294,11 +2293,6 @@ function WordListTestRoutineBegin(snapshot) {
     row_vertical_positions = [(- 0.42), (- 0.32)];
     dynamic_buttons = [];
     dynamic_button_texts = [];
-    if (((ConditionVariable === 1) || (ConditionVariable === 3))) {
-        button_labels = ["chair", "candle", "apple", "forest", "letter", "window", "island", "ladder", "mirror", "basket"];
-    } else {
-        button_labels = ["table", "pillow", "ocean", "eraser", "pocket", "dinner", "street", "laptop", "closet", "carpet"];
-    }
     x_position = 0;
     y_position = 0;
     button_rect = 0;
@@ -2342,6 +2336,10 @@ function WordListTestRoutineBegin(snapshot) {
 }
 
 
+var current_button;
+var current_label_text;
+var clicked_button_flags;
+var clicked_button_labels_in_order;
 var prevButtonState;
 var _mouseButtons;
 var _mouseXYs;
@@ -2368,6 +2366,8 @@ function WordListTestRoutineEachFrame() {
     }
     
     // Run 'Each Frame' code from WordListTestCode
+    current_button = 0;
+    current_label_text = 0;
     for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
         button_idx = _pj_a[_pj_c];
         current_button = dynamic_buttons[button_idx];
@@ -2380,6 +2380,8 @@ function WordListTestRoutineEachFrame() {
         current_button.draw();
         current_label_text.draw();
     }
+    clicked_button_flags = [];
+    clicked_button_labels_in_order = [];
     if (mouse.getPressed()[0]) {
         for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
             button_idx = _pj_a[_pj_c];
