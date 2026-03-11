@@ -208,6 +208,7 @@ var VideoInstructionsKeyboard;
 var VideoScreenClock;
 var VideoClock;
 var Video;
+var SecretSkipButtonShhhhhh;
 var ScreenshotInstructionsClock;
 var ScreenshotInstructionsText;
 var ScreenshotInstructionsKeyboard;
@@ -391,6 +392,8 @@ async function experimentInit() {
     noAudio: false,
     depth: 0
   })
+  SecretSkipButtonShhhhhh = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
   // Initialize components for Routine "ScreenshotInstructions"
   ScreenshotInstructionsClock = new util.Clock();
   ScreenshotInstructionsText = new visual.TextStim({
@@ -1369,6 +1372,7 @@ function VideoInstructionsRoutineEnd(snapshot) {
 
 
 var VideoScreenMaxDurationReached;
+var _SecretSkipButtonShhhhhh_allKeys;
 var maxDurationReached;
 var VideoScreenMaxDuration;
 var VideoScreenComponents;
@@ -1386,6 +1390,9 @@ function VideoScreenRoutineBegin(snapshot) {
     routineTimer.reset();
     VideoScreenMaxDurationReached = false;
     // update component parameters for each repeat
+    SecretSkipButtonShhhhhh.keys = undefined;
+    SecretSkipButtonShhhhhh.rt = undefined;
+    _SecretSkipButtonShhhhhh_allKeys = [];
     psychoJS.experiment.addData('VideoScreen.started', globalClock.getTime());
     // skip this Routine if its 'Skip if' condition is True
     continueRoutine = continueRoutine && !((ConditionVariable <= 2));
@@ -1394,6 +1401,7 @@ function VideoScreenRoutineBegin(snapshot) {
     // keep track of which components have finished
     VideoScreenComponents = [];
     VideoScreenComponents.push(Video);
+    VideoScreenComponents.push(SecretSkipButtonShhhhhh);
     
     for (const thisComponent of VideoScreenComponents)
       if ('status' in thisComponent)
@@ -1424,6 +1432,35 @@ function VideoScreenRoutineEachFrame() {
     if (Video.status === PsychoJS.Status.FINISHED) {  // force-end the Routine
         continueRoutine = false;
     }
+    
+    // *SecretSkipButtonShhhhhh* updates
+    if (t >= 0.0 && SecretSkipButtonShhhhhh.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      SecretSkipButtonShhhhhh.tStart = t;  // (not accounting for frame time here)
+      SecretSkipButtonShhhhhh.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh.clearEvents(); });
+    }
+    
+    // if SecretSkipButtonShhhhhh is active this frame...
+    if (SecretSkipButtonShhhhhh.status === PsychoJS.Status.STARTED) {
+      let theseKeys = SecretSkipButtonShhhhhh.getKeys({
+        keyList: typeof '0' === 'string' ? ['0'] : '0', 
+        waitRelease: false
+      });
+      _SecretSkipButtonShhhhhh_allKeys = _SecretSkipButtonShhhhhh_allKeys.concat(theseKeys);
+      if (_SecretSkipButtonShhhhhh_allKeys.length > 0) {
+        SecretSkipButtonShhhhhh.keys = _SecretSkipButtonShhhhhh_allKeys[_SecretSkipButtonShhhhhh_allKeys.length - 1].name;  // just the last key pressed
+        SecretSkipButtonShhhhhh.rt = _SecretSkipButtonShhhhhh_allKeys[_SecretSkipButtonShhhhhh_allKeys.length - 1].rt;
+        SecretSkipButtonShhhhhh.duration = _SecretSkipButtonShhhhhh_allKeys[_SecretSkipButtonShhhhhh_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1462,6 +1499,18 @@ function VideoScreenRoutineEnd(snapshot) {
     }
     psychoJS.experiment.addData('VideoScreen.stopped', globalClock.getTime());
     Video.stop();  // ensure movie has stopped at end of Routine
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(SecretSkipButtonShhhhhh.corr, level);
+    }
+    psychoJS.experiment.addData('SecretSkipButtonShhhhhh.keys', SecretSkipButtonShhhhhh.keys);
+    if (typeof SecretSkipButtonShhhhhh.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('SecretSkipButtonShhhhhh.rt', SecretSkipButtonShhhhhh.rt);
+        psychoJS.experiment.addData('SecretSkipButtonShhhhhh.duration', SecretSkipButtonShhhhhh.duration);
+        routineTimer.reset();
+        }
+    
+    SecretSkipButtonShhhhhh.stop();
     // the Routine "VideoScreen" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -2214,6 +2263,8 @@ var dynamic_buttons;
 var dynamic_button_texts;
 var x_position;
 var y_position;
+var button_rect;
+var button_label_text;
 var label_index;
 var gotValidClick;
 var WordListTestMaxDuration;
@@ -2244,6 +2295,8 @@ function WordListTestRoutineBegin(snapshot) {
     dynamic_button_texts = [];
     x_position = 0;
     y_position = 0;
+    button_rect = 0;
+    button_label_text = 0;
     label_index = 0;
     for (var row_index, _pj_c = 0, _pj_a = util.range(num_rows), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
         row_index = _pj_a[_pj_c];
