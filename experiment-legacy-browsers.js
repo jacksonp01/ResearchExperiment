@@ -2535,6 +2535,20 @@ function WordListTestRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('WordListTest.stopped', globalClock.getTime());
+    // Run 'End Routine' code from WordListTestCode
+    for (var button_obj, _pj_c = 0, _pj_a = dynamic_buttons, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+        button_obj = _pj_a[_pj_c];
+        button_obj.setAutoDraw(false);
+    }
+    for (var label_obj, _pj_c = 0, _pj_a = dynamic_button_texts, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+        label_obj = _pj_a[_pj_c];
+        label_obj.setAutoDraw(false);
+    }
+    dynamic_buttons = [];
+    dynamic_button_texts = [];
+    clicked_button_flags = [];
+    clicked_button_labels_in_order = [];
+    
     // store data for psychoJS.experiment (ExperimentHandler)
     psychoJS.experiment.addData('mouse.x', mouse.x);
     psychoJS.experiment.addData('mouse.y', mouse.y);
