@@ -439,7 +439,7 @@ async function experimentInit() {
   WordListInstructionsText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WordListInstructionsText',
-    text: 'For the next part of the experiment, you will be shown a number of different words.\n\nAfterwards, you will count down from a random number by 3 out loud so that the experimenter can hear.\n\nYou will then be shown one word that appeared at a time and be asked to rate in which position it appeared.\n\nFor instance, the first word that appeared should be rated <1>, the second <2>, and so on.\n\nPress <SPACE> to continue.',
+    text: 'For the next part of the experiment, you will be shown a number of different words.\n\nAfterwards, you will count down from a random number by 3 out loud so that the experimenter can hear.\n\nYou will then be shown buttons containing the words that were shown previously. Please click these buttons in the order you remember the words appearing.\n\nPress <SPACE> to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -989,6 +989,9 @@ function ConditionSelectionRoutineEnd(snapshot) {
     psychoJS.experiment.addData('JawwadButton.numClicks', JawwadButton.numClicks);
     psychoJS.experiment.addData('JawwadButton.timesOn', JawwadButton.timesOn);
     psychoJS.experiment.addData('JawwadButton.timesOff', JawwadButton.timesOff);
+    // Run 'End Routine' code from ConditionCode
+    psychoJS.experiment.addData("ExperimenterName", NameVariable);
+    
     // the Routine "ConditionSelection" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
