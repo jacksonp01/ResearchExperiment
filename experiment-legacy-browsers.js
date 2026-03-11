@@ -2269,6 +2269,7 @@ var x_position;
 var y_position;
 var button_rect;
 var button_label_text;
+var button_labels;
 var label_index;
 var gotValidClick;
 var WordListTestMaxDuration;
@@ -2301,6 +2302,11 @@ function WordListTestRoutineBegin(snapshot) {
     y_position = 0;
     button_rect = 0;
     button_label_text = 0;
+    if (((Condition === 1) || (Condition === 2))) {
+        button_labels = ["chair", "candle", "apple", "forest", "letter", "window", "island", "ladder", "mirror", "basket"];
+    } else {
+        button_labels = ["table", "pillow", "ocean", "eraser", "pocket", "dinner", "street", "laptop", "closet", "carpet"];
+    }
     label_index = 0;
     for (var row_index, _pj_c = 0, _pj_a = util.range(num_rows), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
         row_index = _pj_a[_pj_c];
