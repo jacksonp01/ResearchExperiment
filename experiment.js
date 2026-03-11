@@ -2427,7 +2427,7 @@ function WordListTestRoutineEachFrame() {
     // Run 'Each Frame' code from WordListTestCode
     current_button = 0;
     current_label_text = 0;
-    clicked_button_flags = [];
+    clicked_button_flags = [false, false, false, false, false, false, false, false, false, false];
     for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
         button_idx = _pj_a[_pj_c];
         current_button = dynamic_buttons[button_idx];
