@@ -223,11 +223,13 @@ var WordListStudyClock;
 var WordListStudyText;
 var WordListDistractionClock;
 var WordListDistractionText;
+var SecretSkipButtonShhhhhh_3;
 var WordListTestClock;
 var WordListTestText;
 var mouse;
 var BreakOrFinishClock;
 var BreakText;
+var SecretSkipButtonShhhhhh_2;
 var EndScreenClock;
 var EndScreenText;
 var globalClock;
@@ -487,6 +489,8 @@ async function experimentInit() {
   // Run 'Begin Experiment' code from RandomDistractionNumber
   WordListDistractionText.setText(`Count backwards by 3 from ${util.randint(100, 1000)} out loud.`);
   
+  SecretSkipButtonShhhhhh_3 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
   // Initialize components for Routine "WordListTest"
   WordListTestClock = new util.Clock();
   WordListTestText = new visual.TextStim({
@@ -518,6 +522,8 @@ async function experimentInit() {
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
+  
+  SecretSkipButtonShhhhhh_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "EndScreen"
   EndScreenClock = new util.Clock();
@@ -2027,8 +2033,8 @@ function WordListStudyRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // keep track of whether this Routine was forcibly ended
     routineForceEnded = false;
-    WordListStudyClock.reset();
-    routineTimer.reset();
+    WordListStudyClock.reset(routineTimer.getTime());
+    routineTimer.add(2.000000);
     WordListStudyMaxDurationReached = false;
     // update component parameters for each repeat
     // Run 'Begin Routine' code from WordListStudyCode
@@ -2077,7 +2083,7 @@ function WordListStudyRoutineEachFrame() {
     if (WordListStudyText.status === PsychoJS.Status.STARTED) {
     }
     
-    frameRemains = 0.0 + 0 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
     if (WordListStudyText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       // keep track of stop time/frame for later
       WordListStudyText.tStop = t;  // not accounting for scr refresh
@@ -2106,7 +2112,7 @@ function WordListStudyRoutineEachFrame() {
       }
     
     // refresh the screen if continuing
-    if (continueRoutine) {
+    if (continueRoutine && routineTimer.getTime() > 0) {
       return Scheduler.Event.FLIP_REPEAT;
     } else {
       return Scheduler.Event.NEXT;
@@ -2124,9 +2130,12 @@ function WordListStudyRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('WordListStudy.stopped', globalClock.getTime());
-    // the Routine "WordListStudy" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset();
-    
+    if (routineForceEnded) {
+        routineTimer.reset();} else if (WordListStudyMaxDurationReached) {
+        WordListStudyClock.add(WordListStudyMaxDuration);
+    } else {
+        WordListStudyClock.add(2.000000);
+    }
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
@@ -2137,6 +2146,7 @@ function WordListStudyRoutineEnd(snapshot) {
 
 
 var WordListDistractionMaxDurationReached;
+var _SecretSkipButtonShhhhhh_3_allKeys;
 var WordListDistractionMaxDuration;
 var WordListDistractionComponents;
 function WordListDistractionRoutineBegin(snapshot) {
@@ -2149,15 +2159,19 @@ function WordListDistractionRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // keep track of whether this Routine was forcibly ended
     routineForceEnded = false;
-    WordListDistractionClock.reset(routineTimer.getTime());
-    routineTimer.add(1.000000);
+    WordListDistractionClock.reset();
+    routineTimer.reset();
     WordListDistractionMaxDurationReached = false;
     // update component parameters for each repeat
+    SecretSkipButtonShhhhhh_3.keys = undefined;
+    SecretSkipButtonShhhhhh_3.rt = undefined;
+    _SecretSkipButtonShhhhhh_3_allKeys = [];
     psychoJS.experiment.addData('WordListDistraction.started', globalClock.getTime());
     WordListDistractionMaxDuration = null
     // keep track of which components have finished
     WordListDistractionComponents = [];
     WordListDistractionComponents.push(WordListDistractionText);
+    WordListDistractionComponents.push(SecretSkipButtonShhhhhh_3);
     
     for (const thisComponent of WordListDistractionComponents)
       if ('status' in thisComponent)
@@ -2189,7 +2203,7 @@ function WordListDistractionRoutineEachFrame() {
     if (WordListDistractionText.status === PsychoJS.Status.STARTED) {
     }
     
-    frameRemains = 0.0 + 1 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 60 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
     if (WordListDistractionText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       // keep track of stop time/frame for later
       WordListDistractionText.tStop = t;  // not accounting for scr refresh
@@ -2197,6 +2211,35 @@ function WordListDistractionRoutineEachFrame() {
       // update status
       WordListDistractionText.status = PsychoJS.Status.FINISHED;
       WordListDistractionText.setAutoDraw(false);
+    }
+    
+    
+    // *SecretSkipButtonShhhhhh_3* updates
+    if (t >= 0.0 && SecretSkipButtonShhhhhh_3.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      SecretSkipButtonShhhhhh_3.tStart = t;  // (not accounting for frame time here)
+      SecretSkipButtonShhhhhh_3.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh_3.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh_3.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh_3.clearEvents(); });
+    }
+    
+    // if SecretSkipButtonShhhhhh_3 is active this frame...
+    if (SecretSkipButtonShhhhhh_3.status === PsychoJS.Status.STARTED) {
+      let theseKeys = SecretSkipButtonShhhhhh_3.getKeys({
+        keyList: typeof '0' === 'string' ? ['0'] : '0', 
+        waitRelease: false
+      });
+      _SecretSkipButtonShhhhhh_3_allKeys = _SecretSkipButtonShhhhhh_3_allKeys.concat(theseKeys);
+      if (_SecretSkipButtonShhhhhh_3_allKeys.length > 0) {
+        SecretSkipButtonShhhhhh_3.keys = _SecretSkipButtonShhhhhh_3_allKeys[_SecretSkipButtonShhhhhh_3_allKeys.length - 1].name;  // just the last key pressed
+        SecretSkipButtonShhhhhh_3.rt = _SecretSkipButtonShhhhhh_3_allKeys[_SecretSkipButtonShhhhhh_3_allKeys.length - 1].rt;
+        SecretSkipButtonShhhhhh_3.duration = _SecretSkipButtonShhhhhh_3_allKeys[_SecretSkipButtonShhhhhh_3_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
     }
     
     // check for quit (typically the Esc key)
@@ -2218,7 +2261,7 @@ function WordListDistractionRoutineEachFrame() {
       }
     
     // refresh the screen if continuing
-    if (continueRoutine && routineTimer.getTime() > 0) {
+    if (continueRoutine) {
       return Scheduler.Event.FLIP_REPEAT;
     } else {
       return Scheduler.Event.NEXT;
@@ -2236,12 +2279,21 @@ function WordListDistractionRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('WordListDistraction.stopped', globalClock.getTime());
-    if (routineForceEnded) {
-        routineTimer.reset();} else if (WordListDistractionMaxDurationReached) {
-        WordListDistractionClock.add(WordListDistractionMaxDuration);
-    } else {
-        WordListDistractionClock.add(1.000000);
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(SecretSkipButtonShhhhhh_3.corr, level);
     }
+    psychoJS.experiment.addData('SecretSkipButtonShhhhhh_3.keys', SecretSkipButtonShhhhhh_3.keys);
+    if (typeof SecretSkipButtonShhhhhh_3.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('SecretSkipButtonShhhhhh_3.rt', SecretSkipButtonShhhhhh_3.rt);
+        psychoJS.experiment.addData('SecretSkipButtonShhhhhh_3.duration', SecretSkipButtonShhhhhh_3.duration);
+        routineTimer.reset();
+        }
+    
+    SecretSkipButtonShhhhhh_3.stop();
+    // the Routine "WordListDistraction" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
@@ -2374,6 +2426,7 @@ function WordListTestRoutineEachFrame() {
     // Run 'Each Frame' code from WordListTestCode
     current_button = 0;
     current_label_text = 0;
+    clicked_button_flags = [];
     for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
         button_idx = _pj_a[_pj_c];
         current_button = dynamic_buttons[button_idx];
@@ -2386,7 +2439,6 @@ function WordListTestRoutineEachFrame() {
         current_button.draw();
         current_label_text.draw();
     }
-    clicked_button_flags = [];
     clicked_button_labels_in_order = [];
     if (mouse.getPressed()[0]) {
         for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
@@ -2490,6 +2542,7 @@ function WordListTestRoutineEnd(snapshot) {
 
 
 var BreakOrFinishMaxDurationReached;
+var _SecretSkipButtonShhhhhh_2_allKeys;
 var BreakOrFinishMaxDuration;
 var BreakOrFinishComponents;
 function BreakOrFinishRoutineBegin(snapshot) {
@@ -2502,10 +2555,13 @@ function BreakOrFinishRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // keep track of whether this Routine was forcibly ended
     routineForceEnded = false;
-    BreakOrFinishClock.reset(routineTimer.getTime());
-    routineTimer.add(1.000000);
+    BreakOrFinishClock.reset();
+    routineTimer.reset();
     BreakOrFinishMaxDurationReached = false;
     // update component parameters for each repeat
+    SecretSkipButtonShhhhhh_2.keys = undefined;
+    SecretSkipButtonShhhhhh_2.rt = undefined;
+    _SecretSkipButtonShhhhhh_2_allKeys = [];
     psychoJS.experiment.addData('BreakOrFinish.started', globalClock.getTime());
     // skip this Routine if its 'Skip if' condition is True
     continueRoutine = continueRoutine && !((LoopVariable == 1));
@@ -2514,6 +2570,7 @@ function BreakOrFinishRoutineBegin(snapshot) {
     // keep track of which components have finished
     BreakOrFinishComponents = [];
     BreakOrFinishComponents.push(BreakText);
+    BreakOrFinishComponents.push(SecretSkipButtonShhhhhh_2);
     
     for (const thisComponent of BreakOrFinishComponents)
       if ('status' in thisComponent)
@@ -2545,7 +2602,7 @@ function BreakOrFinishRoutineEachFrame() {
     if (BreakText.status === PsychoJS.Status.STARTED) {
     }
     
-    frameRemains = 0.0 + 1 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 300 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
     if (BreakText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       // keep track of stop time/frame for later
       BreakText.tStop = t;  // not accounting for scr refresh
@@ -2553,6 +2610,35 @@ function BreakOrFinishRoutineEachFrame() {
       // update status
       BreakText.status = PsychoJS.Status.FINISHED;
       BreakText.setAutoDraw(false);
+    }
+    
+    
+    // *SecretSkipButtonShhhhhh_2* updates
+    if (t >= 0.0 && SecretSkipButtonShhhhhh_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      SecretSkipButtonShhhhhh_2.tStart = t;  // (not accounting for frame time here)
+      SecretSkipButtonShhhhhh_2.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh_2.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh_2.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { SecretSkipButtonShhhhhh_2.clearEvents(); });
+    }
+    
+    // if SecretSkipButtonShhhhhh_2 is active this frame...
+    if (SecretSkipButtonShhhhhh_2.status === PsychoJS.Status.STARTED) {
+      let theseKeys = SecretSkipButtonShhhhhh_2.getKeys({
+        keyList: typeof '0' === 'string' ? ['0'] : '0', 
+        waitRelease: false
+      });
+      _SecretSkipButtonShhhhhh_2_allKeys = _SecretSkipButtonShhhhhh_2_allKeys.concat(theseKeys);
+      if (_SecretSkipButtonShhhhhh_2_allKeys.length > 0) {
+        SecretSkipButtonShhhhhh_2.keys = _SecretSkipButtonShhhhhh_2_allKeys[_SecretSkipButtonShhhhhh_2_allKeys.length - 1].name;  // just the last key pressed
+        SecretSkipButtonShhhhhh_2.rt = _SecretSkipButtonShhhhhh_2_allKeys[_SecretSkipButtonShhhhhh_2_allKeys.length - 1].rt;
+        SecretSkipButtonShhhhhh_2.duration = _SecretSkipButtonShhhhhh_2_allKeys[_SecretSkipButtonShhhhhh_2_allKeys.length - 1].duration;
+        // a response ends the routine
+        continueRoutine = false;
+      }
     }
     
     // check for quit (typically the Esc key)
@@ -2574,7 +2660,7 @@ function BreakOrFinishRoutineEachFrame() {
       }
     
     // refresh the screen if continuing
-    if (continueRoutine && routineTimer.getTime() > 0) {
+    if (continueRoutine) {
       return Scheduler.Event.FLIP_REPEAT;
     } else {
       return Scheduler.Event.NEXT;
@@ -2613,12 +2699,21 @@ function BreakOrFinishRoutineEnd(snapshot) {
     LoopVariable = 1;
     WordListVariable = [];
     
-    if (routineForceEnded) {
-        routineTimer.reset();} else if (BreakOrFinishMaxDurationReached) {
-        BreakOrFinishClock.add(BreakOrFinishMaxDuration);
-    } else {
-        BreakOrFinishClock.add(1.000000);
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(SecretSkipButtonShhhhhh_2.corr, level);
     }
+    psychoJS.experiment.addData('SecretSkipButtonShhhhhh_2.keys', SecretSkipButtonShhhhhh_2.keys);
+    if (typeof SecretSkipButtonShhhhhh_2.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('SecretSkipButtonShhhhhh_2.rt', SecretSkipButtonShhhhhh_2.rt);
+        psychoJS.experiment.addData('SecretSkipButtonShhhhhh_2.duration', SecretSkipButtonShhhhhh_2.duration);
+        routineTimer.reset();
+        }
+    
+    SecretSkipButtonShhhhhh_2.stop();
+    // the Routine "BreakOrFinish" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
