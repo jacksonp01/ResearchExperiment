@@ -393,7 +393,7 @@ async function experimentInit() {
   ScreenshotInstructionsText = new visual.TextStim({
     win: psychoJS.window,
     name: 'ScreenshotInstructionsText',
-    text: 'In the next part of the experiment, you will be shown images two at a time.\n\nPlease indicate which one appeared first.\n\nPress <A> for the left image and <D> for the right image.\n\nPress <SPACE> to continue.',
+    text: 'In the next part of the experiment, you will be shown images two at a time.\n\nPlease indicate which one appeared first.\n\nPress <F> or <LEFT_ARROW> for the left image and <J> or <RIGHT_ARROW> for the right image.\n\nPress <SPACE> to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -477,9 +477,6 @@ async function experimentInit() {
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
-  
-  // Run 'Begin Experiment' code from RandomDistractionNumber
-  WordListDistractionText.setText(`Count backwards by 3 from ${util.randint(100, 1000)} out loud.`);
   
   SecretSkipButtonShhhhhh_3 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
@@ -1786,7 +1783,7 @@ function ScreenshotOrderTaskRoutineEachFrame() {
     // if ScreenshotKeyboard is active this frame...
     if (ScreenshotKeyboard.status === PsychoJS.Status.STARTED) {
       let theseKeys = ScreenshotKeyboard.getKeys({
-        keyList: typeof ['a','d'] === 'string' ? [['a','d']] : ['a','d'], 
+        keyList: typeof ['f','j','left','right'] === 'string' ? [['f','j','left','right']] : ['f','j','left','right'], 
         waitRelease: false
       });
       _ScreenshotKeyboard_allKeys = _ScreenshotKeyboard_allKeys.concat(theseKeys);
@@ -1849,6 +1846,12 @@ function ScreenshotOrderTaskRoutineEnd(snapshot) {
     
     ScreenshotKeyboard.stop();
     // Run 'End Routine' code from ScreenshotCode
+    if ((ScreenshotKeyboard.keys === "left")) {
+        (ScreenshotKeyboard.keys === "f");
+    }
+    if ((ScreenshotKeyboard.keys === "right")) {
+        (ScreenshotKeyboard.keys === "j");
+    }
     if (((ConditionVariable === 1) || (ConditionVariable === 2))) {
         if ((ScreenshotKeyboard.keys === Condition1Correct)) {
             psychoJS.experiment.addData("Screenshot_Correct", 1);
@@ -2169,6 +2172,9 @@ function WordListDistractionRoutineBegin(snapshot) {
     routineTimer.reset();
     WordListDistractionMaxDurationReached = false;
     // update component parameters for each repeat
+    // Run 'Begin Routine' code from RandomDistractionNumber
+    WordListDistractionText.setText(`Count backwards by 3 from ${util.randint(100, 1000)} out loud.`);
+    
     SecretSkipButtonShhhhhh_3.keys = undefined;
     SecretSkipButtonShhhhhh_3.rt = undefined;
     _SecretSkipButtonShhhhhh_3_allKeys = [];
