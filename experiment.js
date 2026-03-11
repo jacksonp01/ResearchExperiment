@@ -15,7 +15,6 @@ const { round } = util;
 let expName = 'experiment';  // from the Builder filename that created this script
 let expInfo = {
     'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)}`,
-    'session': '001',
 };
 let PILOTING = util.getUrlParameters().has('__pilotToken');
 
@@ -71,8 +70,6 @@ flowScheduler.add(WithinSubjectsLoopEnd);
 
 
 
-
-
 flowScheduler.add(EndScreenRoutineBegin());
 flowScheduler.add(EndScreenRoutineEachFrame());
 flowScheduler.add(EndScreenRoutineEnd());
@@ -88,7 +85,78 @@ psychoJS.start({
     // resources:
     {'name': 'Spreadsheets/screenshotspreadsheet.csv', 'path': 'Spreadsheets/screenshotspreadsheet.csv'},
     {'name': 'Spreadsheets/wordlistspreadsheets.csv', 'path': 'Spreadsheets/wordlistspreadsheets.csv'},
+    {'name': 'video.mp4', 'path': 'video.mp4'},
+    {'name': 'Spreadsheets/screenshotspreadsheet.csv', 'path': 'Spreadsheets/screenshotspreadsheet.csv'},
     {'name': 'Spreadsheets/wordlistspreadsheets.csv', 'path': 'Spreadsheets/wordlistspreadsheets.csv'},
+    {'name': 'video.mp4', 'path': 'video.mp4'},
+    {'name': 'Screenshots/4_long.png', 'path': 'Screenshots/4_long.png'},
+    {'name': 'Screenshots/4_short.png', 'path': 'Screenshots/4_short.png'},
+    {'name': 'Screenshots/7_long.png', 'path': 'Screenshots/7_long.png'},
+    {'name': 'Screenshots/7_short.png', 'path': 'Screenshots/7_short.png'},
+    {'name': 'Screenshots/9_long.png', 'path': 'Screenshots/9_long.png'},
+    {'name': 'Screenshots/9_short.png', 'path': 'Screenshots/9_short.png'},
+    {'name': 'Screenshots/17_long.png', 'path': 'Screenshots/17_long.png'},
+    {'name': 'Screenshots/17_short.png', 'path': 'Screenshots/17_short.png'},
+    {'name': 'Screenshots/19_long.png', 'path': 'Screenshots/19_long.png'},
+    {'name': 'Screenshots/19_short.png', 'path': 'Screenshots/19_short.png'},
+    {'name': 'Screenshots/22_long.png', 'path': 'Screenshots/22_long.png'},
+    {'name': 'Screenshots/22_short.png', 'path': 'Screenshots/22_short.png'},
+    {'name': 'Screenshots/37_long.png', 'path': 'Screenshots/37_long.png'},
+    {'name': 'Screenshots/37_short.png', 'path': 'Screenshots/37_short.png'},
+    {'name': 'Screenshots/42_long.png', 'path': 'Screenshots/42_long.png'},
+    {'name': 'Screenshots/42_short.png', 'path': 'Screenshots/42_short.png'},
+    {'name': 'Screenshots/47_long.png', 'path': 'Screenshots/47_long.png'},
+    {'name': 'Screenshots/47_short.png', 'path': 'Screenshots/47_short.png'},
+    {'name': 'Screenshots/52_long.png', 'path': 'Screenshots/52_long.png'},
+    {'name': 'Screenshots/52_short.png', 'path': 'Screenshots/52_short.png'},
+    {'name': 'Screenshots/67_long.png', 'path': 'Screenshots/67_long.png'},
+    {'name': 'Screenshots/67_short.png', 'path': 'Screenshots/67_short.png'},
+    {'name': 'Screenshots/82_long.png', 'path': 'Screenshots/82_long.png'},
+    {'name': 'Screenshots/82_short.png', 'path': 'Screenshots/82_short.png'},
+    {'name': 'Screenshots/97_long.png', 'path': 'Screenshots/97_long.png'},
+    {'name': 'Screenshots/97_short.png', 'path': 'Screenshots/97_short.png'},
+    {'name': 'Screenshots/107_long.png', 'path': 'Screenshots/107_long.png'},
+    {'name': 'Screenshots/107_short.png', 'path': 'Screenshots/107_short.png'},
+    {'name': 'Screenshots/112_long.png', 'path': 'Screenshots/112_long.png'},
+    {'name': 'Screenshots/112_short.png', 'path': 'Screenshots/112_short.png'},
+    {'name': 'Screenshots/127_long.png', 'path': 'Screenshots/127_long.png'},
+    {'name': 'Screenshots/127_short.png', 'path': 'Screenshots/127_short.png'},
+    {'name': 'Screenshots/132_long.png', 'path': 'Screenshots/132_long.png'},
+    {'name': 'Screenshots/132_short.png', 'path': 'Screenshots/132_short.png'},
+    {'name': 'Screenshots/142_long.png', 'path': 'Screenshots/142_long.png'},
+    {'name': 'Screenshots/142_short.png', 'path': 'Screenshots/142_short.png'},
+    {'name': 'Screenshots/152_long.png', 'path': 'Screenshots/152_long.png'},
+    {'name': 'Screenshots/152_short.png', 'path': 'Screenshots/152_short.png'},
+    {'name': 'Screenshots/157_long.png', 'path': 'Screenshots/157_long.png'},
+    {'name': 'Screenshots/157_short.png', 'path': 'Screenshots/157_short.png'},
+    {'name': 'Screenshots/172_long.png', 'path': 'Screenshots/172_long.png'},
+    {'name': 'Screenshots/172_short.png', 'path': 'Screenshots/172_short.png'},
+    {'name': 'Screenshots/187_long.png', 'path': 'Screenshots/187_long.png'},
+    {'name': 'Screenshots/187_short.png', 'path': 'Screenshots/187_short.png'},
+    {'name': 'Screenshots/192_long.png', 'path': 'Screenshots/192_long.png'},
+    {'name': 'Screenshots/192_short.png', 'path': 'Screenshots/192_short.png'},
+    {'name': 'Screenshots/197_long.png', 'path': 'Screenshots/197_long.png'},
+    {'name': 'Screenshots/197_short.png', 'path': 'Screenshots/197_short.png'},
+    {'name': 'Screenshots/202_long.png', 'path': 'Screenshots/202_long.png'},
+    {'name': 'Screenshots/202_short.png', 'path': 'Screenshots/202_short.png'},
+    {'name': 'Screenshots/217_long.png', 'path': 'Screenshots/217_long.png'},
+    {'name': 'Screenshots/217_short.png', 'path': 'Screenshots/217_short.png'},
+    {'name': 'Screenshots/232_long.png', 'path': 'Screenshots/232_long.png'},
+    {'name': 'Screenshots/232_short.png', 'path': 'Screenshots/232_short.png'},
+    {'name': 'Screenshots/237_long.png', 'path': 'Screenshots/237_long.png'},
+    {'name': 'Screenshots/237_short.png', 'path': 'Screenshots/237_short.png'},
+    {'name': 'Screenshots/247_long.png', 'path': 'Screenshots/247_long.png'},
+    {'name': 'Screenshots/247_short.png', 'path': 'Screenshots/247_short.png'},
+    {'name': 'Screenshots/257_long.png', 'path': 'Screenshots/257_long.png'},
+    {'name': 'Screenshots/257_short.png', 'path': 'Screenshots/257_short.png'},
+    {'name': 'Screenshots/262_long.png', 'path': 'Screenshots/262_long.png'},
+    {'name': 'Screenshots/262_short.png', 'path': 'Screenshots/262_short.png'},
+    {'name': 'Screenshots/272_long.png', 'path': 'Screenshots/272_long.png'},
+    {'name': 'Screenshots/272_short.png', 'path': 'Screenshots/272_short.png'},
+    {'name': 'Screenshots/277_long.png', 'path': 'Screenshots/277_long.png'},
+    {'name': 'Screenshots/277_short.png', 'path': 'Screenshots/277_short.png'},
+    {'name': 'Screenshots/289_long.png', 'path': 'Screenshots/289_long.png'},
+    {'name': 'Screenshots/289_short.png', 'path': 'Screenshots/289_short.png'},
   ]
 });
 
@@ -128,7 +196,6 @@ async function updateInfo() {
 var WelcomeScreenClock;
 var WelcomeText;
 var WelcomeScreenKeyboard;
-var ResourceManager;
 var ConditionSelectionClock;
 var ConditionSelectionText;
 var JacksonButton;
@@ -139,6 +206,8 @@ var VideoInstructionsClock;
 var VideoInstructionsText;
 var VideoInstructionsKeyboard;
 var VideoScreenClock;
+var VideoClock;
+var Video;
 var ScreenshotInstructionsClock;
 var ScreenshotInstructionsText;
 var ScreenshotInstructionsKeyboard;
@@ -154,8 +223,8 @@ var WordListStudyText;
 var WordListDistractionClock;
 var WordListDistractionText;
 var WordListTestClock;
-var WordListSlider;
 var WordListTestText;
+var mouse;
 var BreakOrFinishClock;
 var BreakText;
 var EndScreenClock;
@@ -179,9 +248,6 @@ async function experimentInit() {
   
   WelcomeScreenKeyboard = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  ResourceManager = {
-    status: PsychoJS.Status.NOT_STARTED
-  };
   // Initialize components for Routine "ConditionSelection"
   ConditionSelectionClock = new util.Clock();
   ConditionSelectionText = new visual.TextStim({
@@ -310,6 +376,21 @@ async function experimentInit() {
   
   // Initialize components for Routine "VideoScreen"
   VideoScreenClock = new util.Clock();
+  VideoClock = new util.Clock();
+  Video = new visual.MovieStim({
+    win: psychoJS.window,
+    movie: 'video.mp4',
+    name: 'Video',
+    units: psychoJS.window.units,
+    pos: [0, 0],
+    anchor: 'center',
+    size: [1, 0.5625],
+    ori: 0.0,
+    opacity: null,
+    loop: false,
+    noAudio: false,
+    depth: 0
+  })
   // Initialize components for Routine "ScreenshotInstructions"
   ScreenshotInstructionsClock = new util.Clock();
   ScreenshotInstructionsText = new visual.TextStim({
@@ -334,9 +415,9 @@ async function experimentInit() {
     image : undefined, mask : undefined,
     anchor : 'center',
     ori : 0.0, 
-    pos : [(- 0.3), 0], 
+    pos : [0, 0], 
     draggable: false,
-    size : [0.5, 0.5],
+    size : 1.0,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -347,9 +428,9 @@ async function experimentInit() {
     image : undefined, mask : undefined,
     anchor : 'center',
     ori : 0.0, 
-    pos : [0.3, 0], 
+    pos : [0.32, 0], 
     draggable: false,
-    size : [0.5, 0.5],
+    size : [0.6, 0.3375],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -405,29 +486,22 @@ async function experimentInit() {
   
   // Initialize components for Routine "WordListTest"
   WordListTestClock = new util.Clock();
-  WordListSlider = new visual.Slider({
-    win: psychoJS.window, name: 'WordListSlider',
-    startValue: undefined,
-    size: [1.0, 0.1], pos: [0, (- 0.4)], ori: 0.0, units: psychoJS.window.units,
-    labels: [1, 2, 3, 4, 5], fontSize: 0.05, ticks: [],
-    granularity: 1, style: ["RADIO"],
-    color: new util.Color('LightGray'), markerColor: new util.Color('Red'), lineColor: new util.Color('White'), 
-    opacity: undefined, fontFamily: 'Noto Sans', bold: true, italic: false, depth: 0, 
-    flip: false,
-  });
-  
   WordListTestText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WordListTestText',
-    text: '',
+    text: 'Click on the words in the order they appeared during the study phase.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('white'),  opacity: undefined,
-    depth: -1.0 
+    depth: 0.0 
   });
   
+  mouse = new core.Mouse({
+    win: psychoJS.window,
+  });
+  mouse.mouseClock = new util.Clock();
   // Initialize components for Routine "BreakOrFinish"
   BreakOrFinishClock = new util.Clock();
   BreakText = new visual.TextStim({
@@ -495,7 +569,6 @@ function WelcomeScreenRoutineBegin(snapshot) {
     WelcomeScreenComponents = [];
     WelcomeScreenComponents.push(WelcomeText);
     WelcomeScreenComponents.push(WelcomeScreenKeyboard);
-    WelcomeScreenComponents.push(ResourceManager);
     
     for (const thisComponent of WelcomeScreenComponents)
       if ('status' in thisComponent)
@@ -556,21 +629,6 @@ function WelcomeScreenRoutineEachFrame() {
       }
     }
     
-    // start downloading resources specified by component ResourceManager
-    if (t >= null && ResourceManager.status === PsychoJS.Status.NOT_STARTED) {
-      console.log('register and start downloading resources specified by component ResourceManager');
-      await psychoJS.serverManager.prepareResources(['Screenshots/4.png','Screenshots/7.png','Screenshots/9.png','Screenshots/17.png','Screenshots/19.png','Screenshots/22.png','Screenshots/37.png','Screenshots/42.png','Screenshots/47.png','Screenshots/52.png','Screenshots/67.png','Screenshots/82.png','Screenshots/97.png','Screenshots/107.png','Screenshots/112.png','Screenshots/127.png','Screenshots/132.png','Screenshots/142.png','Screenshots/152.png','Screenshots/157.png','Screenshots/172.png','Screenshots/187.png','Screenshots/192.png','Screenshots/197.png','Screenshots/202.png','Screenshots/217.png','Screenshots/232.png','Screenshots/237.png','Screenshots/247.png','Screenshots/257.png','Screenshots/262.png','Screenshots/272.png','Screenshots/277.png','Screenshots/289.png','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv']);
-      ResourceManager.status = PsychoJS.Status.STARTED;
-    }
-    // check on the resources specified by component ResourceManager
-    if (t >= null && ResourceManager.status === PsychoJS.Status.STARTED) {
-      if (psychoJS.serverManager.getResourceStatus(['Screenshots/4.png','Screenshots/7.png','Screenshots/9.png','Screenshots/17.png','Screenshots/19.png','Screenshots/22.png','Screenshots/37.png','Screenshots/42.png','Screenshots/47.png','Screenshots/52.png','Screenshots/67.png','Screenshots/82.png','Screenshots/97.png','Screenshots/107.png','Screenshots/112.png','Screenshots/127.png','Screenshots/132.png','Screenshots/142.png','Screenshots/152.png','Screenshots/157.png','Screenshots/172.png','Screenshots/187.png','Screenshots/192.png','Screenshots/197.png','Screenshots/202.png','Screenshots/217.png','Screenshots/232.png','Screenshots/237.png','Screenshots/247.png','Screenshots/257.png','Screenshots/262.png','Screenshots/272.png','Screenshots/277.png','Screenshots/289.png','Spreadsheets/screenshotspreadsheet.csv','Spreadsheets/wordlistspreadsheets.csv']) === core.ServerManager.ResourceStatus.DOWNLOADED) {
-        console.log('finished downloading resources specified by component ResourceManager');
-        ResourceManager.status = PsychoJS.Status.FINISHED;
-      } else {
-        console.log('resource specified in ResourceManager took longer than expected to download');
-      }
-    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -978,10 +1036,9 @@ function WithinSubjectsLoopBegin(WithinSubjectsLoopScheduler, snapshot) {
       WithinSubjectsLoopScheduler.add(WordListDistractionRoutineBegin(snapshot));
       WithinSubjectsLoopScheduler.add(WordListDistractionRoutineEachFrame());
       WithinSubjectsLoopScheduler.add(WordListDistractionRoutineEnd(snapshot));
-      const WordListTestTrialsLoopScheduler = new Scheduler(psychoJS);
-      WithinSubjectsLoopScheduler.add(WordListTestTrialsLoopBegin(WordListTestTrialsLoopScheduler, snapshot));
-      WithinSubjectsLoopScheduler.add(WordListTestTrialsLoopScheduler);
-      WithinSubjectsLoopScheduler.add(WordListTestTrialsLoopEnd);
+      WithinSubjectsLoopScheduler.add(WordListTestRoutineBegin(snapshot));
+      WithinSubjectsLoopScheduler.add(WordListTestRoutineEachFrame());
+      WithinSubjectsLoopScheduler.add(WordListTestRoutineEnd(snapshot));
       WithinSubjectsLoopScheduler.add(BreakOrFinishRoutineBegin(snapshot));
       WithinSubjectsLoopScheduler.add(BreakOrFinishRoutineEachFrame());
       WithinSubjectsLoopScheduler.add(BreakOrFinishRoutineEnd(snapshot));
@@ -1100,69 +1157,6 @@ async function WordListStudyTrialsLoopEnd() {
 
 
 function WordListStudyTrialsLoopEndIteration(scheduler, snapshot) {
-  // ------Prepare for next entry------
-  return async function () {
-    if (typeof snapshot !== 'undefined') {
-      // ------Check if user ended loop early------
-      if (snapshot.finished) {
-        // Check for and save orphaned data
-        if (psychoJS.experiment.isEntryEmpty()) {
-          psychoJS.experiment.nextEntry(snapshot);
-        }
-        scheduler.stop();
-      } else {
-        psychoJS.experiment.nextEntry(snapshot);
-      }
-    return Scheduler.Event.NEXT;
-    }
-  };
-}
-
-
-var WordListTestTrials;
-function WordListTestTrialsLoopBegin(WordListTestTrialsLoopScheduler, snapshot) {
-  return async function() {
-    TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
-    
-    // set up handler to look after randomisation of conditions etc
-    WordListTestTrials = new TrialHandler({
-      psychoJS: psychoJS,
-      nReps: 1, method: TrialHandler.Method.RANDOM,
-      extraInfo: expInfo, originPath: undefined,
-      trialList: 'Spreadsheets/wordlistspreadsheets.csv',
-      seed: undefined, name: 'WordListTestTrials'
-    });
-    psychoJS.experiment.addLoop(WordListTestTrials); // add the loop to the experiment
-    currentLoop = WordListTestTrials;  // we're now the current loop
-    
-    // Schedule all the trials in the trialList:
-    for (const thisWordListTestTrial of WordListTestTrials) {
-      snapshot = WordListTestTrials.getSnapshot();
-      WordListTestTrialsLoopScheduler.add(importConditions(snapshot));
-      WordListTestTrialsLoopScheduler.add(WordListTestRoutineBegin(snapshot));
-      WordListTestTrialsLoopScheduler.add(WordListTestRoutineEachFrame());
-      WordListTestTrialsLoopScheduler.add(WordListTestRoutineEnd(snapshot));
-      WordListTestTrialsLoopScheduler.add(WordListTestTrialsLoopEndIteration(WordListTestTrialsLoopScheduler, snapshot));
-    }
-    
-    return Scheduler.Event.NEXT;
-  }
-}
-
-
-async function WordListTestTrialsLoopEnd() {
-  // terminate loop
-  psychoJS.experiment.removeLoop(WordListTestTrials);
-  // update the current loop from the ExperimentHandler
-  if (psychoJS.experiment._unfinishedLoops.length>0)
-    currentLoop = psychoJS.experiment._unfinishedLoops.at(-1);
-  else
-    currentLoop = psychoJS.experiment;  // so we use addData from the experiment
-  return Scheduler.Event.NEXT;
-}
-
-
-function WordListTestTrialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
   return async function () {
     if (typeof snapshot !== 'undefined') {
@@ -1394,6 +1388,7 @@ function VideoScreenRoutineBegin(snapshot) {
     VideoScreenMaxDuration = null
     // keep track of which components have finished
     VideoScreenComponents = [];
+    VideoScreenComponents.push(Video);
     
     for (const thisComponent of VideoScreenComponents)
       if ('status' in thisComponent)
@@ -1410,6 +1405,20 @@ function VideoScreenRoutineEachFrame() {
     t = VideoScreenClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    
+    // *Video* updates
+    if (t >= 0.0 && Video.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      Video.tStart = t;  // (not accounting for frame time here)
+      Video.frameNStart = frameN;  // exact frame index
+      
+      Video.setAutoDraw(true);
+      Video.play();
+    }
+    
+    if (Video.status === PsychoJS.Status.FINISHED) {  // force-end the Routine
+        continueRoutine = false;
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1447,6 +1456,7 @@ function VideoScreenRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('VideoScreen.stopped', globalClock.getTime());
+    Video.stop();  // ensure movie has stopped at end of Routine
     // the Routine "VideoScreen" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -1625,6 +1635,8 @@ function ScreenshotOrderTaskRoutineBegin(snapshot) {
     routineTimer.reset();
     ScreenshotOrderTaskMaxDurationReached = false;
     // update component parameters for each repeat
+    ScreenshotLeft.setPos([(- 0.32), 0]);
+    ScreenshotLeft.setSize([0.3375, 0.6]);
     ScreenshotKeyboard.keys = undefined;
     ScreenshotKeyboard.rt = undefined;
     _ScreenshotKeyboard_allKeys = [];
@@ -1632,9 +1644,13 @@ function ScreenshotOrderTaskRoutineBegin(snapshot) {
     if (((ConditionVariable === 1) || (ConditionVariable === 2))) {
         ScreenshotLeft.image = `Screenshots/${Condition1Left}`;
         ScreenshotRight.image = `Screenshots/${Condition1Right}`;
+        ScreenshotLeft.size = [0.45, 0.8];
+        ScreenshotRight.size = [0.45, 0.8];
     } else {
         ScreenshotLeft.image = `Screenshots/${Condition2Left}`;
         ScreenshotRight.image = `Screenshots/${Condition2Right}`;
+        ScreenshotLeft.size = [0.6, 0.3375];
+        ScreenshotRight.size = [0.6, 0.3375];
     }
     
     psychoJS.experiment.addData('ScreenshotOrderTask.started', globalClock.getTime());
@@ -1957,8 +1973,8 @@ function WordListStudyRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // keep track of whether this Routine was forcibly ended
     routineForceEnded = false;
-    WordListStudyClock.reset(routineTimer.getTime());
-    routineTimer.add(1.000000);
+    WordListStudyClock.reset();
+    routineTimer.reset();
     WordListStudyMaxDurationReached = false;
     // update component parameters for each repeat
     // Run 'Begin Routine' code from WordListStudyCode
@@ -2007,7 +2023,7 @@ function WordListStudyRoutineEachFrame() {
     if (WordListStudyText.status === PsychoJS.Status.STARTED) {
     }
     
-    frameRemains = 0.0 + 1.0 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 0 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
     if (WordListStudyText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       // keep track of stop time/frame for later
       WordListStudyText.tStop = t;  // not accounting for scr refresh
@@ -2036,7 +2052,7 @@ function WordListStudyRoutineEachFrame() {
       }
     
     // refresh the screen if continuing
-    if (continueRoutine && routineTimer.getTime() > 0) {
+    if (continueRoutine) {
       return Scheduler.Event.FLIP_REPEAT;
     } else {
       return Scheduler.Event.NEXT;
@@ -2054,12 +2070,9 @@ function WordListStudyRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('WordListStudy.stopped', globalClock.getTime());
-    if (routineForceEnded) {
-        routineTimer.reset();} else if (WordListStudyMaxDurationReached) {
-        WordListStudyClock.add(WordListStudyMaxDuration);
-    } else {
-        WordListStudyClock.add(1.000000);
-    }
+    // the Routine "WordListStudy" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
@@ -2185,6 +2198,20 @@ function WordListDistractionRoutineEnd(snapshot) {
 
 
 var WordListTestMaxDurationReached;
+var num_columns;
+var num_rows;
+var button_gap;
+var total_button_width;
+var button_width;
+var button_height;
+var row_vertical_positions;
+var dynamic_buttons;
+var dynamic_button_texts;
+var button_labels;
+var label_index;
+var clicked_button_flags;
+var clicked_button_labels_in_order;
+var gotValidClick;
 var WordListTestMaxDuration;
 var WordListTestComponents;
 function WordListTestRoutineBegin(snapshot) {
@@ -2201,23 +2228,53 @@ function WordListTestRoutineBegin(snapshot) {
     routineTimer.reset();
     WordListTestMaxDurationReached = false;
     // update component parameters for each repeat
-    WordListSlider.reset()
-    WordListTestText.setText('');
     // Run 'Begin Routine' code from WordListTestCode
+    num_columns = 5;
+    num_rows = 2;
+    button_gap = 0.01;
+    total_button_width = 1.6;
+    button_width = ((total_button_width - ((num_columns - 1) * button_gap)) / num_columns);
+    button_height = 0.08;
+    row_vertical_positions = [(- 0.42), (- 0.32)];
+    dynamic_buttons = [];
+    dynamic_button_texts = [];
     if (((ConditionVariable === 1) || (ConditionVariable === 3))) {
-        psychoJS.experiment.addData("Test_Word", Condition1List);
-        WordListTestText.text = Condition1List;
+        button_labels = ["chair", "candle", "apple", "forest", "letter", "window", "island", "ladder", "mirror", "basket"];
     } else {
-        psychoJS.experiment.addData("Test_Word", Condition2List);
-        WordListTestText.text = Condition2List;
+        button_labels = ["table", "pillow", "ocean", "eraser", "pocket", "dinner", "street", "laptop", "closet", "carpet"];
     }
+    label_index = 0;
+    for (var row_idx, _pj_c = 0, _pj_a = util.range(num_rows), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+        row_idx = _pj_a[_pj_c];
+        for (var col_idx, _pj_f = 0, _pj_d = util.range(num_columns), _pj_e = _pj_d.length; (_pj_f < _pj_e); _pj_f += 1) {
+            col_idx = _pj_d[_pj_f];
+            x_pos = ((((- total_button_width) / 2) + (button_width / 2)) + (col_idx * (button_width + button_gap)));
+            y_pos = row_vertical_positions[row_idx];
+            button_rect = new visual.Rect({"win": psychoJS.window, "width": button_width, "height": button_height, "pos": [x_pos, y_pos], "fillColor": "gray", "lineColor": "white"});
+            button_label_text = new visual.TextStim({"win": psychoJS.window, "text": button_labels[label_index], "pos": [x_pos, y_pos], "height": 0.035, "color": "white"});
+            dynamic_buttons.push(button_rect);
+            dynamic_button_texts.push(button_label_text);
+            label_index += 1;
+        }
+    }
+    clicked_button_flags = ([false] * dynamic_buttons.length);
+    clicked_button_labels_in_order = [];
     
+    // setup some python lists for storing info about the mouse
+    // current position of the mouse:
+    mouse.x = [];
+    mouse.y = [];
+    mouse.leftButton = [];
+    mouse.midButton = [];
+    mouse.rightButton = [];
+    mouse.time = [];
+    gotValidClick = false; // until a click is received
     psychoJS.experiment.addData('WordListTest.started', globalClock.getTime());
     WordListTestMaxDuration = null
     // keep track of which components have finished
     WordListTestComponents = [];
-    WordListTestComponents.push(WordListSlider);
     WordListTestComponents.push(WordListTestText);
+    WordListTestComponents.push(mouse);
     
     for (const thisComponent of WordListTestComponents)
       if ('status' in thisComponent)
@@ -2227,6 +2284,9 @@ function WordListTestRoutineBegin(snapshot) {
 }
 
 
+var prevButtonState;
+var _mouseButtons;
+var _mouseXYs;
 function WordListTestRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'WordListTest' ---
@@ -2234,25 +2294,6 @@ function WordListTestRoutineEachFrame() {
     t = WordListTestClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    
-    // *WordListSlider* updates
-    if (t >= 0.0 && WordListSlider.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      WordListSlider.tStart = t;  // (not accounting for frame time here)
-      WordListSlider.frameNStart = frameN;  // exact frame index
-      
-      WordListSlider.setAutoDraw(true);
-    }
-    
-    
-    // if WordListSlider is active this frame...
-    if (WordListSlider.status === PsychoJS.Status.STARTED) {
-    }
-    
-    
-    // Check WordListSlider for response to end Routine
-    if (WordListSlider.getRating() !== undefined && WordListSlider.status === PsychoJS.Status.STARTED) {
-      continueRoutine = false; }
     
     // *WordListTestText* updates
     if (t >= 0.0 && WordListTestText.status === PsychoJS.Status.NOT_STARTED) {
@@ -2268,6 +2309,63 @@ function WordListTestRoutineEachFrame() {
     if (WordListTestText.status === PsychoJS.Status.STARTED) {
     }
     
+    // Run 'Each Frame' code from WordListTestCode
+    for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+        button_idx = _pj_a[_pj_c];
+        current_button = dynamic_buttons[button_idx];
+        current_label_text = dynamic_button_texts[button_idx];
+        if (clicked_button_flags[button_idx]) {
+            current_button.fillColor = [0.5, 0.5, 0.5];
+        } else {
+            current_button.fillColor = "gray";
+        }
+        current_button.draw();
+        current_label_text.draw();
+    }
+    if (mouse.getPressed()[0]) {
+        for (var button_idx, _pj_c = 0, _pj_a = util.range(dynamic_buttons.length), _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+            button_idx = _pj_a[_pj_c];
+            current_button = dynamic_buttons[button_idx];
+            if (((! clicked_button_flags[button_idx]) && mouse.isPressedIn(current_button))) {
+                clicked_button_flags[button_idx] = true;
+                clicked_button_labels_in_order.push(button_labels[button_idx]);
+                psychoJS.experiment.addData(`button_press_${clicked_button_labels_in_order.length}`, button_labels[button_idx]);
+                psychoJS.experiment.nextEntry();
+                break;
+            }
+        }
+    }
+    if (all(clicked_button_flags)) {
+        continueRoutine = false;
+    }
+    
+    // *mouse* updates
+    if (t >= 0.0 && mouse.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      mouse.tStart = t;  // (not accounting for frame time here)
+      mouse.frameNStart = frameN;  // exact frame index
+      
+      mouse.status = PsychoJS.Status.STARTED;
+      mouse.mouseClock.reset();
+      prevButtonState = mouse.getPressed();  // if button is down already this ISN'T a new click
+    }
+    
+    // if mouse is active this frame...
+    if (mouse.status === PsychoJS.Status.STARTED) {
+      _mouseButtons = mouse.getPressed();
+      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
+        prevButtonState = _mouseButtons;
+        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
+          _mouseXYs = mouse.getPos();
+          mouse.x.push(_mouseXYs[0]);
+          mouse.y.push(_mouseXYs[1]);
+          mouse.leftButton.push(_mouseButtons[0]);
+          mouse.midButton.push(_mouseButtons[1]);
+          mouse.rightButton.push(_mouseButtons[2]);
+          mouse.time.push(mouse.mouseClock.getTime());
+        }
+      }
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2305,8 +2403,14 @@ function WordListTestRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('WordListTest.stopped', globalClock.getTime());
-    psychoJS.experiment.addData('WordListSlider.response', WordListSlider.getRating());
-    psychoJS.experiment.addData('WordListSlider.rt', WordListSlider.getRT());
+    // store data for psychoJS.experiment (ExperimentHandler)
+    psychoJS.experiment.addData('mouse.x', mouse.x);
+    psychoJS.experiment.addData('mouse.y', mouse.y);
+    psychoJS.experiment.addData('mouse.leftButton', mouse.leftButton);
+    psychoJS.experiment.addData('mouse.midButton', mouse.midButton);
+    psychoJS.experiment.addData('mouse.rightButton', mouse.rightButton);
+    psychoJS.experiment.addData('mouse.time', mouse.time);
+    
     // the Routine "WordListTest" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
