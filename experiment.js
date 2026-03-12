@@ -1846,10 +1846,10 @@ function ScreenshotOrderTaskRoutineEnd(snapshot) {
     ScreenshotKeyboard.stop();
     // Run 'End Routine' code from ScreenshotCode
     if ((ScreenshotKeyboard.keys === "left")) {
-        (ScreenshotKeyboard.keys === "f");
+        ScreenshotKeyboard.keys = "f";
     }
     if ((ScreenshotKeyboard.keys === "right")) {
-        (ScreenshotKeyboard.keys === "j");
+        ScreenshotKeyboard.keys = "j";
     }
     if (((ConditionVariable === 1) || (ConditionVariable === 2))) {
         if ((ScreenshotKeyboard.keys === Condition1Correct)) {
