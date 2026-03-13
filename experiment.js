@@ -401,7 +401,7 @@ async function experimentInit() {
   ScreenshotInstructionsText = new visual.TextStim({
     win: psychoJS.window,
     name: 'ScreenshotInstructionsText',
-    text: 'In the next part of the experiment, you will be shown images two at a time.\n\nPlease indicate which one appeared first.\n\nPress <F> or <LEFT_ARROW> for the left image and <J> or <RIGHT_ARROW> for the right image.\n\nPress <SPACE> to continue.',
+    text: 'In the next part of the experiment, you will be shown two images at a time, taken from the stimuli you just watched.\n\nPlease indicate which image appeared first in time.\n\nPress <F> or <LEFT_ARROW> for the left image\nPress <J> or <RIGHT_ARROW> for the right image.\n\nPress <SPACE> to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -447,7 +447,7 @@ async function experimentInit() {
   WordListInstructionsText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WordListInstructionsText',
-    text: 'For the next part of the experiment, you will be shown a number of different words.\n\nAfterwards, you will count down from a random number by 3 out loud so that the experimenter can hear.\n\nYou will then be shown buttons containing the words that were shown previously. Please click these buttons in the order you remember the words appearing.\n\nPress <SPACE> to continue.',
+    text: 'For the next part of the experiment, you will be shown a word list. Words will be presented one at a time. \n\nAfterward the word list presentation, you will be asked to count down from a random number by 3 out loud so that the experimenter can hear.\n\nYou will then complete a recall task.\n\nPress <SPACE> to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -493,7 +493,7 @@ async function experimentInit() {
   WordListTestText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WordListTestText',
-    text: 'Click on the words in the order they appeared during the study phase.',
+    text: 'Click on the words in the order they were presented. \n\nPlease select carefully, as you cannot undo a click. \n\n',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -1245,7 +1245,7 @@ function VideoInstructionsRoutineBegin(snapshot) {
     _VideoInstructionsKeyboard_allKeys = [];
     // Run 'Begin Routine' code from VideoInstructionsCode
     if (((ConditionVariable === 1) || (ConditionVariable === 2))) {
-        VideoInstructionsText.setText("Please take out your phone and go the Instagram account @psy379proj\n\n Watch every video in order from top to bottom with the volume on.\n\n You must finish each video before scrolling to the next and only watch each video once.\n\n Press <SPACE> when you are finished!");
+        VideoInstructionsText.setText("    Please take out your phone and go the Instagram account @psy379experiment\n\n    Please carefully follow the instructions on the Instagram account to locate the videos and turn on auto scroll\n\n    Press <SPACE> when you are finished!");
     } else {
         VideoInstructionsText.setText("You will now watch a brief video. Please do not use your phone at any point during the video.\n\nPress <SPACE> to continue.");
     }
@@ -2170,7 +2170,7 @@ function WordListDistractionRoutineBegin(snapshot) {
     WordListDistractionMaxDurationReached = false;
     // update component parameters for each repeat
     // Run 'Begin Routine' code from RandomDistractionNumber
-    WordListDistractionText.setText(`Count backwards by 3 from ${util.randint(100, 1000)} out loud.`);
+    WordListDistractionText.setText(`Count backwards by 3 from ${util.randint(200, 1000)} out loud until the slide changes.`);
     
     SecretSkipButtonShhhhhh_3.keys = undefined;
     SecretSkipButtonShhhhhh_3.rt = undefined;
