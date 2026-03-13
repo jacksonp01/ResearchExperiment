@@ -70,6 +70,7 @@ flowScheduler.add(WithinSubjectsLoopEnd);
 
 
 
+
 flowScheduler.add(EndScreenRoutineBegin());
 flowScheduler.add(EndScreenRoutineEachFrame());
 flowScheduler.add(EndScreenRoutineEnd());
@@ -209,6 +210,7 @@ var VideoScreenClock;
 var VideoClock;
 var Video;
 var SecretSkipButtonShhhhhh;
+var TimeEstimateClock;
 var ScreenshotInstructionsClock;
 var ScreenshotInstructionsText;
 var ScreenshotInstructionsKeyboard;
@@ -396,6 +398,8 @@ async function experimentInit() {
   })
   SecretSkipButtonShhhhhh = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  // Initialize components for Routine "TimeEstimate"
+  TimeEstimateClock = new util.Clock();
   // Initialize components for Routine "ScreenshotInstructions"
   ScreenshotInstructionsClock = new util.Clock();
   ScreenshotInstructionsText = new visual.TextStim({
@@ -1033,6 +1037,9 @@ function WithinSubjectsLoopBegin(WithinSubjectsLoopScheduler, snapshot) {
       WithinSubjectsLoopScheduler.add(VideoScreenRoutineBegin(snapshot));
       WithinSubjectsLoopScheduler.add(VideoScreenRoutineEachFrame());
       WithinSubjectsLoopScheduler.add(VideoScreenRoutineEnd(snapshot));
+      WithinSubjectsLoopScheduler.add(TimeEstimateRoutineBegin(snapshot));
+      WithinSubjectsLoopScheduler.add(TimeEstimateRoutineEachFrame());
+      WithinSubjectsLoopScheduler.add(TimeEstimateRoutineEnd(snapshot));
       WithinSubjectsLoopScheduler.add(ScreenshotInstructionsRoutineBegin(snapshot));
       WithinSubjectsLoopScheduler.add(ScreenshotInstructionsRoutineEachFrame());
       WithinSubjectsLoopScheduler.add(ScreenshotInstructionsRoutineEnd(snapshot));
@@ -1518,6 +1525,92 @@ function VideoScreenRoutineEnd(snapshot) {
     
     SecretSkipButtonShhhhhh.stop();
     // the Routine "VideoScreen" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var TimeEstimateMaxDurationReached;
+var TimeEstimateMaxDuration;
+var TimeEstimateComponents;
+function TimeEstimateRoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'TimeEstimate' ---
+    t = 0;
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // keep track of whether this Routine was forcibly ended
+    routineForceEnded = false;
+    TimeEstimateClock.reset();
+    routineTimer.reset();
+    TimeEstimateMaxDurationReached = false;
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('TimeEstimate.started', globalClock.getTime());
+    TimeEstimateMaxDuration = null
+    // keep track of which components have finished
+    TimeEstimateComponents = [];
+    
+    for (const thisComponent of TimeEstimateComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function TimeEstimateRoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'TimeEstimate' ---
+    // get current time
+    t = TimeEstimateClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      routineForceEnded = true;
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of TimeEstimateComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function TimeEstimateRoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'TimeEstimate' ---
+    for (const thisComponent of TimeEstimateComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    psychoJS.experiment.addData('TimeEstimate.stopped', globalClock.getTime());
+    // the Routine "TimeEstimate" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row
@@ -2170,13 +2263,16 @@ function WordListDistractionRoutineBegin(snapshot) {
     WordListDistractionMaxDurationReached = false;
     // update component parameters for each repeat
     // Run 'Begin Routine' code from RandomDistractionNumber
-    WordListDistractionText.setText(`Count backwards by 3 from ${util.randint(200, 1000)} out loud until the slide changes.`);
+    WordListDistractionText.setText(`Count backwards in multiples of 3 from ${util.randint(200, 1000)} out loud until the slide changes.
+    
+    Example: 906, 903, 900, 897, ...`
+    );
     
     SecretSkipButtonShhhhhh_3.keys = undefined;
     SecretSkipButtonShhhhhh_3.rt = undefined;
     _SecretSkipButtonShhhhhh_3_allKeys = [];
     psychoJS.experiment.addData('WordListDistraction.started', globalClock.getTime());
-    WordListDistractionMaxDuration = null
+    WordListDistractionMaxDuration = 15
     // keep track of which components have finished
     WordListDistractionComponents = [];
     WordListDistractionComponents.push(WordListDistractionText);
@@ -2197,6 +2293,11 @@ function WordListDistractionRoutineEachFrame() {
     t = WordListDistractionClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    // is it time to end the Routine? (based on local clock)
+    if (t > WordListDistractionMaxDuration) {
+        WordListDistractionMaxDurationReached = true
+        continueRoutine = false
+    }
     
     // *WordListDistractionText* updates
     if (t >= 0.0 && WordListDistractionText.status === PsychoJS.Status.NOT_STARTED) {
@@ -2212,7 +2313,7 @@ function WordListDistractionRoutineEachFrame() {
     if (WordListDistractionText.status === PsychoJS.Status.STARTED) {
     }
     
-    frameRemains = 0.0 + 60 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 15 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
     if (WordListDistractionText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       // keep track of stop time/frame for later
       WordListDistractionText.tStop = t;  // not accounting for scr refresh
@@ -2598,7 +2699,7 @@ function BreakOrFinishRoutineBegin(snapshot) {
     // skip this Routine if its 'Skip if' condition is True
     continueRoutine = continueRoutine && !((LoopVariable == 1));
     maxDurationReached = false
-    BreakOrFinishMaxDuration = null
+    BreakOrFinishMaxDuration = 180
     // keep track of which components have finished
     BreakOrFinishComponents = [];
     BreakOrFinishComponents.push(BreakText);
@@ -2619,6 +2720,11 @@ function BreakOrFinishRoutineEachFrame() {
     t = BreakOrFinishClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    // is it time to end the Routine? (based on local clock)
+    if (t > BreakOrFinishMaxDuration) {
+        BreakOrFinishMaxDurationReached = true
+        continueRoutine = false
+    }
     
     // *BreakText* updates
     if (t >= 0.0 && BreakText.status === PsychoJS.Status.NOT_STARTED) {
@@ -2634,7 +2740,7 @@ function BreakOrFinishRoutineEachFrame() {
     if (BreakText.status === PsychoJS.Status.STARTED) {
     }
     
-    frameRemains = 0.0 + 300 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 180 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
     if (BreakText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       // keep track of stop time/frame for later
       BreakText.tStop = t;  // not accounting for scr refresh
