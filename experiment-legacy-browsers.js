@@ -203,6 +203,9 @@ var VideoClock;
 var Video;
 var SecretSkipButtonShhhhhh;
 var TimeEstimateClock;
+var TimeEstimateText;
+var TimeEstimateTextBox;
+var TimeEstimateButton;
 var ScreenshotInstructionsClock;
 var ScreenshotInstructionsText;
 var ScreenshotInstructionsKeyboard;
@@ -392,6 +395,68 @@ async function experimentInit() {
   
   // Initialize components for Routine "TimeEstimate"
   TimeEstimateClock = new util.Clock();
+  TimeEstimateText = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'TimeEstimateText',
+    text: 'Please estimate the length of the entire video stimuli in seconds.\n\n Press the button below when you are done.',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0.5], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: 0.0 
+  });
+  
+  TimeEstimateTextBox = new visual.TextBox({
+    win: psychoJS.window,
+    name: 'TimeEstimateTextBox',
+    text: '',
+    placeholder: 'Type here...',
+    font: 'Arial',
+    pos: [0, 0], 
+    draggable: false,
+    letterHeight: 0.05,
+    lineSpacing: 1.0,
+    size: [0.5, 0.5],  units: undefined, 
+    ori: 0.0,
+    color: 'white', colorSpace: 'rgb',
+    fillColor: undefined, borderColor: undefined,
+    languageStyle: 'LTR',
+    bold: false, italic: false,
+    opacity: undefined,
+    padding: 0.0,
+    alignment: 'center',
+    overflow: 'visible',
+    editable: true,
+    multiline: true,
+    anchor: 'center',
+    depth: -1.0 
+  });
+  
+  TimeEstimateButton = new visual.ButtonStim({
+    win: psychoJS.window,
+    name: 'TimeEstimateButton',
+    text: 'Click to continue',
+    font: 'Arvo',
+    pos: [0, (- 0.5)],
+    size: [0.5, 0.5],
+    padding: null,
+    anchor: 'center',
+    ori: 0.0,
+    units: psychoJS.window.units,
+    color: 'white',
+    fillColor: 'darkgrey',
+    borderColor: null,
+    colorSpace: 'rgb',
+    borderWidth: 0.0,
+    opacity: null,
+    depth: -2,
+    letterHeight: 0.05,
+    bold: true,
+    italic: false,
+  });
+  TimeEstimateButton.clock = new util.Clock();
+  
   // Initialize components for Routine "ScreenshotInstructions"
   ScreenshotInstructionsClock = new util.Clock();
   ScreenshotInstructionsText = new visual.TextStim({
@@ -443,7 +508,7 @@ async function experimentInit() {
   WordListInstructionsText = new visual.TextStim({
     win: psychoJS.window,
     name: 'WordListInstructionsText',
-    text: 'For the next part of the experiment, you will be shown a word list. Words will be presented one at a time. \n\nAfterward the word list presentation, you will be asked to count down from a random number by 3 out loud so that the experimenter can hear.\n\nYou will then complete a recall task.\n\nPress <SPACE> to continue.',
+    text: 'For the next part of the experiment, you will be shown a word list. Words will be presented one at a time.\n\nPlease form a mental narrative of the words as they appear. \n\nYou will then complete a recall task.\n\nPress <SPACE> to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -1552,10 +1617,17 @@ function TimeEstimateRoutineBegin(snapshot) {
     routineTimer.reset();
     TimeEstimateMaxDurationReached = false;
     // update component parameters for each repeat
+    TimeEstimateTextBox.setText('');
+    TimeEstimateTextBox.refresh();
+    // reset TimeEstimateButton to account for continued clicks & clear times on/off
+    TimeEstimateButton.reset()
     psychoJS.experiment.addData('TimeEstimate.started', globalClock.getTime());
     TimeEstimateMaxDuration = null
     // keep track of which components have finished
     TimeEstimateComponents = [];
+    TimeEstimateComponents.push(TimeEstimateText);
+    TimeEstimateComponents.push(TimeEstimateTextBox);
+    TimeEstimateComponents.push(TimeEstimateButton);
     
     TimeEstimateComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1573,6 +1645,80 @@ function TimeEstimateRoutineEachFrame() {
     t = TimeEstimateClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    
+    // *TimeEstimateText* updates
+    if (t >= 0.0 && TimeEstimateText.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      TimeEstimateText.tStart = t;  // (not accounting for frame time here)
+      TimeEstimateText.frameNStart = frameN;  // exact frame index
+      
+      TimeEstimateText.setAutoDraw(true);
+    }
+    
+    
+    // if TimeEstimateText is active this frame...
+    if (TimeEstimateText.status === PsychoJS.Status.STARTED) {
+    }
+    
+    
+    // *TimeEstimateTextBox* updates
+    if (t >= 0.0 && TimeEstimateTextBox.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      TimeEstimateTextBox.tStart = t;  // (not accounting for frame time here)
+      TimeEstimateTextBox.frameNStart = frameN;  // exact frame index
+      
+      TimeEstimateTextBox.setAutoDraw(true);
+    }
+    
+    
+    // if TimeEstimateTextBox is active this frame...
+    if (TimeEstimateTextBox.status === PsychoJS.Status.STARTED) {
+    }
+    
+    
+    // *TimeEstimateButton* updates
+    if (t >= 0 && TimeEstimateButton.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      TimeEstimateButton.tStart = t;  // (not accounting for frame time here)
+      TimeEstimateButton.frameNStart = frameN;  // exact frame index
+      
+      TimeEstimateButton.setAutoDraw(true);
+    }
+    
+    
+    // if TimeEstimateButton is active this frame...
+    if (TimeEstimateButton.status === PsychoJS.Status.STARTED) {
+    }
+    
+    if (TimeEstimateButton.status === PsychoJS.Status.STARTED) {
+      // check whether TimeEstimateButton has been pressed
+      if (TimeEstimateButton.isClicked) {
+        if (!TimeEstimateButton.wasClicked) {
+          // store time of first click
+          TimeEstimateButton.timesOn.push(TimeEstimateButton.clock.getTime());
+          // store time clicked until
+          TimeEstimateButton.timesOff.push(TimeEstimateButton.clock.getTime());
+        } else {
+          // update time clicked until;
+          TimeEstimateButton.timesOff[TimeEstimateButton.timesOff.length - 1] = TimeEstimateButton.clock.getTime();
+        }
+        if (!TimeEstimateButton.wasClicked) {
+          // end routine when TimeEstimateButton is clicked
+          continueRoutine = false;
+          
+        }
+        // if TimeEstimateButton is still clicked next frame, it is not a new click
+        TimeEstimateButton.wasClicked = true;
+      } else {
+        // if TimeEstimateButton is clicked next frame, it is a new click
+        TimeEstimateButton.wasClicked = false;
+      }
+    } else {
+      // keep clock at 0 if TimeEstimateButton hasn't started / has finished
+      TimeEstimateButton.clock.reset();
+      // if TimeEstimateButton is clicked next frame, it is a new click
+      TimeEstimateButton.wasClicked = false;
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1610,6 +1756,10 @@ function TimeEstimateRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('TimeEstimate.stopped', globalClock.getTime());
+    psychoJS.experiment.addData('TimeEstimateTextBox.text',TimeEstimateTextBox.text)
+    psychoJS.experiment.addData('TimeEstimateButton.numClicks', TimeEstimateButton.numClicks);
+    psychoJS.experiment.addData('TimeEstimateButton.timesOn', TimeEstimateButton.timesOn);
+    psychoJS.experiment.addData('TimeEstimateButton.timesOff', TimeEstimateButton.timesOff);
     // the Routine "TimeEstimate" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -2276,7 +2426,7 @@ function WordListDistractionRoutineBegin(snapshot) {
     SecretSkipButtonShhhhhh_3.rt = undefined;
     _SecretSkipButtonShhhhhh_3_allKeys = [];
     psychoJS.experiment.addData('WordListDistraction.started', globalClock.getTime());
-    WordListDistractionMaxDuration = 15
+    WordListDistractionMaxDuration = 45
     // keep track of which components have finished
     WordListDistractionComponents = [];
     WordListDistractionComponents.push(WordListDistractionText);
@@ -2318,7 +2468,7 @@ function WordListDistractionRoutineEachFrame() {
     if (WordListDistractionText.status === PsychoJS.Status.STARTED) {
     }
     
-    frameRemains = 0.0 + 15 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 45 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
     if (WordListDistractionText.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       // keep track of stop time/frame for later
       WordListDistractionText.tStop = t;  // not accounting for scr refresh
