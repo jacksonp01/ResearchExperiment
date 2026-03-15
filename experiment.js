@@ -580,7 +580,7 @@ async function experimentInit() {
   BreakText = new visual.TextStim({
     win: psychoJS.window,
     name: 'BreakText',
-    text: 'You will now take a 5 minute break!\n\nDO NOT USE YOUR PHONE DURING THIS BREAK!',
+    text: 'You will now take a 3 minute break!\n\nDO NOT USE YOUR PHONE DURING THIS BREAK!',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
